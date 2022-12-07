@@ -25,6 +25,12 @@
     id: Nukeops
 
 - type: gameRule
+  id: FreeForAll
+  config:
+    !type:FreeForAllRuleConfiguration
+    id: FreeForAll
+
+- type: gameRule
   id: Pirates
   config:
     !type:GenericGameRuleConfiguration
