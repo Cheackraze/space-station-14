@@ -1,4 +1,6 @@
-﻿namespace Content.Server.GameTicking.Rules.Components;
+﻿using Robust.Shared.Timing;
+
+namespace Content.Server.GameTicking.Rules.Components;
 
 /// <summary>
 /// A component for marking spaces to be spawnpoints for FFA
@@ -7,5 +9,5 @@
 public sealed class FreeForAllSpawnComponent : Component
 {
     [DataField("timeSinceLastSpawn")]
-    public float TimeSinceLastSpawn;
+    public GameTick LastSpawn = GameTick.Zero;
 }

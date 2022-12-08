@@ -5,7 +5,6 @@ using Content.Server.GameTicking.Rules.Components;
 using Content.Server.GameTicking.Rules.Configurations;
 using Content.Server.Humanoid.Systems;
 using Content.Server.Players;
-using Content.Server.Popups;
 using Content.Server.Preferences.Managers;
 using Content.Server.RoundEnd;
 using Content.Server.Station.Systems;
@@ -16,12 +15,12 @@ using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Server.GameTicking.Rules;
 
 public sealed class FreeForAllRuleSystem : GameRuleSystem
 {
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly RandomHumanoidSystem _randomHumanoid = default!;
     [Dependency] private readonly IServerPreferencesManager _prefs = default!;
@@ -30,17 +29,19 @@ public sealed class FreeForAllRuleSystem : GameRuleSystem
     [Dependency] private readonly RoundEndSystem _roundEndSystem = default!;
     [Dependency] private readonly IPlayerManager _playerSystem = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
 
-    public override string Prototype => "ffa";
+    public override string Prototype => "FreeForAll";
 
     private FreeForAllRuleConfiguration _freeForAllRuleConfiguration = default!;
 
-    private Dictionary<string, int> _kills = new();
+    private readonly Dictionary<string, int> _kills = new();
 
-    private Dictionary<IPlayerSession, float> _spawnQueue = new();
+    private readonly Dictionary<IPlayerSession, float> _spawnQueue = new();
 
     public override void Initialize()
     {
+        base.Initialize();
         SubscribeLocalEvent<RoundStartAttemptEvent>(OnStartAttempt);
         SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndText);
         SubscribeLocalEvent<PlayerBeforeSpawnEvent>(OnPlayerSpawning);
@@ -55,7 +56,6 @@ public sealed class FreeForAllRuleSystem : GameRuleSystem
 
         _spawnQueue.Remove(e.Session);
     }
-
 
     public override void Update(float frameTime)
     {
@@ -75,14 +75,17 @@ public sealed class FreeForAllRuleSystem : GameRuleSystem
 
     private void OnPlayerSpawning(PlayerBeforeSpawnEvent ev)
     {
-        if(ev.Handled)
+        if (!RuleAdded || ev.Handled)
             return;
+
         SpawnPlayer(ev.Player);
         ev.Handled = true;
     }
 
     private void SpawnPlayer(IPlayerSession session)
     {
+        if (!_kills.ContainsKey(session.Name))
+            _kills[session.Name] = 0;
         var spawns = EntityQueryEnumerator<FreeForAllSpawnComponent, TransformComponent>();
 
         if(!spawns.MoveNext(out var spawnComponent, out var transformComponent))
@@ -95,14 +98,14 @@ public sealed class FreeForAllRuleSystem : GameRuleSystem
         var lastSpawnComp = spawnComponent;
         while (spawns.MoveNext(out spawnComponent, out transformComponent))
         {
-            if (lastSpawnComp.TimeSinceLastSpawn < spawnComponent.TimeSinceLastSpawn)
+            if (lastSpawnComp.LastSpawn > spawnComponent.LastSpawn)
             {
                 coords = transformComponent.Coordinates;
                 lastSpawnComp = spawnComponent;
             }
         }
 
-        lastSpawnComp.TimeSinceLastSpawn = 0;
+        lastSpawnComp.LastSpawn = _gameTiming.CurTick;
 
         var mob = _randomHumanoid.SpawnRandomHumanoid(_freeForAllRuleConfiguration.RandomHumanoidSettingsPrototype,
             coords, "placeholder"); //todo paul
@@ -128,6 +131,9 @@ public sealed class FreeForAllRuleSystem : GameRuleSystem
 
     private void OnRoundEndText(RoundEndTextAppendEvent ev)
     {
+        if (!RuleAdded)
+            return;
+
         var players = _kills.Keys.ToList();
         if (players.Count == 0)
         {
@@ -141,7 +147,7 @@ public sealed class FreeForAllRuleSystem : GameRuleSystem
             return;
         }
 
-        players.Sort((a, b) => _kills[a].CompareTo(_kills[b]));
+        players.Sort((a, b) => _kills[b].CompareTo(_kills[a]));
         ev.AddLine($"{players[0]} won!");
         ev.AddLine("============================");
         foreach (var player in players)
@@ -152,7 +158,7 @@ public sealed class FreeForAllRuleSystem : GameRuleSystem
 
     private void OnMobStateChanged(MobStateChangedEvent ev)
     {
-        if (ev.CurrentMobState == DamageState.Alive || !TryComp<ActorComponent>(ev.Origin, out var actorComponent))
+        if (!RuleAdded || ev.Entity == ev.Origin || ev.CurrentMobState == DamageState.Alive || !TryComp<ActorComponent>(ev.Origin, out var actorComponent))
             return;
 
         if (!_kills.ContainsKey(actorComponent.PlayerSession.Name))
@@ -169,7 +175,8 @@ public sealed class FreeForAllRuleSystem : GameRuleSystem
                 _gameTicker.OnGhostAttempt(victimMind, false);
 
             _spawnQueue[victimActor.PlayerSession] = _freeForAllRuleConfiguration.RespawnTime;
-            _chatManager.DispatchServerMessage(actorComponent.PlayerSession, Loc.GetString("ffa-got-killed", ("name", Name(ev.Origin.Value))));
+            _chatManager.DispatchServerMessage(victimActor.PlayerSession, Loc.GetString("ffa-got-killed", ("name", Name(ev.Origin.Value))));
+            RemComp<ActorComponent>(ev.Entity);
         }
 
         if (_kills[actorComponent.PlayerSession.Name] >= _freeForAllRuleConfiguration.KillsToWin)
@@ -180,17 +187,25 @@ public sealed class FreeForAllRuleSystem : GameRuleSystem
 
     private void OnStartAttempt(RoundStartAttemptEvent ev)
     {
-        if(!RuleAdded || Configuration is not FreeForAllRuleConfiguration freeForAllRuleConfiguration)
+        if(!RuleAdded)
             return;
+
+        if (Configuration is not FreeForAllRuleConfiguration freeForAllRuleConfiguration)
+        {
+            Logger.Error($"{nameof(FreeForAllRuleSystem)} but something other than {nameof(FreeForAllRuleConfiguration)} was used: {Configuration.GetType()}");
+            return;
+        }
 
         _freeForAllRuleConfiguration = freeForAllRuleConfiguration;
     }
 
     public override void Started()
     {
+        _kills.Clear();
     }
 
     public override void Ended()
     {
+        _spawnQueue.Clear();
     }
 }
