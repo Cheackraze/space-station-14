@@ -8,6 +8,5 @@ namespace Content.Server.GameTicking.Rules.Components;
 [RegisterComponent]
 public sealed class FreeForAllSpawnComponent : Component
 {
-    [DataField("timeSinceLastSpawn")]
     public GameTick LastSpawn = GameTick.Zero;
 }
