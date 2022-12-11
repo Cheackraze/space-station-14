@@ -104,6 +104,7 @@
   rules:
     - FreeForAll
     - MaxTimeRestart
+  allowedMaps: ghosttown
 
 - type: gamePreset
   id: Zombie

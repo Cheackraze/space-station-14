@@ -1,3 +1,5 @@
+using System.Linq;
+using System.Threading.Tasks;
 using Content.Server.Announcements;
 using Content.Server.GameTicking.Events;
 using Content.Server.Ghost;
@@ -11,15 +13,13 @@ using JetBrains.Annotations;
 using Prometheus;
 using Robust.Server.Maps;
 using Robust.Server.Player;
+using Robust.Shared.Asynchronous;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
-using System.Linq;
-using System.Threading.Tasks;
-using Robust.Shared.Asynchronous;
 
 namespace Content.Server.GameTicking
 {
@@ -77,6 +77,11 @@ namespace Content.Server.GameTicking
         private void LoadMaps()
         {
             AddGamePresetRules();
+
+            if (Preset?.AllowedMaps != null)
+            {
+                _gameMapManager.SelectMap(_robustRandom.Pick(Preset.AllowedMaps));
+            }
 
             DefaultMap = _mapManager.CreateMap();
             _mapManager.AddUninitializedMap(DefaultMap);

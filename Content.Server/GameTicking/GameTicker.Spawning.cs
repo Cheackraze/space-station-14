@@ -3,6 +3,7 @@ using System.Linq;
 using Content.Server.Ghost;
 using Content.Server.Ghost.Components;
 using Content.Server.Players;
+using Content.Server.Roles;
 using Content.Server.Spawners.Components;
 using Content.Server.Speech.Components;
 using Content.Server.Station.Components;
@@ -17,7 +18,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
-using Job = Content.Server.Roles.Job;
 
 namespace Content.Server.GameTicking
 {
@@ -299,7 +299,7 @@ namespace Content.Server.GameTicking
 
             foreach (var (point, transform) in EntityManager.EntityQuery<SpawnPointComponent, TransformComponent>(true))
             {
-                if (point.SpawnType != SpawnPointType.Observer)
+                if ((point.SpawnType & SpawnPointType.Observer) == 0)
                     continue;
 
                 _possiblePositions.Add(transform.Coordinates);

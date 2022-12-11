@@ -132,6 +132,8 @@ entities:
   - footstepSoundCollection: !type:SoundCollectionSpecifier
       collection: FootstepGrass
     type: FootstepModifier
+  - id: GhostTown
+    type: BecomesStation
   - chunks:
       -1,0:
         ind: -1,0
@@ -2059,7 +2061,6 @@ entities:
       Off: []
       Toggle: []
     type: SignalReceiver
-  - grids: []
 - uid: 1
   type: WallWood
   components:
@@ -122376,1771 +122377,1771 @@ entities:
     parent: 0
     type: Transform
 - uid: 19701
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 7.5,115.5
     parent: 0
     type: Transform
 - uid: 19702
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -1.5,111.5
     parent: 0
     type: Transform
 - uid: 19703
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 0.5,114.5
     parent: 0
     type: Transform
 - uid: 19704
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 28.5,114.5
     parent: 0
     type: Transform
 - uid: 19705
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 36.5,114.5
     parent: 0
     type: Transform
 - uid: 19706
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 31.5,111.5
     parent: 0
     type: Transform
 - uid: 19707
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 90.5,112.5
     parent: 0
     type: Transform
 - uid: 19708
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 92.5,114.5
     parent: 0
     type: Transform
 - uid: 19709
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 92.5,110.5
     parent: 0
     type: Transform
 - uid: 19710
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 140.5,96.5
     parent: 0
     type: Transform
 - uid: 19711
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 137.5,88.5
     parent: 0
     type: Transform
 - uid: 19712
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 144.5,89.5
     parent: 0
     type: Transform
 - uid: 19713
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 143.5,86.5
     parent: 0
     type: Transform
 - uid: 19714
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 147.5,80.5
     parent: 0
     type: Transform
 - uid: 19715
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 137.5,58.5
     parent: 0
     type: Transform
 - uid: 19716
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 149.5,60.5
     parent: 0
     type: Transform
 - uid: 19717
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 143.5,56.5
     parent: 0
     type: Transform
 - uid: 19718
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 142.5,58.5
     parent: 0
     type: Transform
 - uid: 19719
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 140.5,35.5
     parent: 0
     type: Transform
 - uid: 19720
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 144.5,33.5
     parent: 0
     type: Transform
 - uid: 19721
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 151.5,33.5
     parent: 0
     type: Transform
 - uid: 19722
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 146.5,25.5
     parent: 0
     type: Transform
 - uid: 19723
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 151.5,24.5
     parent: 0
     type: Transform
 - uid: 19724
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 142.5,25.5
     parent: 0
     type: Transform
 - uid: 19725
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 139.5,25.5
     parent: 0
     type: Transform
 - uid: 19726
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 136.5,33.5
     parent: 0
     type: Transform
 - uid: 19727
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 120.5,25.5
     parent: 0
     type: Transform
 - uid: 19728
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 123.5,23.5
     parent: 0
     type: Transform
 - uid: 19729
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 118.5,29.5
     parent: 0
     type: Transform
 - uid: 19730
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 98.5,21.5
     parent: 0
     type: Transform
 - uid: 19731
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 96.5,21.5
     parent: 0
     type: Transform
 - uid: 19732
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 97.5,23.5
     parent: 0
     type: Transform
 - uid: 19733
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 100.5,21.5
     parent: 0
     type: Transform
 - uid: 19734
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 76.5,19.5
     parent: 0
     type: Transform
 - uid: 19735
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 69.5,18.5
     parent: 0
     type: Transform
 - uid: 19736
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 75.5,21.5
     parent: 0
     type: Transform
 - uid: 19737
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 53.5,18.5
     parent: 0
     type: Transform
 - uid: 19738
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 49.5,18.5
     parent: 0
     type: Transform
 - uid: 19739
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 49.5,28.5
     parent: 0
     type: Transform
 - uid: 19740
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 28.5,18.5
     parent: 0
     type: Transform
 - uid: 19741
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 26.5,28.5
     parent: 0
     type: Transform
 - uid: 19742
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 29.5,28.5
     parent: 0
     type: Transform
 - uid: 19743
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 36.5,26.5
     parent: 0
     type: Transform
 - uid: 19744
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 40.5,-6.5
     parent: 0
     type: Transform
 - uid: 19745
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 50.5,-1.5
     parent: 0
     type: Transform
 - uid: 19746
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 22.5,-10.5
     parent: 0
     type: Transform
 - uid: 19747
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 50.5,-11.5
     parent: 0
     type: Transform
 - uid: 19748
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 22.5,-2.5
     parent: 0
     type: Transform
 - uid: 19749
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -7.5,0.5
     parent: 0
     type: Transform
 - uid: 19750
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -0.5,5.5
     parent: 0
     type: Transform
 - uid: 19751
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -12.5,4.5
     parent: 0
     type: Transform
 - uid: 19752
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -25.5,5.5
     parent: 0
     type: Transform
 - uid: 19753
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -38.5,-6.5
     parent: 0
     type: Transform
 - uid: 19754
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -37.5,1.5
     parent: 0
     type: Transform
 - uid: 19755
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -37.5,-0.5
     parent: 0
     type: Transform
 - uid: 19756
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -28.5,2.5
     parent: 0
     type: Transform
 - uid: 19757
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -52.5,-5.5
     parent: 0
     type: Transform
 - uid: 19758
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -58.5,-3.5
     parent: 0
     type: Transform
 - uid: 19759
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -62.5,1.5
     parent: 0
     type: Transform
 - uid: 19760
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -66.5,4.5
     parent: 0
     type: Transform
 - uid: 19761
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -46.5,20.5
     parent: 0
     type: Transform
 - uid: 19762
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -46.5,28.5
     parent: 0
     type: Transform
 - uid: 19763
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -44.5,25.5
     parent: 0
     type: Transform
 - uid: 19764
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -59.5,24.5
     parent: 0
     type: Transform
 - uid: 19765
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -62.5,21.5
     parent: 0
     type: Transform
 - uid: 19766
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -56.5,35.5
     parent: 0
     type: Transform
 - uid: 19767
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -58.5,37.5
     parent: 0
     type: Transform
 - uid: 19768
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -81.5,22.5
     parent: 0
     type: Transform
 - uid: 19769
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -84.5,18.5
     parent: 0
     type: Transform
 - uid: 19770
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -77.5,19.5
     parent: 0
     type: Transform
 - uid: 19771
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -82.5,36.5
     parent: 0
     type: Transform
 - uid: 19772
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -80.5,36.5
     parent: 0
     type: Transform
 - uid: 19773
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -78.5,40.5
     parent: 0
     type: Transform
 - uid: 19774
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -83.5,49.5
     parent: 0
     type: Transform
 - uid: 19775
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -83.5,55.5
     parent: 0
     type: Transform
 - uid: 19776
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -77.5,55.5
     parent: 0
     type: Transform
 - uid: 19777
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -60.5,51.5
     parent: 0
     type: Transform
 - uid: 19778
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -64.5,59.5
     parent: 0
     type: Transform
 - uid: 19779
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -56.5,50.5
     parent: 0
     type: Transform
 - uid: 19780
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -43.5,58.5
     parent: 0
     type: Transform
 - uid: 19781
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -42.5,52.5
     parent: 0
     type: Transform
 - uid: 19782
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -46.5,59.5
     parent: 0
     type: Transform
 - uid: 19783
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -55.5,88.5
     parent: 0
     type: Transform
 - uid: 19784
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -56.5,92.5
     parent: 0
     type: Transform
 - uid: 19785
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -54.5,93.5
     parent: 0
     type: Transform
 - uid: 19786
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -48.5,91.5
     parent: 0
     type: Transform
 - uid: 19787
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -45.5,96.5
     parent: 0
     type: Transform
 - uid: 19788
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -49.5,83.5
     parent: 0
     type: Transform
 - uid: 19789
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -29.5,77.5
     parent: 0
     type: Transform
 - uid: 19790
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -30.5,73.5
     parent: 0
     type: Transform
 - uid: 19791
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -21.5,74.5
     parent: 0
     type: Transform
 - uid: 19792
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -22.5,91.5
     parent: 0
     type: Transform
 - uid: 19793
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -31.5,85.5
     parent: 0
     type: Transform
 - uid: 19794
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -10.5,86.5
     parent: 0
     type: Transform
 - uid: 19795
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -17.5,88.5
     parent: 0
     type: Transform
 - uid: 19796
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -9.5,96.5
     parent: 0
     type: Transform
 - uid: 19797
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 9.5,93.5
     parent: 0
     type: Transform
 - uid: 19798
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 9.5,88.5
     parent: 0
     type: Transform
 - uid: 19799
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 20.5,88.5
     parent: 0
     type: Transform
 - uid: 19800
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 26.5,80.5
     parent: 0
     type: Transform
 - uid: 19801
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 35.5,80.5
     parent: 0
     type: Transform
 - uid: 19802
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 31.5,72.5
     parent: 0
     type: Transform
 - uid: 19803
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 25.5,75.5
     parent: 0
     type: Transform
 - uid: 19804
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 46.5,81.5
     parent: 0
     type: Transform
 - uid: 19805
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 52.5,76.5
     parent: 0
     type: Transform
 - uid: 19806
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 57.5,88.5
     parent: 0
     type: Transform
 - uid: 19807
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 73.5,96.5
     parent: 0
     type: Transform
 - uid: 19808
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 80.5,97.5
     parent: 0
     type: Transform
 - uid: 19809
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 73.5,92.5
     parent: 0
     type: Transform
 - uid: 19810
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 70.5,89.5
     parent: 0
     type: Transform
 - uid: 19811
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 87.5,87.5
     parent: 0
     type: Transform
 - uid: 19812
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 80.5,77.5
     parent: 0
     type: Transform
 - uid: 19813
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 73.5,68.5
     parent: 0
     type: Transform
 - uid: 19814
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 80.5,67.5
     parent: 0
     type: Transform
 - uid: 19815
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 74.5,62.5
     parent: 0
     type: Transform
 - uid: 19816
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 74.5,54.5
     parent: 0
     type: Transform
 - uid: 19817
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 75.5,57.5
     parent: 0
     type: Transform
 - uid: 19818
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 78.5,55.5
     parent: 0
     type: Transform
 - uid: 19819
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 81.5,58.5
     parent: 0
     type: Transform
 - uid: 19820
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 85.5,65.5
     parent: 0
     type: Transform
 - uid: 19821
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 89.5,65.5
     parent: 0
     type: Transform
 - uid: 19822
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 100.5,59.5
     parent: 0
     type: Transform
 - uid: 19823
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 98.5,66.5
     parent: 0
     type: Transform
 - uid: 19824
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 104.5,60.5
     parent: 0
     type: Transform
 - uid: 19825
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 108.5,63.5
     parent: 0
     type: Transform
 - uid: 19826
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 108.5,65.5
     parent: 0
     type: Transform
 - uid: 19827
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 118.5,56.5
     parent: 0
     type: Transform
 - uid: 19828
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 117.5,68.5
     parent: 0
     type: Transform
 - uid: 19829
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 115.5,65.5
     parent: 0
     type: Transform
 - uid: 19830
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 114.5,76.5
     parent: 0
     type: Transform
 - uid: 19831
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 117.5,77.5
     parent: 0
     type: Transform
 - uid: 19832
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 120.5,88.5
     parent: 0
     type: Transform
 - uid: 19833
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 120.5,91.5
     parent: 0
     type: Transform
 - uid: 19834
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 111.5,97.5
     parent: 0
     type: Transform
 - uid: 19835
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 112.5,89.5
     parent: 0
     type: Transform
 - uid: 19836
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 98.5,86.5
     parent: 0
     type: Transform
 - uid: 19837
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 93.5,79.5
     parent: 0
     type: Transform
 - uid: 19838
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 103.5,73.5
     parent: 0
     type: Transform
 - uid: 19839
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 88.5,73.5
     parent: 0
     type: Transform
 - uid: 19840
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 42.5,39.5
     parent: 0
     type: Transform
 - uid: 19841
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 50.5,38.5
     parent: 0
     type: Transform
 - uid: 19842
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 29.5,38.5
     parent: 0
     type: Transform
 - uid: 19843
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 28.5,42.5
     parent: 0
     type: Transform
 - uid: 19844
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 26.5,48.5
     parent: 0
     type: Transform
 - uid: 19845
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 33.5,53.5
     parent: 0
     type: Transform
 - uid: 19846
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 53.5,54.5
     parent: 0
     type: Transform
 - uid: 19847
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 49.5,50.5
     parent: 0
     type: Transform
 - uid: 19848
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 43.5,59.5
     parent: 0
     type: Transform
 - uid: 19849
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 12.5,41.5
     parent: 0
     type: Transform
 - uid: 19850
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 6.5,37.5
     parent: 0
     type: Transform
 - uid: 19851
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -3.5,41.5
     parent: 0
     type: Transform
 - uid: 19852
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -8.5,37.5
     parent: 0
     type: Transform
 - uid: 19853
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -5.5,52.5
     parent: 0
     type: Transform
 - uid: 19854
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 6.5,56.5
     parent: 0
     type: Transform
 - uid: 19855
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 6.5,24.5
     parent: 0
     type: Transform
 - uid: 19856
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -5.5,26.5
     parent: 0
     type: Transform
 - uid: 19857
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -29.5,22.5
     parent: 0
     type: Transform
 - uid: 19858
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -25.5,26.5
     parent: 0
     type: Transform
 - uid: 19859
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -23.5,27.5
     parent: 0
     type: Transform
 - uid: 19860
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -23.5,40.5
     parent: 0
     type: Transform
 - uid: 19861
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -23.5,42.5
     parent: 0
     type: Transform
 - uid: 19862
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -28.5,44.5
     parent: 0
     type: Transform
 - uid: 19863
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -28.5,57.5
     parent: 0
     type: Transform
 - uid: 19864
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -26.5,59.5
     parent: 0
     type: Transform
 - uid: 19865
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -22.5,59.5
     parent: 0
     type: Transform
 - uid: 19866
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 2.5,77.5
     parent: 0
     type: Transform
 - uid: 19867
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -4.5,77.5
     parent: 0
     type: Transform
 - uid: 19868
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -0.5,74.5
     parent: 0
     type: Transform
 - uid: 19869
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -55.5,59.5
     parent: 0
     type: Transform
 - uid: 19870
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 24.5,-28.5
     parent: 0
     type: Transform
 - uid: 19871
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 8.5,-22.5
     parent: 0
     type: Transform
 - uid: 19872
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 3.5,-8.5
     parent: 0
     type: Transform
 - uid: 19873
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 10.5,3.5
     parent: 0
     type: Transform
 - uid: 19874
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -0.5,14.5
     parent: 0
     type: Transform
 - uid: 19875
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -20.5,9.5
     parent: 0
     type: Transform
 - uid: 19876
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -34.5,15.5
     parent: 0
     type: Transform
 - uid: 19877
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -52.5,9.5
     parent: 0
     type: Transform
 - uid: 19878
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -67.5,15.5
     parent: 0
     type: Transform
 - uid: 19879
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -74.5,20.5
     parent: 0
     type: Transform
 - uid: 19880
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -68.5,37.5
     parent: 0
     type: Transform
 - uid: 19881
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -74.5,50.5
     parent: 0
     type: Transform
 - uid: 19882
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -68.5,60.5
     parent: 0
     type: Transform
 - uid: 19883
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -66.5,69.5
     parent: 0
     type: Transform
 - uid: 19884
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -74.5,79.5
     parent: 0
     type: Transform
 - uid: 19885
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -48.5,63.5
     parent: 0
     type: Transform
 - uid: 19886
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -29.5,63.5
     parent: 0
     type: Transform
 - uid: 19887
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -35.5,54.5
     parent: 0
     type: Transform
 - uid: 19888
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -35.5,77.5
     parent: 0
     type: Transform
 - uid: 19889
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -42.5,90.5
     parent: 0
     type: Transform
 - uid: 19890
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -35.5,98.5
     parent: 0
     type: Transform
 - uid: 19891
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -28.5,106.5
     parent: 0
     type: Transform
 - uid: 19892
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -21.5,101.5
     parent: 0
     type: Transform
 - uid: 19893
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -5.5,107.5
     parent: 0
     type: Transform
 - uid: 19894
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 3.5,100.5
     parent: 0
     type: Transform
 - uid: 19895
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 14.5,107.5
     parent: 0
     type: Transform
 - uid: 19896
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 26.5,101.5
     parent: 0
     type: Transform
 - uid: 19897
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 31.5,90.5
     parent: 0
     type: Transform
 - uid: 19898
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 43.5,101.5
     parent: 0
     type: Transform
 - uid: 19899
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 54.5,107.5
     parent: 0
     type: Transform
 - uid: 19900
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 71.5,101.5
     parent: 0
     type: Transform
 - uid: 19901
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 88.5,101.5
     parent: 0
     type: Transform
 - uid: 19902
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 106.5,107.5
     parent: 0
     type: Transform
 - uid: 19903
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 102.5,96.5
     parent: 0
     type: Transform
 - uid: 19904
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 122.5,110.5
     parent: 0
     type: Transform
 - uid: 19905
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 126.5,101.5
     parent: 0
     type: Transform
 - uid: 19906
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 136.5,103.5
     parent: 0
     type: Transform
 - uid: 19907
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 132.5,78.5
     parent: 0
     type: Transform
 - uid: 19908
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 126.5,69.5
     parent: 0
     type: Transform
 - uid: 19909
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 132.5,52.5
     parent: 0
     type: Transform
 - uid: 19910
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 126.5,39.5
     parent: 0
     type: Transform
 - uid: 19911
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 132.5,25.5
     parent: 0
     type: Transform
 - uid: 19912
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 126.5,15.5
     parent: 0
     type: Transform
 - uid: 19913
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 111.5,9.5
     parent: 0
     type: Transform
 - uid: 19914
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 98.5,15.5
     parent: 0
     type: Transform
 - uid: 19915
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 84.5,9.5
     parent: 0
     type: Transform
 - uid: 19916
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 69.5,15.5
     parent: 0
     type: Transform
 - uid: 19917
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 63.5,2.5
     parent: 0
     type: Transform
 - uid: 19918
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 57.5,-6.5
     parent: 0
     type: Transform
 - uid: 19919
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 63.5,-20.5
     parent: 0
     type: Transform
 - uid: 19920
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 53.5,-28.5
     parent: 0
     type: Transform
 - uid: 19921
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 42.5,-21.5
     parent: 0
     type: Transform
 - uid: 19922
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 17.5,15.5
     parent: 0
     type: Transform
 - uid: 19923
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 35.5,9.5
     parent: 0
     type: Transform
 - uid: 19924
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 47.5,15.5
     parent: 0
     type: Transform
 - uid: 19925
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 58.5,9.5
     parent: 0
     type: Transform
 - uid: 19926
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 57.5,27.5
     parent: 0
     type: Transform
 - uid: 19927
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 63.5,36.5
     parent: 0
     type: Transform
 - uid: 19928
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 43.5,34.5
     parent: 0
     type: Transform
 - uid: 19929
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 27.5,33.5
     parent: 0
     type: Transform
 - uid: 19930
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 57.5,53.5
     parent: 0
     type: Transform
 - uid: 19931
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 65.5,61.5
     parent: 0
     type: Transform
 - uid: 19932
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 59.5,69.5
     parent: 0
     type: Transform
 - uid: 19933
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 67.5,87.5
     parent: 0
     type: Transform
 - uid: 19934
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 60.5,96.5
     parent: 0
     type: Transform
 - uid: 19935
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 44.5,93.5
     parent: 0
     type: Transform
 - uid: 19936
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 45.5,63.5
     parent: 0
     type: Transform
 - uid: 19937
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 30.5,69.5
     parent: 0
     type: Transform
 - uid: 19938
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 16.5,63.5
     parent: 0
     type: Transform
 - uid: 19939
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -0.5,69.5
     parent: 0
     type: Transform
 - uid: 19940
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -14.5,63.5
     parent: 0
     type: Transform
 - uid: 19941
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -19.5,45.5
     parent: 0
     type: Transform
 - uid: 19942
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -13.5,32.5
     parent: 0
     type: Transform
 - uid: 19943
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -19.5,18.5
     parent: 0
     type: Transform
 - uid: 19944
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 79.5,1.5
     parent: 0
     type: Transform
 - uid: 19945
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 97.5,1.5
     parent: 0
     type: Transform
 - uid: 19946
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 117.5,2.5
     parent: 0
     type: Transform
 - uid: 19947
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 135.5,2.5
     parent: 0
     type: Transform
 - uid: 19948
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 142.5,11.5
     parent: 0
     type: Transform
 - uid: 19949
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 152.5,20.5
     parent: 0
     type: Transform
 - uid: 19950
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 158.5,34.5
     parent: 0
     type: Transform
 - uid: 19951
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 150.5,46.5
     parent: 0
     type: Transform
 - uid: 19952
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 158.5,60.5
     parent: 0
     type: Transform
 - uid: 19953
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 148.5,70.5
     parent: 0
     type: Transform
 - uid: 19954
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 154.5,82.5
     parent: 0
     type: Transform
 - uid: 19955
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 147.5,96.5
     parent: 0
     type: Transform
 - uid: 19956
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 139.5,114.5
     parent: 0
     type: Transform
 - uid: 19957
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 120.5,120.5
     parent: 0
     type: Transform
 - uid: 19958
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 105.5,120.5
     parent: 0
     type: Transform
 - uid: 19959
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 88.5,120.5
     parent: 0
     type: Transform
 - uid: 19960
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 75.5,120.5
     parent: 0
     type: Transform
 - uid: 19961
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 63.5,117.5
     parent: 0
     type: Transform
 - uid: 19962
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 49.5,117.5
     parent: 0
     type: Transform
 - uid: 19963
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 37.5,119.5
     parent: 0
     type: Transform
 - uid: 19964
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 22.5,121.5
     parent: 0
     type: Transform
 - uid: 19965
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 8.5,120.5
     parent: 0
     type: Transform
 - uid: 19966
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -8.5,119.5
     parent: 0
     type: Transform
 - uid: 19967
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -19.5,116.5
     parent: 0
     type: Transform
 - uid: 19968
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -29.5,119.5
     parent: 0
     type: Transform
 - uid: 19969
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -40.5,116.5
     parent: 0
     type: Transform
 - uid: 19970
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -52.5,112.5
     parent: 0
     type: Transform
 - uid: 19971
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -60.5,108.5
     parent: 0
     type: Transform
 - uid: 19972
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -66.5,94.5
     parent: 0
     type: Transform
 - uid: 19973
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -69.5,84.5
     parent: 0
     type: Transform
 - uid: 19974
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -85.5,68.5
     parent: 0
     type: Transform
 - uid: 19975
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -92.5,57.5
     parent: 0
     type: Transform
 - uid: 19976
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -95.5,44.5
     parent: 0
     type: Transform
 - uid: 19977
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -92.5,34.5
     parent: 0
     type: Transform
 - uid: 19978
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -94.5,19.5
     parent: 0
     type: Transform
 - uid: 19979
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -96.5,5.5
     parent: 0
     type: Transform
 - uid: 19980
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -85.5,-1.5
     parent: 0
     type: Transform
 - uid: 19981
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -74.5,-4.5
     parent: 0
     type: Transform
 - uid: 19982
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -67.5,-10.5
     parent: 0
     type: Transform
 - uid: 19983
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -58.5,-18.5
     parent: 0
     type: Transform
 - uid: 19984
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -41.5,-12.5
     parent: 0
     type: Transform
 - uid: 19985
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -24.5,-13.5
     parent: 0
     type: Transform
 - uid: 19986
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -11.5,-12.5
     parent: 0
     type: Transform
 - uid: 19987
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -6.5,-18.5
     parent: 0
     type: Transform
 - uid: 19988
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: -2.5,-31.5
     parent: 0
     type: Transform
 - uid: 19989
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 18.5,-38.5
     parent: 0
     type: Transform
 - uid: 19990
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 31.5,-36.5
     parent: 0
     type: Transform
 - uid: 19991
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 47.5,-37.5
     parent: 0
     type: Transform
 - uid: 19992
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 62.5,-38.5
     parent: 0
     type: Transform
 - uid: 19993
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 71.5,-32.5
     parent: 0
     type: Transform
 - uid: 19994
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 73.5,-21.5
     parent: 0
     type: Transform
 - uid: 19995
-  type: SpawnPointLatejoin
+  type: SpawnPointDeathmatch
   components:
   - pos: 75.5,-8.5
     parent: 0

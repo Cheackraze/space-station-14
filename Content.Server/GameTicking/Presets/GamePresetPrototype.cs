@@ -1,5 +1,7 @@
 using Content.Server.GameTicking.Rules;
+using Content.Server.Maps;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 namespace Content.Server.GameTicking.Presets
@@ -33,5 +35,8 @@ namespace Content.Server.GameTicking.Presets
 
         [DataField("rules", customTypeSerializer:typeof(PrototypeIdListSerializer<GameRulePrototype>))]
         public IReadOnlyList<string> Rules { get; } = Array.Empty<string>();
+
+        [DataField("allowedMaps", customTypeSerializer: typeof(PrototypeIdArraySerializer<GameMapPrototype>))]
+        public readonly string[]? AllowedMaps;
     }
 }

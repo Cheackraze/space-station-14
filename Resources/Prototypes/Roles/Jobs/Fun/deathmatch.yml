@@ -1,0 +1,21 @@
+- type: job
+  id: Contestant
+  name: job-name-deathmatch
+  playTimeTracker: JobDeathMatch
+  setPreference: false
+  startingGear: deathmatch
+  icon: "Nanotrasen"
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+
+- type: startingGear
+  id: deathmatch
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorGrey
+    back: WeaponSubMachineGunC20r
+    shoes: ClothingShoesBootsCombatFilled
+    id: PassengerPDA
+    ears: ClothingHeadsetGrey
+    pocket1: MagazinePistolSubMachineGun
+    pocket2: MagazinePistolSubMachineGun
