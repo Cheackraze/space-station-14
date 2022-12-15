@@ -21,11 +21,12 @@ namespace Content.Server.Spawners.Components
         public JobPrototype? Job => string.IsNullOrEmpty(_jobId) ? null : _prototypeManager.Index<JobPrototype>(_jobId);
     }
 
+    [Flags]
     public enum SpawnPointType
     {
         Unset = 0,
-        LateJoin,
-        Job,
-        Observer,
+        LateJoin = 1 << 0,
+        Job = 1 << 1,
+        Observer = 1 << 2,
     }
 }

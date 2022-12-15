@@ -95,6 +95,18 @@
     - BasicStationEventScheduler
 
 - type: gamePreset
+  id: FreeForAll
+  alias:
+    - ffa
+  name: ffa-title
+  description: ffa-description
+  showInVote: false
+  rules:
+    - FreeForAll
+    - MaxTimeRestart
+  allowedMaps: ghosttown
+
+- type: gamePreset
   id: Zombie
   alias:
     - zombie

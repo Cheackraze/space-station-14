@@ -518,3 +518,15 @@
     layers:
       - state: green
       - state: zookeeper
+
+  # MISC
+- type: entity
+  name: ffa spawn point
+  id: SpawnPointDeathmatch
+  parent: SpawnPointJobBase
+  components:
+  - type: Sprite
+    state: green
+  - type: SpawnPoint
+    job_id: contestant
+    spawn_type: [LateJoin, Job]

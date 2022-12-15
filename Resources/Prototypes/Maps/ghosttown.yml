@@ -1,0 +1,13 @@
+﻿- type: gameMap
+  id: ghosttown
+  mapName: 'Ghost Town'
+  mapPath: /Maps/ghosttown.yml
+  minPlayers: 5
+  stations:
+    GhostTown:
+      mapNameTemplate: 'GhostTown'
+      emergencyShuttlePath: /Maps/Shuttles/emergency_courser.yml
+      overflowJobs:
+        - Contestant
+      availableJobs:
+        Contestant: [ -1, -1 ]

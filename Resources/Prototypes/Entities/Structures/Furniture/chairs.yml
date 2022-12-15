@@ -57,6 +57,7 @@
   - type: Construction
     graph: Seat
     node: chair
+  - type: FreeForAllSpawn
 
 - type: entity
   name: stool
