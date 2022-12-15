@@ -1,4 +1,4 @@
-﻿using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Roles;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
@@ -18,6 +18,6 @@ public sealed class FreeForAllRuleConfiguration : GameRuleConfiguration
 
     [DataField("gear",
         customTypeSerializer: typeof(PrototypeIdSerializer<StartingGearPrototype>))]
-    public readonly string StartingGearPrototype = "ERTLeaderGearEVA";
+    public readonly string StartingGearPrototype = "deathmatch";
 
 }

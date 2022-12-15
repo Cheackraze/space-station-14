@@ -2,9 +2,9 @@
   id: ghosttown
   mapName: 'Ghost Town'
   mapPath: /Maps/ghosttown.yml
-  minPlayers: 5
+  minPlayers: 0
   stations:
-    GhostTown:
+    ffa:
       mapNameTemplate: 'GhostTown'
       emergencyShuttlePath: /Maps/Shuttles/emergency_courser.yml
       overflowJobs:

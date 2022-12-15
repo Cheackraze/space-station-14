@@ -527,6 +527,7 @@
   components:
   - type: Sprite
     state: green
+  - type: FreeForAllSpawn
   - type: SpawnPoint
-    job_id: contestant
+    job_id: Contestant
     spawn_type: [LateJoin, Job]
