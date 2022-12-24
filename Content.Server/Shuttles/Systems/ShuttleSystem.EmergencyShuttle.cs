@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Administration.Logs;
@@ -11,11 +12,13 @@ using Content.Server.Station.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.Shuttles.Events;
+using Newtonsoft.Json.Schema;
 using Robust.Server.GameObjects;
 using Robust.Server.Maps;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Configuration;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
@@ -41,6 +44,7 @@ public sealed partial class ShuttleSystem
    [Dependency] private readonly MapLoaderSystem _map = default!;
    [Dependency] private readonly StationSystem _station = default!;
 
+   public MapId? ShipyardMap { get; private set; }
    public MapId? CentComMap { get; private set; }
    public EntityUid? CentCom { get; private set; }
 
@@ -281,8 +285,32 @@ public sealed partial class ShuttleSystem
            SoundSystem.Play("/Audio/Misc/notice1.ogg", Filter.Broadcast());
        }
    }
+    /// <summary>
+    /// Purchases a ship from the shipyard
+    /// </summary>
+    public void PurchaseShuttle(EntityUid? stationUid, string shuttlePath)
+    {
+        if (!TryComp<StationDataComponent>(stationUid, out var stationData) || !TryComp<ShuttleComponent>(AddShuttle(shuttlePath), out var shuttle)) return;
 
-   private Angle GetAngle(TransformComponent xform, TransformComponent targetXform, EntityQuery<TransformComponent> xformQuery)
+        var targetGrid = _station.GetLargestGrid(stationData);
+
+        // UHH GOOD LUCK
+        if (targetGrid == null)
+        {
+            _logger.Add(LogType.EmergencyShuttle, LogImpact.High, $"Emergency shuttle {ToPrettyString(stationUid.Value)} unable to dock with station {ToPrettyString(stationUid.Value)}");
+            _chatSystem.DispatchStationAnnouncement(stationUid.Value, Loc.GetString("emergency-shuttle-good-luck"), playDefaultSound: false);
+            // TODO: Need filter extensions or something don't blame me.
+            SoundSystem.Play("/Audio/Misc/notice1.ogg", Filter.Broadcast());
+            return;
+        }
+
+        var xformQuery = GetEntityQuery<TransformComponent>();
+
+        TryFTLDock(shuttle, targetGrid.Value);
+        
+
+    }
+    private Angle GetAngle(TransformComponent xform, TransformComponent targetXform, EntityQuery<TransformComponent> xformQuery)
    {
        var (shuttlePos, shuttleRot) = xform.GetWorldPositionRotation(xformQuery);
        var (targetPos, targetRot) = targetXform.GetWorldPositionRotation(xformQuery);
@@ -349,6 +377,7 @@ public sealed partial class ShuttleSystem
    private void OnRoundStart(RoundStartingEvent ev)
    {
        SetupEmergencyShuttle();
+       SetupShipyard();
    }
 
    /// <summary>
@@ -392,7 +421,15 @@ public sealed partial class ShuttleSystem
        return result;
    }
 
-   private void SetupEmergencyShuttle()
+    private void SetupShipyard()
+    {
+        if (ShipyardMap != null && _mapManager.MapExists(ShipyardMap.Value)) return;
+
+        ShipyardMap = _mapManager.CreateMap();
+        _mapManager.SetMapPaused(ShipyardMap.Value, true);
+    }
+
+    private void SetupEmergencyShuttle()
    {
        if (!_emergencyShuttleEnabled || CentComMap != null && _mapManager.MapExists(CentComMap.Value)) return;
 
@@ -420,8 +457,30 @@ public sealed partial class ShuttleSystem
            AddEmergencyShuttle(comp);
        }
    }
+    private EntityUid? AddShuttle(string shuttlePath)
+    {
+        if (ShipyardMap == null)
+        {
+            return null;
+        }
 
-   private void AddEmergencyShuttle(StationDataComponent component)
+        // Load shuttle
+        var shuttle = _map.LoadGrid(ShipyardMap.Value, shuttlePath.ToString(), new MapLoadOptions()
+        {
+            // Should be far enough... right? I'm too lazy to bounds check CentCom rn.
+            Offset = new Vector2(500f + _shuttleIndex, 0f)
+        });
+
+        if (shuttle == null)
+        {
+            _sawmill.Error($"Unable to spawn shuttle {shuttlePath}");
+            return null;
+        }
+
+        _shuttleIndex += _mapManager.GetGrid(shuttle.Value).LocalAABB.Width + ShuttleSpawnBuffer;
+        return (EntityUid) shuttle;
+    }
+    private void AddEmergencyShuttle(StationDataComponent component)
    {
        if (!_emergencyShuttleEnabled
            || CentComMap == null
