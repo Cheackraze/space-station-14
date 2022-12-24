@@ -296,21 +296,9 @@ public sealed partial class ShuttleSystem
 
         var targetGrid = _station.GetLargestGrid(stationData);
 
-        // UHH GOOD LUCK
-        if (targetGrid == null)
-        {
-            _logger.Add(LogType.EmergencyShuttle, LogImpact.High, $"Emergency shuttle {ToPrettyString(stationUid.Value)} unable to dock with station {ToPrettyString(stationUid.Value)}");
-            _chatSystem.DispatchStationAnnouncement(stationUid.Value, Loc.GetString("emergency-shuttle-good-luck"), playDefaultSound: false);
-            // TODO: Need filter extensions or something don't blame me.
-            SoundSystem.Play("/Audio/Misc/notice1.ogg", Filter.Broadcast());
-            return;
-        }
-
-        var xformQuery = GetEntityQuery<TransformComponent>();
+        if (targetGrid == null) return;
 
         TryFTLDock(shuttle, targetGrid.Value);
-        
-
     }
     private Angle GetAngle(TransformComponent xform, TransformComponent targetXform, EntityQuery<TransformComponent> xformQuery)
    {
@@ -469,7 +457,7 @@ public sealed partial class ShuttleSystem
         // Load shuttle
         var shuttle = _map.LoadGrid(ShipyardMap.Value, shuttlePath.ToString(), new MapLoadOptions()
         {
-            // Should be far enough... right? I'm too lazy to bounds check CentCom rn.
+            // offsets just because.
             Offset = new Vector2(500f + _shuttleIndex, 0f)
         });
 
