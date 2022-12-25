@@ -44,7 +44,7 @@ public sealed partial class ShuttleSystem
    [Dependency] private readonly MapLoaderSystem _map = default!;
    [Dependency] private readonly StationSystem _station = default!;
 
-   public MapId? ShipyardMap { get; private set; }
+
    public MapId? CentComMap { get; private set; }
    public EntityUid? CentCom { get; private set; }
 
@@ -287,19 +287,7 @@ public sealed partial class ShuttleSystem
            SoundSystem.Play("/Audio/Misc/notice1.ogg", Filter.Broadcast());
        }
    }
-    /// <summary>
-    /// Purchases a ship from the shipyard
-    /// </summary>
-    public void PurchaseShuttle(EntityUid? stationUid, string shuttlePath)
-    {
-        if (!TryComp<StationDataComponent>(stationUid, out var stationData) || !TryComp<ShuttleComponent>(AddShuttle(shuttlePath), out var shuttle)) return;
 
-        var targetGrid = _station.GetLargestGrid(stationData);
-
-        if (targetGrid == null) return;
-
-        TryFTLDock(shuttle, targetGrid.Value);
-    }
     private Angle GetAngle(TransformComponent xform, TransformComponent targetXform, EntityQuery<TransformComponent> xformQuery)
    {
        var (shuttlePos, shuttleRot) = xform.GetWorldPositionRotation(xformQuery);
@@ -367,7 +355,6 @@ public sealed partial class ShuttleSystem
    private void OnRoundStart(RoundStartingEvent ev)
    {
        SetupEmergencyShuttle();
-       SetupShipyard();
    }
 
    /// <summary>
@@ -411,14 +398,6 @@ public sealed partial class ShuttleSystem
        return result;
    }
 
-    private void SetupShipyard()
-    {
-        if (ShipyardMap != null && _mapManager.MapExists(ShipyardMap.Value)) return;
-
-        ShipyardMap = _mapManager.CreateMap();
-        _mapManager.SetMapPaused(ShipyardMap.Value, true);
-    }
-
     private void SetupEmergencyShuttle()
    {
        if (!_emergencyShuttleEnabled || CentComMap != null && _mapManager.MapExists(CentComMap.Value)) return;
@@ -447,29 +426,7 @@ public sealed partial class ShuttleSystem
            AddEmergencyShuttle(comp);
        }
    }
-    private EntityUid? AddShuttle(string shuttlePath)
-    {
-        if (ShipyardMap == null)
-        {
-            return null;
-        }
 
-        // Load shuttle
-        var shuttle = _map.LoadGrid(ShipyardMap.Value, shuttlePath.ToString(), new MapLoadOptions()
-        {
-            // offsets just because.
-            Offset = new Vector2(500f + _shuttleIndex, 0f)
-        });
-
-        if (shuttle == null)
-        {
-            _sawmill.Error($"Unable to spawn shuttle {shuttlePath}");
-            return null;
-        }
-
-        _shuttleIndex += _mapManager.GetGrid(shuttle.Value).LocalAABB.Width + ShuttleSpawnBuffer;
-        return (EntityUid) shuttle;
-    }
     private void AddEmergencyShuttle(StationDataComponent component)
    {
        if (!_emergencyShuttleEnabled
