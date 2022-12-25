@@ -167,16 +167,16 @@ public sealed partial class ShuttleSystem
                        continue;
                    }
 
-                    // Alright well the spawn is valid now to check how many we can connect
-                    // Get the matrix for each shuttle dock and test it against the grid docks to see
-                    // if the connected position / direction matches.
+                   // Alright well the spawn is valid now to check how many we can connect
+                   // Get the matrix for each shuttle dock and test it against the grid docks to see
+                   // if the connected position / direction matches.
 
                    var dockedPorts = new List<(DockingComponent DockA, DockingComponent DockB)>()
                    {
                        (shuttleDock, gridDock),
                    };
 
-                    // TODO: Check shuttle orientation as the tiebreaker.
+                   // TODO: Check shuttle orientation as the tiebreaker.
 
                    foreach (var other in shuttleDocks)
                    {
@@ -218,10 +218,8 @@ public sealed partial class ShuttleSystem
            }
        }
 
-       if (validDockConfigs.Count <= 0) { 
-           _sawmill.Error($"number of available docking configs {validDockConfigs.Count}");
-       return null;
-       }
+       if (validDockConfigs.Count <= 0) return null;
+
        // Prioritise by priority docks, then by maximum connected ports, then by most similar angle.
        validDockConfigs = validDockConfigs
            .OrderByDescending(x => x.Docks.Any(docks => HasComp<EmergencyDockComponent>(docks.DockB.Owner)))

@@ -1,4 +1,5 @@
 using Content.Server.Administration;
+using Content.Server.Maps;
 using Content.Server.Shuttles.Systems;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
@@ -26,5 +27,18 @@ public sealed class PurchaseShuttleCommand : IConsoleCommand
         var system = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<ShuttleSystem>();
         var station = new EntityUid(stationId);
         system.PurchaseShuttle(station, shuttlePath);
+    }
+
+    public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+    {
+        switch (args.Length)
+        {
+            case 1:
+                return CompletionResult.FromHint(Loc.GetString("station-id"));
+            case 2:
+                var opts = CompletionHelper.PrototypeIDs<GameMapPrototype>();
+                return CompletionResult.FromHintOptions(opts, Loc.GetString("cmd-hint-savemap-path"));
+        }
+        return CompletionResult.Empty;
     }
 }
