@@ -29,10 +29,13 @@ public sealed partial class ShuttleSystem
         if (!TryComp<StationDataComponent>(stationUid, out var stationData) || !TryComp<ShuttleComponent>(AddShuttle(shuttlePath), out var shuttle)) return;
 
         var targetGrid = _station.GetLargestGrid(stationData);
+
         if (targetGrid == null) return;
 
         var price = _pricing.AppraiseGrid(shuttle.Owner, null);
+
         TryFTLDock(shuttle, targetGrid.Value);
+
         _sawmill.Warning($"Shuttle {shuttlePath} was purchased at {targetGrid} for {price} spacebucks");
     }
     /// <summary>
@@ -40,17 +43,10 @@ public sealed partial class ShuttleSystem
     /// </summary>
     private EntityUid? AddShuttle(string shuttlePath)
     {
-        if (ShipyardMap == null)
-        {
-            return null;
-        }
+        if (ShipyardMap == null) return null;
 
-        // Load shuttle
-        var shuttle = _map.LoadGrid(ShipyardMap.Value, shuttlePath.ToString(), new MapLoadOptions()
-        {
-            // only dealing with a single grid at a time for now
-            Offset = new Vector2(500f + _shuttleIndex, 0f)
-        });
+        //only dealing with a single grid at a time for now
+        var shuttle = _map.LoadGrid(ShipyardMap.Value, shuttlePath.ToString(), new MapLoadOptions() {Offset = new Vector2(500f + _shuttleIndex, 0f)});
 
         if (shuttle == null)
         {
@@ -59,6 +55,7 @@ public sealed partial class ShuttleSystem
         }
 
         _shuttleIndex += _mapManager.GetGrid(shuttle.Value).LocalAABB.Width + ShuttleSpawnBuffer;
+
         return (EntityUid) shuttle;
     }
     private void CleanupShipyard()
@@ -76,6 +73,7 @@ public sealed partial class ShuttleSystem
         if (ShipyardMap != null && _mapManager.MapExists(ShipyardMap.Value)) return;
 
         ShipyardMap = _mapManager.CreateMap();
+
         _mapManager.SetMapPaused(ShipyardMap.Value, true);
     }
 }
