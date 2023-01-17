@@ -1,0 +1,14 @@
+- type: gameMap
+  id: vroom
+  mapName: 'vroom'
+  mapPath: /Maps/vroom.yml
+  minPlayers: 0
+  stations:
+    vroom:
+      mapNameTemplate: '{0} vroom {1}'
+      nameGenerator:
+        !type:NanotrasenNameGenerator
+        prefixCreator: '14'
+      overflowJobs: []
+      availableJobs:
+        Passenger: [ 1, 1 ]
