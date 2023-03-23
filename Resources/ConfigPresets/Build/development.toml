@@ -14,4 +14,5 @@ preload = false
 auto_call_time = 0
 cargo = false
 emergency_enabled = false
+arrivals = false
 shipyard = false
