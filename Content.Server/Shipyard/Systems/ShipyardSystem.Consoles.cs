@@ -19,6 +19,9 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Internal.TypeSystem;
 using Content.Server.Database;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Systems;
 
 namespace Content.Server.Shipyard.Systems;
 
@@ -33,6 +36,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly BankSystem _bank = default!;
     [Dependency] private readonly IdCardSystem _idSystem = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     public void InitializeConsole()
     {
@@ -247,6 +251,20 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         var targetId = component.TargetIdSlot.ContainerSlot?.ContainedEntity;
         TryComp<ShuttleDeedComponent>(targetId, out var deed);
         RefreshState(uid, bank.Balance, true, deed?.ShuttleName, targetId.HasValue);
+    }
+
+    public bool FoundOrganics(EntityUid uid, EntityQuery<MobStateComponent> mobQuery, EntityQuery<TransformComponent> xformQuery)
+    {
+        var xform = xformQuery.GetComponent(uid);
+        var childEnumerator = xform.ChildEnumerator;
+
+        while (childEnumerator.MoveNext(out var child))
+        {
+            if (mobQuery.TryGetComponent(child.Value, out var mobState) && !_mobState.IsDead(child.Value, mobState)
+                || FoundOrganics(child.Value, mobQuery, xformQuery)) return true;
+        }
+
+        return false;
     }
 
     private void RefreshState(EntityUid uid, int balance, bool access, string? shipDeed, bool isTargetIdPresent)
