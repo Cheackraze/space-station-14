@@ -208,7 +208,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         var mobQuery = GetEntityQuery<MobStateComponent>();
         var xformQuery = GetEntityQuery<TransformComponent>();
 
-        if (_cargo.FoundOrganics(shuttleUid, mobQuery, xformQuery))
+        if (FoundOrganics(shuttleUid, mobQuery, xformQuery))
         {
             _sawmill.Warning($"organics on board");
             return false;
