@@ -104,7 +104,7 @@ entities:
   components:
   - type: MetaData
   - type: Transform
-  - index: 11
+  - index: 18
     type: Map
   - type: PhysicsMap
   - type: Broadphase
@@ -6145,6 +6145,12 @@ entities:
   - pos: 22.5,16.5
     parent: 0
     type: Transform
+  - containers:
+      DisposalUnit: !type:Container
+        ents:
+        - 1880
+    type: ContainerContainer
+  - type: Timer
 - uid: 551
   type: Rack
   components:
@@ -14755,6 +14761,157 @@ entities:
   type: StimpackMini
   components:
   - pos: 24.467485,46.702366
+    parent: 0
+    type: Transform
+- uid: 1880
+  type: MaterialDiamond1
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 550
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 1881
+  type: SpawnMobBear
+  components:
+  - pos: 14.5,20.5
+    parent: 0
+    type: Transform
+- uid: 1882
+  type: SpawnMobBear
+  components:
+  - pos: 25.5,26.5
+    parent: 0
+    type: Transform
+- uid: 1883
+  type: SpawnMobBear
+  components:
+  - pos: 21.5,35.5
+    parent: 0
+    type: Transform
+- uid: 1884
+  type: SpawnMobBear
+  components:
+  - pos: 13.5,35.5
+    parent: 0
+    type: Transform
+- uid: 1885
+  type: SpawnMobBear
+  components:
+  - pos: 2.5,2.5
+    parent: 0
+    type: Transform
+- uid: 1886
+  type: SpawnMobBear
+  components:
+  - pos: 13.5,2.5
+    parent: 0
+    type: Transform
+- uid: 1887
+  type: SpawnMobBear
+  components:
+  - pos: 21.5,26.5
+    parent: 0
+    type: Transform
+- uid: 1888
+  type: WeaponShotgunKammerer
+  components:
+  - pos: 18.474583,25.389038
+    parent: 0
+    type: Transform
+- uid: 1889
+  type: BoxShellTranquilizer
+  components:
+  - pos: 18.468967,25.639914
+    parent: 0
+    type: Transform
+- uid: 1890
+  type: BoxShotgunIncendiary
+  components:
+  - pos: 18.629942,25.654549
+    parent: 0
+    type: Transform
+- uid: 1891
+  type: WeaponPistolMk58
+  components:
+  - pos: 12.510956,24.64166
+    parent: 0
+    type: Transform
+- uid: 1892
+  type: MagazinePistolHighVelocity
+  components:
+  - pos: 12.52559,24.729465
+    parent: 0
+    type: Transform
+- uid: 1893
+  type: MagazinePistolRubber
+  components:
+  - pos: 12.379249,24.714832
+    parent: 0
+    type: Transform
+- uid: 1894
+  type: Stunbaton
+  components:
+  - pos: 7.490391,22.532686
+    parent: 0
+    type: Transform
+- uid: 1895
+  type: IngotGold
+  components:
+  - pos: 10.466217,19.550945
+    parent: 0
+    type: Transform
+  - count: 15
+    type: Stack
+- uid: 1896
+  type: IngotGold1
+  components:
+  - pos: 24.509768,48.44725
+    parent: 0
+    type: Transform
+  - count: 15
+    type: Stack
+- uid: 1897
+  type: MaterialDiamond1
+  components:
+  - pos: 11.585693,39.676956
+    parent: 0
+    type: Transform
+- uid: 1898
+  type: MaterialDiamond1
+  components:
+  - pos: 10.7076435,39.647686
+    parent: 0
+    type: Transform
+- uid: 1899
+  type: RandomArtifactSpawner20
+  components:
+  - pos: 3.5,45.5
+    parent: 0
+    type: Transform
+- uid: 1900
+  type: SpawnMobBear
+  components:
+  - pos: 26.5,4.5
+    parent: 0
+    type: Transform
+- uid: 1901
+  type: WeaponRevolverDeckard
+  components:
+  - pos: 22.547249,10.532918
+    parent: 0
+    type: Transform
+- uid: 1902
+  type: SpeedLoaderMagnumHighVelocity
+  components:
+  - pos: 22.430176,10.532918
+    parent: 0
+    type: Transform
+- uid: 1903
+  type: SpeedLoaderMagnum
+  components:
+  - pos: 22.591152,10.635357
     parent: 0
     type: Transform
 ...
