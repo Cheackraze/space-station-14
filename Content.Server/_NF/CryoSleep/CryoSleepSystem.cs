@@ -1,22 +1,18 @@
-using System.Linq;
-using Content.Server.Administration;
 using Content.Server.Climbing;
+using Content.Server.EUI;
 using Content.Server.GameTicking;
 using Content.Server.Mind.Components;
-using Content.Server.Station.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Destructible;
 using Content.Shared.Examine;
 using Content.Shared.Interaction.Events;
-using Content.Shared.StatusEffect;
 using Content.Shared.Verbs;
 using Robust.Server.Containers;
 using Robust.Shared.Containers;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
-using Robust.Shared.Random;
 
-namespace Content.Server.Medical.Cryopod;
+namespace Content.Server.CryoSleep;
 
 public sealed class CryoSleepSystem : EntitySystem
 {
@@ -25,11 +21,11 @@ public sealed class CryoSleepSystem : EntitySystem
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly ClimbSystem _climb = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly QuickDialogSystem _quickDialog = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly EuiManager _euiManager = null!;
 
     private EntityUid? _storageMap;
-
+    // TODO: add a proper doafter system once that all gets sorted out
     public override void Initialize()
     {
         base.Initialize();
@@ -124,8 +120,8 @@ public sealed class CryoSleepSystem : EntitySystem
             var session = mind.Mind?.Session;
             if (session is not null && session.Status == SessionStatus.Disconnected)
             {
-                CryoStoreBody(toInsert.Value, component);
-                return true; // goodbye.
+                CryoStoreBody(toInsert.Value);
+                return true;
             }
         }
 
@@ -133,16 +129,13 @@ public sealed class CryoSleepSystem : EntitySystem
 
         if (success && mind?.Mind?.Session != null)
         {
-            _quickDialog.OpenDialog(mind.Mind.Session, "CryoSleep Chamber", "Enter CryoSleep", (bool testYes) =>
-            {
-                CryoStoreBody(toInsert.Value, component);
-            });
+            _euiManager.OpenEui(new CryoSleepEui(mind.Mind, this), mind.Mind.Session);
         }
 
         return success;
     }
 
-    private void CryoStoreBody(EntityUid body, CryoSleepComponent pod)
+    public void CryoStoreBody(EntityUid body)
     {
         if (!TryComp(body, out MindComponent? mind) || mind.Mind is null)
         {

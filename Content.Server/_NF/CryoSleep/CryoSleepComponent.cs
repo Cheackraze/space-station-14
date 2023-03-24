@@ -1,7 +1,7 @@
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 
-namespace Content.Server.Medical.Cryopod;
+namespace Content.Server.CryoSleep;
 [RegisterComponent]
 public sealed class CryoSleepComponent : Component
 {
