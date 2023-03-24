@@ -94,7 +94,7 @@
   components:
   - type: Sprite
     netsync: false
-    sprite: Structures/Machines/cryopod.rsi
+    sprite: _NF/Structures/cryopod.rsi
     layers:
     - state: closed
   - type: Anchorable
