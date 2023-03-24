@@ -27,7 +27,6 @@ namespace Content.Server.VendingMachines
 {
     public sealed class VendingMachineSystem : SharedVendingMachineSystem
     {
-        [Dependency] private readonly IComponentFactory _factory = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly AccessReaderSystem _accessReader = default!;
@@ -74,7 +73,7 @@ namespace Content.Server.VendingMachines
                     continue;
                 }
 
-                price += entry.Amount * _pricing.GetEstimatedPrice(proto, _factory);
+                price += entry.Amount * _pricing.GetEstimatedPrice(proto);
             }
 
             args.Price += price;
