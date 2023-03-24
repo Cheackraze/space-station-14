@@ -134,7 +134,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         newDeed.ShuttleUid = shuttle.Owner;
         newDeed.ShuttleName = vessel.Name;
         _idSystem.TryChangeJobTitle(targetId, $"Captain", idCard, player);
-        _radio.SendRadioMessage(uid, Loc.GetString("shipyard-console-docking", ("vessel", vessel.Name.ToString())), channel);
+        _radio.SendRadioMessage(uid, Loc.GetString("shipyard-console-docking", ("vessel", vessel.Name.ToString())), channel, uid);
         PlayConfirmSound(uid, component);
         RefreshState(uid, bank.Balance, true, vessel.Name, true);
     }

@@ -24,6 +24,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
     [Dependency] private readonly IConfigurationManager _configManager = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly CargoSystem _cargo = default!;
+    [Dependency] private readonly DockingSystem _docking = default!;
     [Dependency] private readonly PricingSystem _pricing = default!;
     [Dependency] private readonly ShuttleSystem _shuttle = default!;
     [Dependency] private readonly StationSystem _station = default!;
@@ -110,7 +111,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
 
         _sawmill.Info($"Shuttle {shuttlePath} was purchased at {ToPrettyString((EntityUid) stationUid)} for {price:f2}");
         //can do TryFTLDock later instead if we need to keep the shipyard map paused
-        _shuttle.FTLTravel(shuttle, targetGrid.Value, 0f, 30f, true);
+        _shuttle.FTLTravel(shuttleGrid.Value, shuttle, targetGrid.Value, 0f, 30f, true);
 
         return true;
     }
@@ -181,15 +182,15 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         if (targetGrid == null)
             return false;
 
-        var gridDocks = _shuttle.GetDocks((EntityUid) targetGrid);
-        var shuttleDocks = _shuttle.GetDocks(shuttleUid);
+        var gridDocks = _docking.GetDocks((EntityUid) targetGrid);
+        var shuttleDocks = _docking.GetDocks(shuttleUid);
         var isDocked = false;
 
         foreach (var shuttleDock in shuttleDocks)
         {
             foreach (var gridDock in gridDocks)
             {
-                if (shuttleDock.DockedWith == gridDock.Owner)
+                if (shuttleDock.Component.DockedWith == gridDock.Uid)
                 {
                     isDocked = true;
                     break;
