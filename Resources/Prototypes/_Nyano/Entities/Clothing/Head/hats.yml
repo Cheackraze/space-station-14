@@ -44,7 +44,6 @@
     sprite: Nyanotrasen/Clothing/Head/Hats/tinfoil.rsi
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Head/Hats/tinfoil.rsi
-  - type: TinfoilHat
   - type: Armor
     modifiers:
       coefficients:

@@ -8,8 +8,6 @@
     sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/mailman.rsi
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/mailman.rsi
-  - type: ClothingAddFaction
-    faction: Mailman
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -21,8 +19,6 @@
     sprite: Nyanotrasen/Clothing/Uniforms/Jumpskirt/mailman.rsi
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Uniforms/Jumpskirt/mailman.rsi
-  - type: ClothingAddFaction
-    faction: Mailman
 
 - type: entity
   parent: ClothingUniformBase
