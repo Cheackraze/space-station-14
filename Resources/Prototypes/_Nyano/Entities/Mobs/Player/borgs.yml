@@ -179,7 +179,6 @@
   - type: InnateTool
     tools:
       - id: WelderIndustrial
-      - id: HoloprojectorEngineering
       - id: BorgToolStandard
       - id: MopItem
       - id: FireExtinguisher
