@@ -164,6 +164,9 @@
       "name": "pda-internmed"
     },
     {
+      "name": "pda-internsci"
+    },
+    {
       "name": "pda-internservice"
     },
     {
@@ -174,6 +177,9 @@
     },
     {
       "name": "pda-ert"
+    },
+	{
+      "name": "pda-cluwne"
     }
   ]
 }
