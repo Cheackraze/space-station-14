@@ -5,6 +5,7 @@
   id: BaseMobHuman
   abstract: true
   components:
+  - type: CanEscapeInventory
   - type: Hunger
   - type: Thirst
   - type: Perishable
