@@ -2,6 +2,7 @@ using Content.Server.Access.Systems;
 using Content.Server.Popups;
 using Content.Server.Radio.EntitySystems;
 using Content.Server.Bank;
+using Content.Server.Shuttles.Components;
 using Content.Shared.Bank.Components;
 using Content.Shared.Shipyard.Events;
 using Content.Shared.Shipyard.BUI;
@@ -22,6 +23,7 @@ using Content.Server.Database;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
+using Content.Server.Maps;
 
 namespace Content.Server.Shipyard.Systems;
 
@@ -85,6 +87,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             return;
         }
 
+        var name = vessel.Name;
         if (vessel.Price <= 0)
             return;
 
@@ -122,6 +125,18 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             return;
         }
 
+        // setting up any stations if we have a matching game map prototype to allow late joins directly onto the station
+        if (_prototypeManager.TryIndex<GameMapPrototype>(vessel.ID, out var stationProto))
+        {
+            List<EntityUid> gridUids = new()
+            {
+                shuttle.Owner
+            };
+            var shuttleStation = _station.InitializeNewStation(stationProto.Stations[vessel.ID], gridUids);
+            var metaData = MetaData(shuttleStation);
+            name = metaData.EntityName;
+        }
+
         if (TryComp<AccessComponent>(targetId, out var newCap))
         {
             //later we will make a custom pilot job, for now they get the captain treatment
@@ -129,14 +144,15 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             newAccess.Add($"Captain");
             _accessSystem.TrySetTags(targetId, newAccess, newCap);
         }
+
         var newDeed = EnsureComp<ShuttleDeedComponent>(targetId);
         var channel = _prototypeManager.Index<RadioChannelPrototype>(component.ShipyardChannel);
         newDeed.ShuttleUid = shuttle.Owner;
-        newDeed.ShuttleName = vessel.Name;
+        newDeed.ShuttleName = name;
         _idSystem.TryChangeJobTitle(targetId, $"Captain", idCard, player);
-        _radio.SendRadioMessage(uid, Loc.GetString("shipyard-console-docking", ("vessel", vessel.Name.ToString())), channel, uid);
+        _radio.SendRadioMessage(uid, Loc.GetString("shipyard-console-docking", ("vessel", name)), channel, uid);
         PlayConfirmSound(uid, component);
-        RefreshState(uid, bank.Balance, true, vessel.Name, true);
+        RefreshState(uid, bank.Balance, true, name, true);
     }
 
     public void OnSellMessage(EntityUid uid, ShipyardConsoleComponent component, ShipyardConsoleSellMessage args)
