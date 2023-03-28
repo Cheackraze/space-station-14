@@ -125,3 +125,23 @@
   - type: Appearance
   - type: Climbable
   - type: CryoSleep
+  
+- type: entity
+  id: ComputerPalletConsoleNFHighMarket
+  parent: ComputerPalletConsole
+  suffix: High
+  name: cargo sale computer
+  description: Used to sell goods loaded onto cargo pallets
+  components:
+  - type: MarketModifier
+    mod: 1.707
+  
+- type: entity
+  id: ComputerPalletConsoleNFLowMarket
+  parent: ComputerPalletConsole
+  suffix: Low
+  name: cargo sale computer
+  description: Used to sell goods loaded onto cargo pallets
+  components:
+  - type: MarketModifier
+    mod: 0.892

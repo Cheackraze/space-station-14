@@ -1,8 +1,10 @@
 using Content.Server.Bank;
 using Content.Server.Cargo.Systems;
+using Content.Server.Cargo.Components;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
+using Content.Server.Station.Systems;
 using Content.Server.UserInterface;
 using Content.Server.VendingMachines.Restock;
 using Content.Shared.Access.Components;
@@ -33,8 +35,10 @@ namespace Content.Server.VendingMachines
         [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
         [Dependency] private readonly AudioSystem _audioSystem = default!;
         [Dependency] private readonly BankSystem _bankSystem = default!;
+        [Dependency] private readonly CargoSystem _cargo = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly SharedActionsSystem _action = default!;
+        [Dependency] private readonly StationSystem _station = default!;
         [Dependency] private readonly PricingSystem _pricing = default!;
         [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
         [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
@@ -311,11 +315,11 @@ namespace Content.Server.VendingMachines
             }
 
             var price = _pricing.GetEstimatedPrice(proto);
-            // Somewhere deep in the shitcode of pricing, a hardcoded 20 dollar value exists for anything without
+            // Somewhere deep in the code of pricing, a hardcoded 20 dollar value exists for anything without
             // a staticprice component for some god forsaken reason, and I cant find it or think of another way to
             // get an accurate price from a prototype with no staticprice comp.
             // this will undoubtably lead to vending machine exploits if I cant find wtf pricing system is doing.
-            // also stacks arent handled properly either f
+            // also stacks, food, solutions, are handled poorly too f
             if (price == 0)
             {
                 price = 20;
@@ -338,6 +342,11 @@ namespace Content.Server.VendingMachines
             {
                 if (TryEjectVendorItem(uid, type, itemId, component.CanShoot, bank.Balance, component))
                 {
+                    if (TryComp<StationBankAccountComponent>(_station.GetOwningStation(uid), out var stationBank))
+                    {
+                        _cargo.DeductFunds(stationBank, -(totalPrice / 2));
+                    }
+
                     _bankSystem.TryBankWithdraw(sender, totalPrice);
                     UpdateVendingMachineInterfaceState(component, bank.Balance);
                 }
