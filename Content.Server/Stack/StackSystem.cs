@@ -16,7 +16,7 @@ namespace Content.Server.Stack
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
-        public static readonly int[] DefaultSplitAmounts = { 1, 5, 10, 20, 30, 50 };
+        public static readonly int[] DefaultSplitAmounts = { 1, 5, 10, 20, 50, 100, 500, 1000, 5000, 10000 };
 
         public override void Initialize()
         {
