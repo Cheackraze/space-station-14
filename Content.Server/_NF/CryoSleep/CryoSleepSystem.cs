@@ -115,7 +115,7 @@ public sealed class CryoSleepSystem : EntitySystem
         if (IsOccupied(component) && !force)
             return false;
 
-        if (TryComp<MindContainerComponent>(toInsert, out var mind))
+        if (TryComp<MindComponent>(toInsert, out var mind))
         {
             var session = mind.Mind?.Session;
             if (session is not null && session.Status == SessionStatus.Disconnected)
@@ -137,7 +137,7 @@ public sealed class CryoSleepSystem : EntitySystem
 
     public void CryoStoreBody(EntityUid body)
     {
-        if (!TryComp(body, out MindContainerComponent? mind) || mind.Mind is null)
+        if (!TryComp(body, out MindComponent? mind) || mind.Mind is null)
         {
             QueueDel(body);
             return;
