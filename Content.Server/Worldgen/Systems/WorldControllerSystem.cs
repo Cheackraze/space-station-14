@@ -1,4 +1,4 @@
-using System.Linq;
+﻿using System.Linq;
 using Content.Server._Citadel.Worldgen.Components;
 using Content.Server.Ghost.Components;
 using Content.Server.Mind.Components;
@@ -114,7 +114,7 @@ public sealed class WorldControllerSystem : EntitySystem
             }
         }
 
-        var mindEnum = EntityQueryEnumerator<MindContainerComponent, TransformComponent>();
+        var mindEnum = EntityQueryEnumerator<MindComponent, TransformComponent>();
         var ghostQuery = GetEntityQuery<GhostComponent>();
 
         // Mindful entities get special privilege as they're always a player and we don't want the illusion being broken around them.
