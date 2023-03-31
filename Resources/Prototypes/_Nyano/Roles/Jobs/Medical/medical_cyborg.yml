@@ -4,6 +4,7 @@
   description: job-description-cyborg
   icon: "Unknown"
   supervisors: "all crew"
+  playTimeTracker: JobCyborg
   canBeAntag: false
   jobEntity: PlayerCyborgMedical
   startingGear: CyborgGear # for char preview only
