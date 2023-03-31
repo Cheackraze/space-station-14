@@ -3,7 +3,6 @@
   name: job-name-paramedic
   description: job-description-paramedic
   startingGear: ParamedicGear
-  setPreference: false
   playTimeTracker: JobParamedic
   icon: "Paramedic"
   supervisors: "the chief medical officer"

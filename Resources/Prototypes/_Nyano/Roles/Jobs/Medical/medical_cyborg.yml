@@ -2,11 +2,6 @@
   id: MedicalCyborg
   name: job-name-medical-cyborg
   description: job-description-cyborg
-  playTimeTracker: JobCyborg
-  whitelistRequired: true
-  requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 24000
   icon: "Unknown"
   supervisors: "all crew"
   canBeAntag: false

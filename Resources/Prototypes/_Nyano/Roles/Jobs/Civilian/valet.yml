@@ -6,12 +6,12 @@
   startingGear: ValetGear
   icon: "ServiceWorker"
   supervisors: job-supervisors-everyone
-  setPreference: false
   access:
   - Service
   - Bar
   - Kitchen
   - Cargo
+  - Maintenance
 
 - type: startingGear
   id: ValetGear

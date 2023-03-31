@@ -7,12 +7,10 @@
     - !type:OverallPlaytimeRequirement
       time: 18000
   startingGear: PrisonGuardGear
-  alwaysUseSpawner: true
   canBeAntag: false
   icon: "Warden" 
   supervisors: job-supervisors-warden
   setPreference: true
-  whitelistRequired: true
   access:
   - Security
   - Brig
