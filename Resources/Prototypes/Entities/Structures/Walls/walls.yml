@@ -44,7 +44,7 @@
   - type: Occluder
   - type: Airtight
   - type: StaticPrice
-    price: 75
+    price: 25
   - type: RadiationBlocker
     resistance: 2
 
@@ -461,7 +461,7 @@
     visuals:
       - type: ReinforcedWallVisualizer
   - type: StaticPrice
-    price: 150
+    price: 50
   - type: RadiationBlocker
     resistance: 5
 
@@ -496,7 +496,7 @@
     key: walls
     base: riveted
   - type: StaticPrice
-    price: 150
+    price: 50
 
 - type: entity
   parent: BaseWall
