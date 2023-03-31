@@ -12,7 +12,7 @@
       densityNoiseChannel: Density
     - type: SimpleDebrisSelector
       debrisTable:
-        - id: CitadelAsteroidDebrisSmall
+        ##- id: CitadelAsteroidDebrisSmall
         - id: CitadelAsteroidDebrisMedium
         - id: CitadelAsteroidDebrisLarge
           prob: 0.7
