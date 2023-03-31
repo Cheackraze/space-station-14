@@ -32,7 +32,6 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Utility;
-using Content.Server.Carrying;
 
 namespace Content.Server.Disposal.Unit.EntitySystems
 {
@@ -469,9 +468,6 @@ namespace Content.Server.Disposal.Unit.EntitySystems
         public bool TryInsert(EntityUid unitId, EntityUid toInsertId, EntityUid? userId, DisposalUnitComponent? unit = null)
         {
             if (!Resolve(unitId, ref unit))
-                return false;
-
-            if (HasComp<CarryingComponent>(toInsertId))
                 return false;
 
             if (userId.HasValue && !HasComp<SharedHandsComponent>(userId) && toInsertId != userId) // Mobs like mouse can Jump inside even with no hands

@@ -538,7 +538,7 @@ namespace Content.Server.Mail
 
                 var mayReceivePriorityMail = true;
 
-                if (TryComp<MindContainerComponent>(receiver.Owner, out var mind)
+                if (TryComp<MindComponent>(receiver.Owner, out MindComponent? mind)
                     && mind.Mind?.Session == null)
                 {
                     mayReceivePriorityMail = false;
