@@ -10,11 +10,23 @@
         state: full
   - type: RandomSpawner
     prototypes:
-      - AsteroidRock
-    chance: .90
+      - WallRock
+      - WallRock
+      - WallRock
+      - WallRock
+      - WallRock
+      - WallRock
+      - WallRock
+      - WallRockTin
+      - WallRockTin
+      - WallRockQuartz
+      - WallRockQuartz
+      - WallRockSilver
+    chance: .85
     rarePrototypes:
-      - AsteroidRockMining
+      - RandomArtifactSpawner20
       - Barricade
-      - MountainRockMining
-      - MountainRock
-    rareChance: 0.15
+      - WallRockGold
+      - WallRockPlasma
+      - WallRockUranium
+    rareChance: 0.1

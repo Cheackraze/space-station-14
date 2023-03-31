@@ -44,7 +44,6 @@
       - SolarTrackerElectronics
       - Mousetrap
       - RadioHandheld
-      - DeepFryerMachineCircuitboard
       - BoozeDispenserMachineCircuitboard
       - SodaDispenserMachineCircuitboard
       - RemoteSignaller
@@ -62,7 +61,6 @@
     rarePrototypes:
       - TraversalDistorterMachineCircuitboard
       - CloningPodMachineCircuitboard
-      - ReverseEngineeringMachineCircuitboard
       - MedicalScannerMachineCircuitboard
       - DawInstrumentMachineCircuitboard
       - StasisBedMachineCircuitboard
