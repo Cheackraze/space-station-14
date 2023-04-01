@@ -10,7 +10,7 @@
       ejectSound: /Audio/Machines/id_swipe.ogg
       insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
       ejectOnBreak: true
-      swap: false
+      swap: true
       whitelist:
         components:
         - IdCard
@@ -41,6 +41,18 @@
     containers:
       board: !type:Container
       ShipyardConsole-targetId: !type:ContainerSlot {}
+
+- type: entity
+  id: ComputerShipyardSecurity
+  parent: ComputerShipyard
+  name: security shipyard console
+  description: Used to enlist into Nanotrasen Security Forces  
+  - type: ActivatableUI
+    key: enum.ShipyardConsoleUiKey.Security
+  - type: UserInterface
+    interfaces:
+    - key: enum.ShipyardConsoleUiKey.Security
+      type: ShipyardConsoleBoundUserInterface
 
 - type: entity
   id: ComputerBankATM

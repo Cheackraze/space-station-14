@@ -10,7 +10,8 @@ namespace Content.Shared.Shipyard;
 [NetSerializable, Serializable]
 public enum ShipyardConsoleUiKey : byte
 {
-    Shipyard
+    Shipyard,
+    Security
     // Syndicate
     //Not currently implemented. Could be used in the future to give other factions a variety of shuttle options,
     //like nukies, syndicate, or for evac purchases.

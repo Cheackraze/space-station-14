@@ -1,7 +1,7 @@
 - type: vessel
   id: Barge
   name: NC Barge
-  description: A large shipping vessel repurposed into a salvage bar.
+  description: A medium shipping vessel repurposed into a salvage bar.
   price: 55000
   category: Medium
   group: Civilian
@@ -73,7 +73,7 @@
       availableJobs:
         StationEngineer: [ 1, 1 ]
         Scientist: [ 1, 1 ]
-##        Cyborg:[ 1, 1 ]
+        Cyborg:[ 1, 1 ]
 
 - type: vessel
   id: Condor
@@ -102,7 +102,7 @@
         ResearchDirector: [ 1, 1 ]
         ChiefEngineer: [ 1, 1 ]
         AtmosphericTechnician: [ 1, 1 ]
-##        Cyborg [ 1, 1 ]
+        Cyborg [ 1, 1 ]
 
 - type: vessel
   id: Interceptor
