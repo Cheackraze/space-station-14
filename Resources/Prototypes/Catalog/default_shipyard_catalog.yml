@@ -73,7 +73,7 @@
       availableJobs:
         StationEngineer: [ 1, 1 ]
         Scientist: [ 1, 1 ]
-        Cyborg:[ 1, 1 ]
+        ##Cyborg:[ 1, 1 ]
 
 - type: vessel
   id: Condor
@@ -102,7 +102,7 @@
         ResearchDirector: [ 1, 1 ]
         ChiefEngineer: [ 1, 1 ]
         AtmosphericTechnician: [ 1, 1 ]
-        Cyborg [ 1, 1 ]
+        ##Cyborg [ 1, 1 ]
 
 - type: vessel
   id: Interceptor

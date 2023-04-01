@@ -118,7 +118,7 @@
     node: start
     deconstructionTarget: null
   - type: StaticPrice
-    price: 325
+    price: 350
 
 - type: entity
   name: Enforcer

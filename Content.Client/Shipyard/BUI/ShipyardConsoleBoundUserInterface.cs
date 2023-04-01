@@ -1,8 +1,10 @@
 using Content.Client.Shipyard.UI;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Shipyard;
 using Content.Shared.Shipyard.BUI;
 using Content.Shared.Shipyard.Events;
 using Robust.Client.GameObjects;
+using Robust.Shared.Utility;
 using static Robust.Client.UserInterface.Controls.BaseButton;
 
 namespace Content.Client.Shipyard.BUI;
@@ -10,7 +12,7 @@ namespace Content.Client.Shipyard.BUI;
 public sealed class ShipyardConsoleBoundUserInterface : BoundUserInterface
 {
     private ShipyardConsoleMenu? _menu;
-
+    private ShipyardRulesPopup? _rulesWindow;
     public int Balance { get; private set; }
 
     public ShipyardConsoleBoundUserInterface(ClientUserInterfaceComponent owner, Enum uiKey) : base(owner, uiKey)
@@ -21,19 +23,27 @@ public sealed class ShipyardConsoleBoundUserInterface : BoundUserInterface
     {
         base.Open();
         _menu = new ShipyardConsoleMenu(this);
+        var rules = new FormattedMessage();
+        _rulesWindow = new ShipyardRulesPopup(this);
         _menu.OpenCentered();
+        if (ShipyardConsoleUiKey.Security == (ShipyardConsoleUiKey) UiKey)
+        {
+            rules.AddText(Loc.GetString($"shipyard-rules-default"));
+            _rulesWindow.ShipRules.SetMessage(rules);
+            _rulesWindow.OpenCentered();
+        }    
         _menu.OnClose += Close;
         _menu.OnOrderApproved += ApproveOrder;
         _menu.OnSellShip += SellShip;
         _menu.TargetIdButton.OnPressed += _ => SendMessage(new ItemSlotButtonPressedEvent("ShipyardConsole-targetId"));
     }
 
-    private void Populate()
+    private void Populate(byte uiKey)
     {
         if (_menu == null)
             return;
 
-        _menu.PopulateProducts();
+        _menu.PopulateProducts((ShipyardConsoleUiKey) uiKey);
         _menu.PopulateCategories();
     }
 
@@ -46,7 +56,7 @@ public sealed class ShipyardConsoleBoundUserInterface : BoundUserInterface
 
         Balance = cState.Balance;
         var castState = (ShipyardConsoleInterfaceState) state;
-        Populate();
+        Populate(castState.UiKey);
         _menu?.UpdateState(castState);
     }
 

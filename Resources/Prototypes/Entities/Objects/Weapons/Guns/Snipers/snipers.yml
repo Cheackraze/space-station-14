@@ -48,7 +48,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
   - type: StaticPrice
-    price: 275
+    price: 210
 
 - type: entity
   name: Hristov

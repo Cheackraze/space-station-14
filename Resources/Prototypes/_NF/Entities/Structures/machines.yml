@@ -33,9 +33,9 @@
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
     - map: ["computerLayerScreen"]
-      state: request
+      state: telesci
     - map: ["computerLayerKeys"]
-      state: tech_key
+      state: telesci_key
   - type: ItemSlots  
   - type: ContainerContainer
     containers:
@@ -46,13 +46,18 @@
   id: ComputerShipyardSecurity
   parent: ComputerShipyard
   name: security shipyard console
-  description: Used to enlist into Nanotrasen Security Forces  
+  description: Used to enlist into Nanotrasen Security Forces
+  components:  
   - type: ActivatableUI
     key: enum.ShipyardConsoleUiKey.Security
   - type: UserInterface
     interfaces:
     - key: enum.ShipyardConsoleUiKey.Security
       type: ShipyardConsoleBoundUserInterface
+  - type: Sprite
+    layers:
+    - map: ["computerLayerScreen"]
+      state: telesci_red
 
 - type: entity
   id: ComputerBankATM

@@ -306,7 +306,8 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             balance,
             access,
             shipDeed,
-            isTargetIdPresent);
+            isTargetIdPresent,
+            ((byte)uiKey));
 
         _ui.TrySetUiState(uid, uiKey, newState);
     }
