@@ -68,7 +68,7 @@
     zeroVisible: true
   - type: Appearance
   - type: StaticPrice
-    price: 150
+    price: 110
 
 - type: entity
   name: makeshift laser gun

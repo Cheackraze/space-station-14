@@ -138,6 +138,13 @@
         },
         {
             "name": "Zookeeper"
+        },
+        {
+            "name": "MailCarrier"
+        },
+        {
+            "name": "Paramedic"
         }
+
     ]
 }

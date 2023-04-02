@@ -8,6 +8,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
 using static Robust.Client.UserInterface.Controls.BaseButton;
+using Content.Shared.Shipyard;
 
 namespace Content.Client.Shipyard.UI;
 
@@ -37,12 +38,12 @@ public sealed partial class ShipyardConsoleMenu : FancyWindow
     private void OnCategoryItemSelected(OptionButton.ItemSelectedEventArgs args)
     {
         SetCategoryText(args.Id);
-        PopulateProducts();
+        PopulateProducts((ShipyardConsoleUiKey) _menu.UiKey);
     }
 
     private void OnSearchBarTextChanged(LineEdit.LineEditEventArgs args)
     {
-        PopulateProducts();
+        PopulateProducts((ShipyardConsoleUiKey) _menu.UiKey);
     }
 
     private void SetCategoryText(int id)
@@ -59,7 +60,7 @@ public sealed partial class ShipyardConsoleMenu : FancyWindow
     /// <summary>
     ///     Populates the list of products that will actually be shown, using the current filters.
     /// </summary>
-    public void PopulateProducts()
+    public void PopulateProducts(ShipyardConsoleUiKey uiKey)
     {
         Vessels.RemoveAllChildren();
         GetPrototypes(out var vessels);
@@ -67,9 +68,22 @@ public sealed partial class ShipyardConsoleMenu : FancyWindow
         vesselList.Sort((x, y) =>
             string.Compare(x.Name, y.Name, StringComparison.CurrentCultureIgnoreCase));
 
+        var type = uiKey switch
+        {
+            ShipyardConsoleUiKey.Shipyard => "Civilian",
+            ShipyardConsoleUiKey.Security => "Security",
+            _ => "Shipyard",
+        };
+
         var search = SearchBar.Text.Trim().ToLowerInvariant();
+
         foreach (var prototype in vesselList)
         {
+            // filter by type for ui key
+            if (prototype.Group != type)
+            {
+                continue;
+            }
             // if no search or category
             // else if search
             // else if category and not search

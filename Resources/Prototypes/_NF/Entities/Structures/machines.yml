@@ -10,7 +10,7 @@
       ejectSound: /Audio/Machines/id_swipe.ogg
       insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
       ejectOnBreak: true
-      swap: false
+      swap: true
       whitelist:
         components:
         - IdCard
@@ -33,14 +33,37 @@
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
     - map: ["computerLayerScreen"]
-      state: request
+      state: telesci
     - map: ["computerLayerKeys"]
-      state: tech_key
+      state: telesci_key
   - type: ItemSlots  
   - type: ContainerContainer
     containers:
       board: !type:Container
       ShipyardConsole-targetId: !type:ContainerSlot {}
+
+- type: entity
+  id: ComputerShipyardSecurity
+  parent: ComputerShipyard
+  name: security shipyard console
+  description: Used to enlist into Nanotrasen Security Forces
+  components:  
+  - type: ActivatableUI
+    key: enum.ShipyardConsoleUiKey.Security
+  - type: UserInterface
+    interfaces:
+    - key: enum.ShipyardConsoleUiKey.Security
+      type: ShipyardConsoleBoundUserInterface
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: telesci_red      
+    - map: ["computerLayerKeys"]
+      state: telesci_key
 
 - type: entity
   id: ComputerBankATM
@@ -125,6 +148,9 @@
   - type: Appearance
   - type: Climbable
   - type: CryoSleep
+  - type: ContainerContainer
+    containers:
+      body_container: !type:ContainerSlot  
   
 - type: entity
   id: ComputerPalletConsoleNFHighMarket

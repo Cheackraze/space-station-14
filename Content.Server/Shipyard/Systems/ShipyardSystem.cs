@@ -111,7 +111,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
 
         _sawmill.Info($"Shuttle {shuttlePath} was purchased at {ToPrettyString((EntityUid) stationUid)} for {price:f2}");
         //can do TryFTLDock later instead if we need to keep the shipyard map paused
-        _shuttle.FTLTravel(shuttleGrid.Value, shuttle, targetGrid.Value, 0f, 30f, true);
+        _shuttle.FTLTravel(shuttleGrid.Value, shuttle, targetGrid.Value, 0f, 15f, true);
 
         return true;
     }
@@ -217,6 +217,11 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
 
         //just yeet and delete for now. Might want to split it into another function later to send back to the shipyard map first to pause for something
         //also superman 3 moment
+        if (_station.GetOwningStation(shuttleUid) is { Valid : true } shuttleStationUid)
+        {
+            _station.DeleteStation(shuttleStationUid);
+        }
+
         bill = (int) _pricing.AppraiseGrid(shuttleUid);
         _mapManager.DeleteGrid(shuttleUid);
         _sawmill.Info($"Sold shuttle {shuttleUid} for {bill}");

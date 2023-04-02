@@ -226,7 +226,11 @@ namespace Content.Server.Cargo.Systems
 
         private void UpdateOrderState(CargoOrderConsoleComponent component, EntityUid? station)
         {
-            var bui = _uiSystem.GetUi(component.Owner, CargoConsoleUiKey.Orders);
+            if (!_uiSystem.TryGetUi(component.Owner, CargoConsoleUiKey.Orders, out var bui))
+            {
+                return;
+            }
+
             var uiUser = bui.SubscribedSessions.FirstOrDefault();
             var balance = 0;
 

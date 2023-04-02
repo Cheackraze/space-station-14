@@ -23,7 +23,6 @@
                 <!-- Vessels get added here by code -->
             </BoxContainer>
         </ScrollContainer>
-        <TextureButton VerticalExpand="True" />
         <GridContainer Columns="3" HorizontalExpand="True">
             <Button Name="TargetIdButton" Access="Public"/>
             <Button Name="SellShipButton"

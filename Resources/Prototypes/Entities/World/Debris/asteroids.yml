@@ -14,7 +14,7 @@
     - type: SimpleFloorPlanPopulator
       entries:
         FloorAsteroidCoarseSand0:
-          - id: AsteroidRockMining
+          - id: RandomRockSpawner
     - type: GCAbleObject
       queue: SpaceDebris
     - type: IFF

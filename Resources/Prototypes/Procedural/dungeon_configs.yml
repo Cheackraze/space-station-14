@@ -74,7 +74,7 @@
       count: 3
       entities:
         - CableApcExtension
-        - AirlockSecurityGlassLocked
+        - AirlockSecurityGlass
       edgeEntities:
         - Grille
         - Window
@@ -83,12 +83,12 @@
       count: 1
       entities:
         - CableApcExtension
-        - AirlockSecurityGlassLocked
+        - AirlockSecurityGlass
 
     - !type:EntrancePostGen
       count: 2
       entities:
-        - AirlockSecurityGlassLocked
+        - AirlockSecurityGlass
 
     - !type:InternalWindowPostGen
       entities:
