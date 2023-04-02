@@ -517,7 +517,7 @@ entities:
 - uid: 47
   type: Thruster
   components:
-  - rot: 1.5707963267948966 rad
+  - rot: 3.141592653589793 rad
     pos: -2.5,-2.5
     parent: 0
     type: Transform
@@ -800,7 +800,7 @@ entities:
   - pos: 1.5,2.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -1220.4012
+  - SecondsUntilStateChange: -1280.8505
     state: Opening
     type: Door
   - inputs:
