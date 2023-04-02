@@ -32,7 +32,7 @@
   shuttlePath: /Maps/Shuttles/mail.yml
   
 - type: gameMap
-  id: PTS
+  id: MailTruck
   mapName: 'NC Mail Truck'
   mapPath: /Maps/Shuttles/mail.yml
   minPlayers: 0
