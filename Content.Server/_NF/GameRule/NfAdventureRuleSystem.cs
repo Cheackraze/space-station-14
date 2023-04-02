@@ -47,7 +47,7 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem
     {
         if (!RuleAdded)
             return;
-
+        var profitText = Loc.GetString($"adventure-mode-profit-text");
         ev.AddLine(Loc.GetString("adventure-list-start"));
         foreach (var player in _players)
         {
@@ -55,7 +55,7 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem
                 continue;
 
             var profit = bank.Balance - player.Item2;
-            ev.AddLine($"- {meta.EntityName} adventure-mode-profit-text { profit } currency");
+            ev.AddLine($"- {meta.EntityName} { profitText } { profit } Spesos");
         }
     }
 

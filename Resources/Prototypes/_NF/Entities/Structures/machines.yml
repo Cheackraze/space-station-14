@@ -56,8 +56,14 @@
       type: ShipyardConsoleBoundUserInterface
   - type: Sprite
     layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
     - map: ["computerLayerScreen"]
-      state: telesci_red
+      state: telesci_red      
+    - map: ["computerLayerKeys"]
+      state: telesci_key
 
 - type: entity
   id: ComputerBankATM

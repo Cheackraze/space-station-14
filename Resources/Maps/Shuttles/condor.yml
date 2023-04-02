@@ -16,7 +16,7 @@ entities:
   components:
   - type: MetaData
   - pos: 0.22312418,1.0179756
-    parent: invalid
+    parent: 866
     type: Transform
   - chunks:
       -1,-1:
@@ -438,7 +438,7 @@ entities:
   - pos: -2.5,-0.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -3692.3833
+  - SecondsUntilStateChange: -5243.836
     state: Closing
     type: Door
   - inputs:
@@ -1151,8 +1151,8 @@ entities:
   - pos: -0.5,2.5
     parent: 0
     type: Transform
-  - enabled: True
-    type: AmbientSound
+  - open: False
+    type: GasValve
   - color: '#990000FF'
     type: AtmosPipeColor
   - bodyType: Static
@@ -7003,4 +7003,60 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
+- uid: 866
+  components:
+  - type: MetaData
+  - type: Transform
+  - type: Map
+  - type: PhysicsMap
+  - type: Broadphase
+  - type: OccluderTree
+- uid: 867
+  type: RandomAnimalSpawner
+  components:
+  - pos: 7.5,-0.5
+    parent: 0
+    type: Transform
+- uid: 868
+  type: FirelockEdge
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 1.5,-1.5
+    parent: 0
+    type: Transform
+- uid: 869
+  type: FirelockEdge
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 1.5,-0.5
+    parent: 0
+    type: Transform
+- uid: 870
+  type: FirelockEdge
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 1.5,0.5
+    parent: 0
+    type: Transform
+- uid: 871
+  type: FirelockEdge
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 7.5,0.5
+    parent: 0
+    type: Transform
+- uid: 872
+  type: FirelockEdge
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 7.5,-0.5
+    parent: 0
+    type: Transform
+- uid: 873
+  type: FirelockEdge
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 7.5,-1.5
+    parent: 0
+    type: Transform
 ...

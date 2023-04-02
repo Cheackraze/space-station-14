@@ -602,6 +602,7 @@
     - map: ["computerLayerKeys"]
       state: generic_keys
   - type: RadarConsole
+    maxRange: 512
   - type: ActivatableUI
     key: enum.RadarConsoleUiKey.Key
   - type: UserInterface

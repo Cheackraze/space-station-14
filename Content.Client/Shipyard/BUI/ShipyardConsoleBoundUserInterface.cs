@@ -28,7 +28,9 @@ public sealed class ShipyardConsoleBoundUserInterface : BoundUserInterface
         _menu.OpenCentered();
         if (ShipyardConsoleUiKey.Security == (ShipyardConsoleUiKey) UiKey)
         {
-            rules.AddText(Loc.GetString($"shipyard-rules-default"));
+            rules.AddText(Loc.GetString($"shipyard-rules-default1"));
+            rules.PushNewline();
+            rules.AddText(Loc.GetString($"shipyard-rules-default2"));
             _rulesWindow.ShipRules.SetMessage(rules);
             _rulesWindow.OpenCentered();
         }    

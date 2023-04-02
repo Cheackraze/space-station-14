@@ -1,4 +1,52 @@
 - type: vessel
+  id: PTS
+  name: NC Personal Transport
+  description: A small transport shuttle with space for 5 passengers.
+  price: 19650
+  category: Small
+  group: Civilian
+  shuttlePath: /Maps/Shuttles/pts.yml
+  
+- type: gameMap
+  id: PTS
+  mapName: 'NC Personal Transport'
+  mapPath: /Maps/Shuttles/pts.yml
+  minPlayers: 0
+  stations: 
+    PTS:
+      mapNameTemplate: '{0} Personal Transport {1}'
+      nameGenerator:
+        !type:NanotrasenNameGenerator
+        prefixCreator: '14'
+      overflowJobs: []
+      availableJobs:
+        Passenger: [ 0, 0 ]
+
+- type: vessel
+  id: MailTruck
+  name: NC Mail Truck
+  description: A cramped yet reliable shuttle for delivering packages.
+  price: 15550
+  category: Small
+  group: Civilian
+  shuttlePath: /Maps/Shuttles/mail.yml
+  
+- type: gameMap
+  id: PTS
+  mapName: 'NC Mail Truck'
+  mapPath: /Maps/Shuttles/mail.yml
+  minPlayers: 0
+  stations: 
+    MailTruck:
+      mapNameTemplate: '{0} Mail Truck {1}'
+      nameGenerator:
+        !type:NanotrasenNameGenerator
+        prefixCreator: '14'
+      overflowJobs: []
+      availableJobs:
+        MailCarrier: [ 1, 1 ]
+
+- type: vessel
   id: Barge
   name: NC Barge
   description: A medium shipping vessel repurposed into a salvage bar.
