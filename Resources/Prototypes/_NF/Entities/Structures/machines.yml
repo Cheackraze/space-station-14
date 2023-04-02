@@ -148,6 +148,9 @@
   - type: Appearance
   - type: Climbable
   - type: CryoSleep
+  - type: ContainerContainer
+    containers:
+      body_container: !type:ContainerSlot  
   
 - type: entity
   id: ComputerPalletConsoleNFHighMarket
