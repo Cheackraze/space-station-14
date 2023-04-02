@@ -182,13 +182,17 @@
           path: /Audio/Items/change_drill.ogg
 
 - type: entity
-  parent: ClothingHeadsetAltCommand
+  parent: ClothingHeadsetCommand
   id: ClothingHeadsetBorg
   components:
-  - type: Tag
-    tags:
-    - NoAction
-
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyStationMaster
+  - type: Sprite
+    sprite: Clothing/Ears/Headsets/command.rsi
+  - type: Clothing
+    sprite: Clothing/Ears/Headsets/comman
 - type: entity
   parent: FloorTileItemSteel
   id: FloorTileItemSteelFull

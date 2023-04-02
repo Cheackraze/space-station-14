@@ -102,7 +102,6 @@
         - MobXenoPraetorianNPC
         - MobXenoDroneNPC
         - MobXenoRavagerNPC
-        - MobXenoRunnerNPC
         - MobXenoRounyNPC
         - MobXenoSpitterNPC
       rarePrototypes:
