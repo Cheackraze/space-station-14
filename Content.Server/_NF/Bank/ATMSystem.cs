@@ -11,6 +11,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Players;
 using System.Linq;
+using Content.Shared.Cargo;
 
 namespace Content.Server.Bank;
 
@@ -161,8 +162,11 @@ public sealed partial class BankSystem
     private void OnCashSlotChanged(EntityUid uid, BankATMComponent component, ContainerModifiedMessage args)
     {
 
-        // kind of cursed. We need to update the UI when cash is entered, but the UI needs to know the player characters bank account.
-        var bankUi = _uiSystem.GetUi(uid, BankATMMenuUiKey.ATM);
+        if (!_uiSystem.TryGetUi(component.Owner, CargoConsoleUiKey.Orders, out var bankUi))
+        {
+            return;
+        }
+
         var uiUser = bankUi.SubscribedSessions.FirstOrDefault();
         GetInsertedCashAmount(component, out var deposit);
 
