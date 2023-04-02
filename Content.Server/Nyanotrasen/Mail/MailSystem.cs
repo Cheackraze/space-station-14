@@ -199,8 +199,9 @@ namespace Content.Server.Mail
 
             foreach (var account in EntityQuery<StationBankAccountComponent>())
             {
-                if (_stationSystem.GetOwningStation(account.Owner) != _stationSystem.GetOwningStation(uid))
-                        continue;
+                // need to think of a better way to get just the station but since shuttle 'stations' accounts cant be accessed anyway we will just add them to all station bank accounts i suppose
+                //if (_stationSystem.GetOwningStation(account.Owner) != _stationSystem.GetOwningStation(uid))
+                //        continue;
 
                 _cargoSystem.UpdateBankAccount(account, component.Bounty);
                 return;
@@ -256,9 +257,10 @@ namespace Content.Server.Mail
 
             foreach (var account in EntityQuery<StationBankAccountComponent>())
             {
-                if (_stationSystem.GetOwningStation(account.Owner) != _stationSystem.GetOwningStation(uid))
-                        continue;
-
+                // need to think of a better way to get just the station but since shuttle 'stations' accounts cant be accessed anyway we will just add them to all station bank accounts i suppose
+                //if (_stationSystem.GetOwningStation(account.Owner) != _stationSystem.GetOwningStation(uid))
+                //        continue;
+                
                 _cargoSystem.UpdateBankAccount(account, component.Penalty);
                 return;
             }
@@ -565,8 +567,9 @@ namespace Content.Server.Mail
 
             foreach (var receiver in EntityQuery<MailReceiverComponent>())
             {
-                if (_stationSystem.GetOwningStation(receiver.Owner) != _stationSystem.GetOwningStation(uid))
-                    continue;
+                // mail is mapwide now, dont need to check if they are on the same station
+                //if (_stationSystem.GetOwningStation(receiver.Owner) != _stationSystem.GetOwningStation(uid))
+                //    continue;
 
                 if (TryGetMailRecipientForReceiver(receiver, out MailRecipient? recipient))
                     candidateList.Add(recipient.Value);

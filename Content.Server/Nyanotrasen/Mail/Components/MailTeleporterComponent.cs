@@ -37,7 +37,7 @@ namespace Content.Server.Mail.Components
         /// It does not determine unique recipients. That is random.
         /// </summary>
         [DataField("candidatesPerDelivery")]
-        public int CandidatesPerDelivery = 8;
+        public int CandidatesPerDelivery = 4;
 
         [DataField("minimumDeliveriesPerTeleport")]
         public int MinimumDeliveriesPerTeleport = 1;
@@ -72,7 +72,7 @@ namespace Content.Server.Mail.Components
         /// What's the bonus for delivering a fragile package intact?
         /// </summary>
         [DataField("fragileBonus")]
-        public int FragileBonus = 100;
+        public int FragileBonus = 200;
 
         /// <summary>
         /// What's the malus for failing to deliver a fragile package?
@@ -84,20 +84,20 @@ namespace Content.Server.Mail.Components
         /// What's the chance for any one delivery to be marked as priority mail?
         /// </summary>
         [DataField("priorityChance")]
-        public float PriorityChance = 0.1f;
+        public float PriorityChance = 0.07f;
 
         /// <summary>
         /// How long until a priority delivery is considered as having failed
         /// if not delivered?
         /// </summary>
         [DataField("priorityDuration")]
-        public TimeSpan priorityDuration = TimeSpan.FromMinutes(5);
+        public TimeSpan priorityDuration = TimeSpan.FromMinutes(15);
 
         /// <summary>
         /// What's the bonus for delivering a priority package on time?
         /// </summary>
         [DataField("priorityBonus")]
-        public int PriorityBonus = 250;
+        public int PriorityBonus = 500;
 
         /// <summary>
         /// What's the malus for failing to deliver a priority package?
