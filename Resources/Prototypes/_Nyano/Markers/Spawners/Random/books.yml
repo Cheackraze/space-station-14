@@ -13,7 +13,6 @@
     prototypes:
       - HyperlinkBookSpaceLaw
       - HyperlinkBookSupernanny
-      - HyperlinkBookGlimmer
       - HyperlinkBookChemistry
       - HyperlinkBookBartending
       - HyperlinkBookCooking

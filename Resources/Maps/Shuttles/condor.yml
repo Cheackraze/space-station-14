@@ -16,7 +16,7 @@ entities:
   components:
   - type: MetaData
   - pos: 0.22312418,1.0179756
-    parent: 866
+    parent: invalid
     type: Transform
   - chunks:
       -1,-1:
@@ -438,7 +438,7 @@ entities:
   - pos: -2.5,-0.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -5243.836
+  - SecondsUntilStateChange: -5492.3247
     state: Closing
     type: Door
   - inputs:
@@ -7004,17 +7004,15 @@ entities:
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 866
-  components:
-  - type: MetaData
-  - type: Transform
-  - type: Map
-  - type: PhysicsMap
-  - type: Broadphase
-  - type: OccluderTree
-- uid: 867
-  type: RandomAnimalSpawner
+  type: SpawnPointResearchDirector
   components:
   - pos: 7.5,-0.5
+    parent: 0
+    type: Transform
+- uid: 867
+  type: SpawnPointAtmos
+  components:
+  - pos: 4.5,3.5
     parent: 0
     type: Transform
 - uid: 868
@@ -7057,6 +7055,24 @@ entities:
   components:
   - rot: 1.5707963267948966 rad
     pos: 7.5,-1.5
+    parent: 0
+    type: Transform
+- uid: 874
+  type: SpawnPointChiefEngineer
+  components:
+  - pos: 6.5,-0.5
+    parent: 0
+    type: Transform
+- uid: 875
+  type: SpawnPointScientist
+  components:
+  - pos: 2.5,-0.5
+    parent: 0
+    type: Transform
+- uid: 876
+  type: SpawnPointStationEngineer
+  components:
+  - pos: 4.5,2.5
     parent: 0
     type: Transform
 ...

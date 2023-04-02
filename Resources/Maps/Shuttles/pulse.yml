@@ -115,7 +115,8 @@ entities:
         0,0:
           0: 65535
         0,-1:
-          0: 65535
+          0: 64511
+          1: 1024
         -2,-1:
           0: 34952
         -1,-2:
@@ -138,6 +139,21 @@ entities:
         moles:
         - 21.824879
         - 82.10312
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+      - volume: 2500
+        temperature: 293.15
+        moles:
+        - 21.6852
+        - 81.57766
         - 0
         - 0
         - 0
@@ -813,8 +829,8 @@ entities:
       immutable: False
       temperature: 293.1497
       moles:
-      - 1.7459903
-      - 6.568249
+      - 1.8856695
+      - 7.0937095
       - 0
       - 0
       - 0
@@ -1311,6 +1327,31 @@ entities:
   - pos: -1.6860508,3.449199
     parent: 0
     type: Transform
+  - group:
+    - hoverMessage: ""
+      contextText: verb-examine-group-other
+      icon: /Textures/Interface/examine-star.png
+      components:
+      - Armor
+      - ClothingSpeedModifier
+      entries:
+      - message: >-
+          It provides the following protection:
+
+          - [color=yellow]Slash[/color] damage reduced by [color=lightblue]5%[/color].
+
+          - [color=yellow]Heat[/color] damage reduced by [color=lightblue]10%[/color].
+
+          - [color=yellow]Radiation[/color] damage reduced by [color=lightblue]25%[/color].
+
+          - [color=yellow]Caustic[/color] damage reduced by [color=lightblue]50%[/color].
+        priority: 0
+        component: Armor
+      - message: This decreases your speed by [color=yellow]10%[/color].
+        priority: 0
+        component: ClothingSpeedModifier
+      title: null
+    type: GroupExamine
 - uid: 162
   type: ClothingHeadHelmetVoidParamed
   components:
@@ -1366,4 +1407,16 @@ entities:
     type: Transform
   - location: Pulse
     type: WarpPoint
+- uid: 169
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: 0.5,0.5
+    parent: 0
+    type: Transform
+- uid: 170
+  type: SpawnPointParamedic
+  components:
+  - pos: 0.5,-1.5
+    parent: 0
+    type: Transform
 ...

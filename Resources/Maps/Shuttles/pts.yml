@@ -196,6 +196,18 @@ entities:
   - pos: -0.5,1.5
     parent: 8756
     type: Transform
+- uid: 6
+  type: SpawnPointLatejoin
+  components:
+  - pos: -0.5,-1.5
+    parent: 8756
+    type: Transform
+- uid: 7
+  type: SpawnPointAssistant
+  components:
+  - pos: -0.5,0.5
+    parent: 8756
+    type: Transform
 - uid: 8756
   components:
   - type: MetaData

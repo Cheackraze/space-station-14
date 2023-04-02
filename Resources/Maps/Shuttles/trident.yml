@@ -175,11 +175,13 @@ entities:
         -3,-2:
           0: 54272
         -3,-1:
-          0: 65535
+          0: 49151
+          1: 16384
         -2,-2:
           0: 62464
         -2,-1:
-          0: 65535
+          0: 57343
+          1: 8192
         -1,-2:
           0: 65280
         0,-2:
@@ -201,7 +203,8 @@ entities:
         -2,2:
           0: 14
         -1,0:
-          0: 65535
+          0: 63359
+          1: 2176
         -1,1:
           0: 65535
         -1,2:
@@ -222,6 +225,21 @@ entities:
         moles:
         - 21.824879
         - 82.10312
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+      - volume: 2500
+        temperature: 293.14996
+        moles:
+        - 20.078888
+        - 75.53487
         - 0
         - 0
         - 0
@@ -745,7 +763,7 @@ entities:
   - pos: -5.5,7.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -1051.3077
+  - SecondsUntilStateChange: -1225.2899
     state: Closing
     type: Door
   - inputs:
@@ -827,7 +845,7 @@ entities:
   - pos: -4.5,7.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -1051.3077
+  - SecondsUntilStateChange: -1225.2899
     state: Closing
     type: Door
   - inputs:
@@ -1082,7 +1100,7 @@ entities:
     parent: 0
     type: Transform
 - uid: 122
-  type: AirlockCommandGlass
+  type: AirlockSecurityGlassLocked
   components:
   - pos: -5.5,-1.5
     parent: 0
@@ -1538,7 +1556,7 @@ entities:
   - pos: -4.5,5.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -1051.3077
+  - SecondsUntilStateChange: -1225.2899
     state: Closing
     type: Door
   - inputs:
@@ -1789,7 +1807,7 @@ entities:
   - pos: -5.5,5.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -1051.3077
+  - SecondsUntilStateChange: -1225.2899
     state: Closing
     type: Door
   - inputs:
@@ -1828,10 +1846,10 @@ entities:
   - air:
       volume: 200
       immutable: False
-      temperature: 75.31249
+      temperature: 293.1497
       moles:
-      - 0
-      - 0
+      - 1.7459903
+      - 6.568249
       - 0
       - 0
       - 0
@@ -1863,21 +1881,21 @@ entities:
     parent: 0
     type: Transform
 - uid: 239
-  type: WindoorCommandLocked
+  type: WindoorSecurityLocked
   components:
   - rot: -1.5707963267948966 rad
     pos: 2.5,1.5
     parent: 0
     type: Transform
 - uid: 240
-  type: WindoorCommandLocked
+  type: WindoorSecurityLocked
   components:
   - rot: -1.5707963267948966 rad
     pos: 2.5,2.5
     parent: 0
     type: Transform
 - uid: 241
-  type: WindoorCommandLocked
+  type: WindoorSecurityLocked
   components:
   - rot: -1.5707963267948966 rad
     pos: 2.5,3.5
@@ -1889,17 +1907,35 @@ entities:
   - pos: -0.5,1.5
     parent: 0
     type: Transform
+  - air:
+      volume: 200
+      immutable: False
+      temperature: 293.1496
+      moles:
+      - 1.7459903
+      - 6.568249
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    type: EntityStorage
   - containers:
       entity_storage: !type:Container
         showEnts: False
         occludes: True
         ents:
-        - 243
-        - 244
-        - 245
-        - 246
-        - 247
         - 248
+        - 247
+        - 246
+        - 245
+        - 244
+        - 243
     type: ContainerContainer
 - uid: 243
   type: BoxZiptie
@@ -2045,17 +2081,35 @@ entities:
   - pos: -0.5,2.5
     parent: 0
     type: Transform
+  - air:
+      volume: 200
+      immutable: False
+      temperature: 293.1496
+      moles:
+      - 1.7459903
+      - 6.568249
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    type: EntityStorage
   - containers:
       entity_storage: !type:Container
         showEnts: False
         occludes: True
         ents:
-        - 257
-        - 258
-        - 259
-        - 260
-        - 261
         - 262
+        - 261
+        - 260
+        - 259
+        - 258
+        - 257
     type: ContainerContainer
 - uid: 257
   type: BoxZiptie
@@ -2104,6 +2158,38 @@ entities:
     type: MetaData
   - parent: 256
     type: Transform
+  - group:
+    - hoverMessage: ""
+      contextText: verb-examine-group-other
+      icon: /Textures/Interface/examine-star.png
+      components:
+      - Armor
+      - ClothingSpeedModifier
+      entries:
+      - message: >-
+          This decreases your running speed by [color=yellow]40%[/color].
+
+          This decreases your walking speed by [color=yellow]60%[/color].
+        priority: 0
+        component: ClothingSpeedModifier
+      - message: >-
+          It provides the following protection:
+
+          - [color=yellow]Blunt[/color] damage reduced by [color=lightblue]40%[/color].
+
+          - [color=yellow]Slash[/color] damage reduced by [color=lightblue]40%[/color].
+
+          - [color=yellow]Piercing[/color] damage reduced by [color=lightblue]40%[/color].
+
+          - [color=yellow]Heat[/color] damage reduced by [color=lightblue]20%[/color].
+
+          - [color=yellow]Radiation[/color] damage reduced by [color=lightblue]75%[/color].
+
+          - [color=yellow]Caustic[/color] damage reduced by [color=lightblue]25%[/color].
+        priority: 0
+        component: Armor
+      title: null
+    type: GroupExamine
   - canCollide: False
     type: Physics
   - type: InsideEntityStorage
@@ -2778,7 +2864,7 @@ entities:
   - pos: -7.5,4.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -2149.1533
+  - SecondsUntilStateChange: -2323.1355
     state: Opening
     type: Door
   - inputs:
@@ -2794,7 +2880,7 @@ entities:
   - pos: -8.5,4.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -2149.1533
+  - SecondsUntilStateChange: -2323.1355
     state: Opening
     type: Door
   - inputs:
@@ -2810,7 +2896,7 @@ entities:
   - pos: -9.5,4.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -2149.1533
+  - SecondsUntilStateChange: -2323.1355
     state: Opening
     type: Door
   - inputs:
@@ -2826,7 +2912,7 @@ entities:
   - pos: -10.5,4.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -2149.1533
+  - SecondsUntilStateChange: -2323.1355
     state: Opening
     type: Door
   - inputs:
@@ -2842,7 +2928,7 @@ entities:
   - pos: -11.5,5.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -2149.1533
+  - SecondsUntilStateChange: -2323.1355
     state: Opening
     type: Door
   - inputs:
@@ -2858,7 +2944,7 @@ entities:
   - pos: -11.5,6.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -2149.1533
+  - SecondsUntilStateChange: -2323.1355
     state: Opening
     type: Door
   - inputs:
@@ -2874,7 +2960,7 @@ entities:
   - pos: -10.5,7.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -2149.1533
+  - SecondsUntilStateChange: -2323.1355
     state: Opening
     type: Door
   - inputs:
@@ -2890,7 +2976,7 @@ entities:
   - pos: -7.5,7.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -2149.1533
+  - SecondsUntilStateChange: -2323.1355
     state: Opening
     type: Door
   - inputs:
@@ -3136,6 +3222,36 @@ entities:
   - pos: 0.5,4.5
     parent: 0
     type: Transform
+- uid: 386
+  type: SpawnPointPrisonGuard
+  components:
+  - pos: -0.5,5.5
+    parent: 0
+    type: Transform
+- uid: 387
+  type: SpawnPointSecurityOfficer
+  components:
+  - pos: 1.5,3.5
+    parent: 0
+    type: Transform
+- uid: 388
+  type: SpawnPointSecurityOfficer
+  components:
+  - pos: 1.5,2.5
+    parent: 0
+    type: Transform
+- uid: 389
+  type: SpawnPointSecurityOfficer
+  components:
+  - pos: 1.5,1.5
+    parent: 0
+    type: Transform
+- uid: 390
+  type: SpawnPointWarden
+  components:
+  - pos: -7.5,-1.5
+    parent: 0
+    type: Transform
 - uid: 392
   type: CableApcExtension
   components:
@@ -3306,10 +3422,10 @@ entities:
   - air:
       volume: 200
       immutable: False
-      temperature: 99.138466
+      temperature: 293.14972
       moles:
-      - 0
-      - 0
+      - 1.7459903
+      - 6.568249
       - 0
       - 0
       - 0
@@ -3326,12 +3442,12 @@ entities:
         showEnts: False
         occludes: True
         ents:
-        - 373
-        - 375
-        - 416
-        - 415
-        - 374
         - 376
+        - 374
+        - 415
+        - 416
+        - 375
+        - 373
     type: ContainerContainer
 - uid: 415
   type: WeaponAntiqueLaser

@@ -33738,8 +33738,7 @@ entities:
 - uid: 4449
   type: ComputerRadar
   components:
-  - rot: 3.141592653589793 rad
-    pos: -0.5,4.5
+  - pos: -0.5,4.5
     parent: 0
     type: Transform
 - uid: 4450
@@ -46369,6 +46368,18 @@ entities:
   components:
   - rot: 3.141592653589793 rad
     pos: 20.5,0.5
+    parent: 0
+    type: Transform
+- uid: 5770
+  type: SpawnPointHeadOfSecurity
+  components:
+  - pos: 37.5,14.5
+    parent: 0
+    type: Transform
+- uid: 5771
+  type: SpawnPointHeadOfPersonnel
+  components:
+  - pos: 13.5,14.5
     parent: 0
     type: Transform
 ...

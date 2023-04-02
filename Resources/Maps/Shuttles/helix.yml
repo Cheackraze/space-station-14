@@ -18,7 +18,7 @@ entities:
   components:
   - type: MetaData
   - pos: 0.5350957,0.3933836
-    parent: 454
+    parent: invalid
     type: Transform
   - chunks:
       -1,-1:
@@ -3491,13 +3491,11 @@ entities:
     parent: 0
     type: Transform
 - uid: 454
+  type: SpawnPointLatejoin
   components:
-  - type: MetaData
-  - type: Transform
-  - type: Map
-  - type: PhysicsMap
-  - type: Broadphase
-  - type: OccluderTree
+  - pos: 7.5,7.5
+    parent: 0
+    type: Transform
 - uid: 455
   type: ClothingOuterHardsuitVoidParamed
   components:
@@ -3746,9 +3744,39 @@ entities:
         - 462
     type: ContainerContainer
 - uid: 483
-  type: RandomAnimalSpawner
+  type: SpawnPointLatejoin
   components:
-  - pos: 2.5,6.5
+  - pos: -0.5,7.5
+    parent: 0
+    type: Transform
+- uid: 484
+  type: SpawnPointChemist
+  components:
+  - pos: 3.5,4.5
+    parent: 0
+    type: Transform
+- uid: 485
+  type: SpawnPointChiefMedicalOfficer
+  components:
+  - pos: 10.5,7.5
+    parent: 0
+    type: Transform
+- uid: 486
+  type: SpawnPointMedicalCyborg
+  components:
+  - pos: 7.5,6.5
+    parent: 0
+    type: Transform
+- uid: 487
+  type: SpawnPointMedicalDoctor
+  components:
+  - pos: -4.5,6.5
+    parent: 0
+    type: Transform
+- uid: 488
+  type: SpawnPointParamedic
+  components:
+  - pos: -1.5,7.5
     parent: 0
     type: Transform
 ...

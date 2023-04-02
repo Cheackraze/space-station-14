@@ -498,6 +498,13 @@ entities:
   - pos: -6.5,-2.5
     parent: 0
     type: Transform
+  - inputs:
+      Open: []
+      Close: []
+      Toggle:
+      - port: Pressed
+        uid: 171
+    type: SignalReceiver
 - uid: 26
   type: PlasticFlapsAirtightClear
   components:
@@ -1499,6 +1506,13 @@ entities:
   - pos: -4.5,-2.5
     parent: 0
     type: Transform
+  - inputs:
+      Open: []
+      Close: []
+      Toggle:
+      - port: Pressed
+        uid: 171
+    type: SignalReceiver
 - uid: 171
   type: SignalButton
   components:
@@ -1506,6 +1520,13 @@ entities:
     pos: -3.5,-3.5
     parent: 0
     type: Transform
+  - outputs:
+      Pressed:
+      - port: Toggle
+        uid: 170
+      - port: Toggle
+        uid: 25
+    type: SignalTransmitter
 - uid: 172
   type: SignalButton
   components:
@@ -1798,4 +1819,10 @@ entities:
     type: Transform
   - location: Prospector
     type: WarpPoint
+- uid: 200
+  type: SpawnPointSalvageSpecialist
+  components:
+  - pos: -1.5,-4.5
+    parent: 0
+    type: Transform
 ...

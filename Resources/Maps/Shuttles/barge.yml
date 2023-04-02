@@ -882,7 +882,8 @@ entities:
           1: 4
         -1,-1:
           0: 64767
-          1: 768
+          1: 256
+          2: 512
         0,-1:
           0: 65535
         1,-1:
@@ -1350,15 +1351,15 @@ entities:
         showEnts: False
         occludes: True
         ents:
-        - 586
-        - 583
-        - 515
-        - 543
-        - 550
-        - 552
-        - 562
-        - 578
         - 594
+        - 578
+        - 562
+        - 552
+        - 550
+        - 543
+        - 515
+        - 583
+        - 586
     type: ContainerContainer
 - uid: 107
   type: ShuttleWindow
@@ -3406,6 +3407,24 @@ entities:
   - pos: -2.5,-1.5
     parent: 70
     type: Transform
+  - air:
+      volume: 200
+      immutable: False
+      temperature: 293.14957
+      moles:
+      - 1.6971024
+      - 6.3843384
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    type: EntityStorage
 - uid: 368
   type: CableApcExtension
   components:
@@ -5136,4 +5155,34 @@ entities:
     type: Transform
   - location: Barge
     type: WarpPoint
+- uid: 600
+  type: SpawnPointBartender
+  components:
+  - pos: -4.5,-5.5
+    parent: 70
+    type: Transform
+- uid: 601
+  type: SpawnPointCargoTechnician
+  components:
+  - pos: 3.5,4.5
+    parent: 70
+    type: Transform
+- uid: 602
+  type: SpawnPointQuartermaster
+  components:
+  - pos: -3.5,5.5
+    parent: 70
+    type: Transform
+- uid: 603
+  type: SpawnPointSalvageSpecialist
+  components:
+  - pos: -2.5,5.5
+    parent: 70
+    type: Transform
+- uid: 604
+  type: OreProcessor
+  components:
+  - pos: -0.5,0.5
+    parent: 70
+    type: Transform
 ...

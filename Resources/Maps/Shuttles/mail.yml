@@ -800,7 +800,7 @@ entities:
   - pos: 1.5,2.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -1280.8505
+  - SecondsUntilStateChange: -1375.5061
     state: Opening
     type: Door
   - inputs:
@@ -938,4 +938,10 @@ entities:
     type: Transform
   - enabled: True
     type: AmbientSound
+- uid: 102
+  type: SpawnPointMailCarrier
+  components:
+  - pos: -0.5,1.5
+    parent: 0
+    type: Transform
 ...
