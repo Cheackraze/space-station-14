@@ -1,9 +1,7 @@
-using System.Threading;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
-using Content.Server.DoAfter;
 using Content.Shared.DoAfter;
 using Content.Server.Popups;
 using Content.Server.Abilities;
@@ -18,6 +16,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Examine;
 using Content.Shared.Tag;
+using Content.Shared.Respirator;
 using JetBrains.Annotations;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
@@ -39,7 +38,7 @@ namespace Content.Server.Body.Systems
         [Dependency] private readonly DamageableSystem _damageableSys = default!;
         [Dependency] private readonly LungSystem _lungSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
-        [Dependency] private readonly DoAfterSystem _doAfter = default!;
+        [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
         [Dependency] private readonly ActionBlockerSystem _blocker = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly InventorySystem _inventory = default!;
@@ -54,7 +53,7 @@ namespace Content.Server.Body.Systems
             // We want to process lung reagents before we inhale new reagents.
             UpdatesAfter.Add(typeof(MetabolizerSystem));
             SubscribeLocalEvent<RespiratorComponent, ApplyMetabolicMultiplierEvent>(OnApplyMetabolicMultiplier);
-            SubscribeLocalEvent<RespiratorComponent, DoAfterEvent<CPRData>>(OnDoAfter);
+            SubscribeLocalEvent<RespiratorComponent, DoAfterEvent>(OnDoAfter);
         }
 
         public override void Update(float frameTime)
@@ -233,7 +232,7 @@ namespace Content.Server.Body.Systems
                 component.AccumulatedFrametime = component.CycleDelay;
         }
 
-        private void OnDoAfter(EntityUid uid, RespiratorComponent component, DoAfterEvent<CPRData> args)
+        private void OnDoAfter(EntityUid uid, RespiratorComponent component, DoAfterEvent args)
         {
             component.CPRPlayingStream?.Stop();
             component.IsReceivingCPR = false;
@@ -292,19 +291,15 @@ namespace Content.Server.Body.Systems
             component.IsReceivingCPR = true;
             component.CPRPlayingStream = _audio.PlayPvs(component.CPRSound, uid, audioParams: AudioParams.Default.WithVolume(-3f));
 
-            var data = new CPRData();
-            var args = new DoAfterEventArgs(user, Math.Min(component.CycleDelay * 2, 6f), target: uid)
+            var args = new DoAfterArgs(user, Math.Min(component.CycleDelay * 2, 6f), new CPRDoAfterEvent(), uid, target: uid)
             {
-                RaiseOnUser = false,
-                RaiseOnTarget = true,
                 BreakOnTargetMove = true,
                 BreakOnUserMove = true,
                 BreakOnDamage = true,
-                BreakOnStun = true,
                 NeedHand = true
             };
 
-            _doAfter.DoAfter(args, data);
+            _doAfter.TryStartDoAfter(args);
         }
 
         /// <summary>
@@ -317,9 +312,6 @@ namespace Content.Server.Body.Systems
 
             return component.IsReceivingCPR;
         }
-
-        private record struct CPRData()
-        { }
     }
 }
 
