@@ -179,10 +179,10 @@ entities:
           color: '#EFB34196'
           id: ArrowsGreyscale
         decals:
-          1206: -19,3
-          1207: -1,12
-          1209: 17,3
-          1210: 30,4
+          1205: -19,3
+          1206: -1,12
+          1208: 17,3
+          1209: 30,4
       - node:
           angle: 3.141592653589793 rad
           color: '#334E6DC8'
@@ -195,8 +195,7 @@ entities:
           id: ArrowsGreyscale
         decals:
           1204: -53,2
-          1205: -37,2
-          1208: -1,9
+          1207: -1,9
       - node:
           color: '#334E6DC8'
           id: ArrowsGreyscale
@@ -12095,45 +12094,30 @@ entities:
   - pos: -54.5,10.5
     parent: 0
     type: Transform
-  - containers:
-      body_container: !type:ContainerSlot {}
-    type: ContainerContainer
 - uid: 1395
   type: MachineCryoSleepPod
   components:
   - pos: -54.5,12.5
     parent: 0
     type: Transform
-  - containers:
-      body_container: !type:ContainerSlot {}
-    type: ContainerContainer
 - uid: 1396
   type: MachineCryoSleepPod
   components:
   - pos: -54.5,14.5
     parent: 0
     type: Transform
-  - containers:
-      body_container: !type:ContainerSlot {}
-    type: ContainerContainer
 - uid: 1397
   type: MachineCryoSleepPod
   components:
   - pos: -54.5,16.5
     parent: 0
     type: Transform
-  - containers:
-      body_container: !type:ContainerSlot {}
-    type: ContainerContainer
 - uid: 1398
   type: MachineCryoSleepPod
   components:
   - pos: -54.5,18.5
     parent: 0
     type: Transform
-  - containers:
-      body_container: !type:ContainerSlot {}
-    type: ContainerContainer
 - uid: 1399
   type: TintedWindow
   components:
@@ -20962,7 +20946,7 @@ entities:
     parent: 0
     type: Transform
 - uid: 2540
-  type: ComputerRadar
+  type: StationAdminBankATM
   components:
   - pos: 5.5,22.5
     parent: 0
@@ -21472,7 +21456,7 @@ entities:
     parent: 0
     type: Transform
 - uid: 2623
-  type: ComputerSurveillanceCameraMonitor
+  type: StationAdminBankATM
   components:
   - rot: 1.5707963267948966 rad
     pos: 45.5,11.5
@@ -46100,17 +46084,15 @@ entities:
     parent: 0
     type: Transform
 - uid: 5731
-  type: ComputerRadar
+  type: CableMV
   components:
-  - rot: 3.141592653589793 rad
-    pos: -36.5,1.5
+  - pos: 41.5,18.5
     parent: 0
     type: Transform
 - uid: 5732
-  type: WindowReinforcedDirectional
+  type: CableMV
   components:
-  - rot: 1.5707963267948966 rad
-    pos: -36.5,1.5
+  - pos: 42.5,18.5
     parent: 0
     type: Transform
 - uid: 5733
@@ -46208,10 +46190,9 @@ entities:
     parent: 0
     type: Transform
 - uid: 5747
-  type: WindowReinforcedDirectional
+  type: CableMV
   components:
-  - rot: -1.5707963267948966 rad
-    pos: -36.5,1.5
+  - pos: 43.5,18.5
     parent: 0
     type: Transform
 - uid: 5748
@@ -46382,4 +46363,36 @@ entities:
   - pos: 13.5,14.5
     parent: 0
     type: Transform
+- uid: 5772
+  type: CableMV
+  components:
+  - pos: 44.5,18.5
+    parent: 0
+    type: Transform
+- uid: 5773
+  type: CableMV
+  components:
+  - pos: 44.5,17.5
+    parent: 0
+    type: Transform
+- uid: 5774
+  type: CableMV
+  components:
+  - pos: 44.5,16.5
+    parent: 0
+    type: Transform
+- uid: 5775
+  type: CableMV
+  components:
+  - pos: 45.5,16.5
+    parent: 0
+    type: Transform
+- uid: 5776
+  type: CableMV
+  components:
+  - pos: 46.5,16.5
+    parent: 0
+    type: Transform
+  - enabled: True
+    type: AmbientSound
 ...
