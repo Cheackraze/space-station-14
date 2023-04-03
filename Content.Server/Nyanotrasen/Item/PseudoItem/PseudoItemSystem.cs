@@ -4,6 +4,7 @@ using Content.Shared.Item;
 using Content.Shared.Hands;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Pseudo;
 using Content.Server.Storage.Components;
 using Content.Server.Storage.EntitySystems;
 using Content.Server.DoAfter;
@@ -15,7 +16,7 @@ namespace Content.Server.Item.PseudoItem
     {
         [Dependency] private readonly StorageSystem _storageSystem = default!;
         [Dependency] private readonly ItemSystem _itemSystem = default!;
-        [Dependency] private readonly DoAfterSystem _doAfter = default!;
+        [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -141,14 +142,10 @@ namespace Content.Server.Item.PseudoItem
             if (!Resolve(toInsert, ref pseudoItem))
                 return;
 
-            _doAfter.DoAfter(new DoAfterEventArgs(inserter, 5f, target: toInsert, used: storageEntity)
+            _doAfter.TryStartDoAfter(new DoAfterArgs(inserter, 5f, new PseudoDoAfterEvent(), toInsert, target: toInsert, used: storageEntity)
             {
-                RaiseOnTarget = true,
-                RaiseOnUser = false,
-                RaiseOnUsed = false,
                 BreakOnTargetMove = true,
                 BreakOnUserMove = true,
-                BreakOnStun = true,
                 NeedHand = true
             });
         }

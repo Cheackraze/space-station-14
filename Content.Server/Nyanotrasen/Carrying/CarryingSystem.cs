@@ -33,7 +33,7 @@ namespace Content.Server.Carrying
     {
         [Dependency] private readonly HandVirtualItemSystem _virtualItemSystem = default!;
         [Dependency] private readonly CarryingSlowdownSystem _slowdown = default!;
-        [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
+        [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly StandingStateSystem _standingState = default!;
         [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
         [Dependency] private readonly SharedPullingSystem _pullingSystem = default!;
@@ -60,7 +60,7 @@ namespace Content.Server.Carrying
             SubscribeLocalEvent<BeingCarriedComponent, PullAttemptEvent>(OnPullAttempt);
             SubscribeLocalEvent<BeingCarriedComponent, StartClimbEvent>(OnStartClimb);
             SubscribeLocalEvent<BeingCarriedComponent, BuckleChangeEvent>(OnBuckleChange);
-            SubscribeLocalEvent<CarriableComponent, DoAfterEvent<CarryData>>(OnDoAfter);
+            SubscribeLocalEvent<CarriableComponent, DoAfterEvent>(OnDoAfter);
         }
 
 
@@ -194,7 +194,7 @@ namespace Content.Server.Carrying
             DropCarried(component.Carrier, uid);
         }
 
-        private void OnDoAfter(EntityUid uid, CarriableComponent component, DoAfterEvent<CarryData> args)
+        private void OnDoAfter(EntityUid uid, CarriableComponent component, DoAfterEvent args)
         {
             component.CancelToken = null;
             if (args.Handled || args.Cancelled)
@@ -224,20 +224,13 @@ namespace Content.Server.Carrying
             if (!HasComp<KnockedDownComponent>(carried))
                 length *= 2f;
 
-            component.CancelToken = new CancellationTokenSource();
-
-            var data = new CarryData();
-            var args = new DoAfterEventArgs(carrier, length, component.CancelToken.Token, target: carried)
+            var args = new DoAfterArgs(carrier, length, new CarryDoAfterEvent(), carried, target: carried)
             {
-                RaiseOnUser = false,
-                RaiseOnTarget = true,
                 BreakOnTargetMove = true,
                 BreakOnUserMove = true,
-                BreakOnStun = true,
                 NeedHand = true
             };
-
-            _doAfterSystem.DoAfter(args, data);
+            _doAfterSystem.TryStartDoAfter(args);
         }
 
         private void Carry(EntityUid carrier, EntityUid carried)
