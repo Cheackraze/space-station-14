@@ -1,3 +1,4 @@
+using Content.Client.UserInterface.Systems.Ghost.Widgets;
 using Content.Shared.Actions;
 using Content.Shared.Ghost;
 using JetBrains.Annotations;
@@ -5,7 +6,9 @@ using Robust.Client.Console;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
+using Robust.Client.UserInterface;
 using Robust.Shared.GameStates;
+using Robust.Shared.Timing;
 
 namespace Content.Client.Ghost
 {
@@ -17,6 +20,18 @@ namespace Content.Client.Ghost
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly ILightManager _lightManager = default!;
         [Dependency] private readonly IEyeManager _eye = default!;
+        [Dependency] private readonly IUserInterfaceManager _uiManager = default!;
+        [Dependency] private readonly IGameTiming _gameTiming = default!;
+
+        public override void Update(float frameTime)
+        {
+            foreach (var ghost in EntityManager.EntityQuery<GhostComponent>(true))
+            {
+                var ui = _uiManager.GetActiveUIWidgetOrNull<GhostGui>();
+                if (ui != null && Player != null)
+                    ui.UpdateRespawn(ghost.TimeOfDeath);
+            }
+        }
 
         public int AvailableGhostRoleCount { get; private set; }
 
@@ -134,7 +149,7 @@ namespace Content.Client.Ghost
         {
             if (uid != _playerManager.LocalPlayer?.ControlledEntity)
                 return;
-
+            component.TimeOfDeath = _gameTiming.CurTime;
             GhostVisibility = true;
             component.IsAttached = true;
             PlayerAttached?.Invoke(component);
