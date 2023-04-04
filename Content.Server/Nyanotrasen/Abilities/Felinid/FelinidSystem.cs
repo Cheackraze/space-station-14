@@ -10,13 +10,14 @@ using Content.Shared.IdentityManagement;
 using Content.Server.Body.Components;
 using Content.Server.Medical;
 using Content.Server.Nutrition.EntitySystems;
-using Content.Server.Nutrition.Components;
+using Content.Shared.Nutrition.Components;
 using Content.Server.Chemistry.EntitySystems;
 using Content.Server.Popups;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Prototypes;
+using Content.Shared.Nutrition.EntitySystems;
 
 namespace Content.Server.Abilities.Felinid
 {
@@ -25,6 +26,7 @@ namespace Content.Server.Abilities.Felinid
 
         [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
         [Dependency] private readonly VomitSystem _vomitSystem = default!;
+        [Dependency] private readonly HungerSystem _hunger = default!;
         [Dependency] private readonly SolutionContainerSystem _solutionSystem = default!;
         [Dependency] private readonly IRobustRandom _robustRandom = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
@@ -121,7 +123,7 @@ namespace Content.Server.Abilities.Felinid
             if (!TryComp<HungerComponent>(uid, out var hunger))
                 return;
 
-            if (hunger.CurrentHungerThreshold == Shared.Nutrition.Components.HungerThreshold.Overfed)
+            if (hunger.CurrentThreshold == Shared.Nutrition.Components.HungerThreshold.Overfed)
             {
                 _popupSystem.PopupEntity(Loc.GetString("food-system-you-cannot-eat-any-more"), uid, uid, Shared.Popups.PopupType.SmallCaution);
                 return;
@@ -145,8 +147,7 @@ namespace Content.Server.Abilities.Felinid
 
             SoundSystem.Play("/Audio/Items/eatfood.ogg", Filter.Pvs(uid), uid, AudioHelpers.WithVariation(0.15f));
 
-            hunger.UpdateFood(70f);
-
+            _hunger.ModifyHunger(uid, 70f, hunger);
             if (_prototypeManager.TryIndex<InstantActionPrototype>("EatMouse", out var eatMouse))
                     _actionsSystem.RemoveAction(uid, eatMouse);
         }
