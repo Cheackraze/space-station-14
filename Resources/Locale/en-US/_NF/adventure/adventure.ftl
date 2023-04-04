@@ -1,4 +1,5 @@
 ## UI
+playtime-deny-reason-not-whitelisted = You need to be whitelisted.
 adventure-list-start = NT Galactic Bank
 adventure-mode-profit-text = made a total profit of: {" "}
 adventure-title = New Frontier Adventure Mode

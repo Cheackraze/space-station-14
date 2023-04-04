@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using Content.Shared.CCVar;
 using Content.Shared.Players.PlayTimeTracking;
@@ -21,10 +21,12 @@ public sealed class PlayTimeTrackingManager
 
     private readonly Dictionary<string, TimeSpan> _roles = new();
 
+    private bool _whitelisted = false;
+
     public void Initialize()
     {
         _net.RegisterNetMessage<MsgPlayTime>(RxPlayTime);
-
+        _net.RegisterNetMessage<MsgWhitelist>(RxWhitelist);
         _client.RunLevelChanged += ClientOnRunLevelChanged;
     }
 
@@ -53,6 +55,10 @@ public sealed class PlayTimeTrackingManager
             sawmill.Info($"{tracker}: {time}");
         }*/
     }
+    private void RxWhitelist(MsgWhitelist message)
+    {
+        _whitelisted = message.Whitelisted;
+    }
 
     public bool IsAllowed(JobPrototype job, [NotNullWhen(false)] out string? reason)
     {
@@ -80,6 +86,14 @@ public sealed class PlayTimeTrackingManager
             first = false;
 
             reasonBuilder.AppendLine(reason);
+        }
+
+        if (!_whitelisted)
+        {
+            if (reasonBuilder.Length > 0)
+                reasonBuilder.Append('\n');
+
+            reasonBuilder.AppendLine(Loc.GetString("playtime-deny-reason-not-whitelisted"));
         }
 
         reason = reasonBuilder.Length == 0 ? null : reasonBuilder.ToString();
