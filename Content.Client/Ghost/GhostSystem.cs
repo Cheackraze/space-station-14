@@ -8,6 +8,7 @@ using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Client.UserInterface;
 using Robust.Shared.GameStates;
+using Robust.Shared.Timing;
 
 namespace Content.Client.Ghost
 {
@@ -20,6 +21,7 @@ namespace Content.Client.Ghost
         [Dependency] private readonly ILightManager _lightManager = default!;
         [Dependency] private readonly IEyeManager _eye = default!;
         [Dependency] private readonly IUserInterfaceManager _uiManager = default!;
+        [Dependency] private readonly IGameTiming _gameTiming = default!;
 
         public override void Update(float frameTime)
         {
@@ -147,7 +149,7 @@ namespace Content.Client.Ghost
         {
             if (uid != _playerManager.LocalPlayer?.ControlledEntity)
                 return;
-
+            component.TimeOfDeath = _gameTiming.CurTime;
             GhostVisibility = true;
             component.IsAttached = true;
             PlayerAttached?.Invoke(component);

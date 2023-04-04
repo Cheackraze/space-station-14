@@ -75,11 +75,11 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
 
         Gui.Visible = _system?.IsGhost ?? false;
         Gui.Update(_system?.AvailableGhostRoleCount, _system?.Player?.CanReturnToBody,
-            _cfg.GetCVar(NF14CVars.RespawnEnabled) ? _system?.Player?.TimeOfDeath : null,
+            _system?.Player?.TimeOfDeath,
             _cfg.GetCVar(NF14CVars.RespawnTime));
     }
 
-    private void UpdateRespawn(TimeSpan timeOfDeath)
+    private void UpdateRespawn(TimeSpan? timeOfDeath)
     {
         Gui?.UpdateRespawn(timeOfDeath);
     }
@@ -102,7 +102,7 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
             return;
 
         Gui.Visible = true;
-        UpdateRespawn(component.TimeOfDeath);
+        UpdateRespawn(_gameTiming.CurTime);
         UpdateGui();
     }
 
