@@ -602,6 +602,7 @@
     - map: ["computerLayerKeys"]
       state: generic_keys
   - type: RadarConsole
+    maxRange: 512
   - type: ActivatableUI
     key: enum.RadarConsoleUiKey.Key
   - type: UserInterface
@@ -676,8 +677,8 @@
     radius: 1.5
     energy: 1.6
     color: "#b89f25"
-  - type: AccessReader
-    access: [["Cargo"]]
+  # - type: AccessReader
+    # access: [["Cargo"]]
 
 - type: entity
   parent: BaseComputer

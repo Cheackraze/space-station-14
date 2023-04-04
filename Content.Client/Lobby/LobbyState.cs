@@ -1,3 +1,4 @@
+using Content.Client.NewFrontier.Latejoin;
 using Content.Client.Chat.Managers;
 using Content.Client.GameTicking.Managers;
 using Content.Client.LateJoin;
@@ -59,6 +60,8 @@ namespace Content.Client.Lobby
             _lobby.CharacterSetupState.AddChild(_characterSetup);
             chatController.SetMainChat(true);
 
+            _voteManager.SetPopupContainer(_lobby.VoteContainer);
+
             _characterSetup.CloseButton.OnPressed += _ =>
             {
                 _lobby.SwitchState(LobbyGui.LobbyGuiState.Default);
@@ -91,6 +94,8 @@ namespace Content.Client.Lobby
             _gameTicker.LobbyStatusUpdated -= LobbyStatusUpdated;
             _gameTicker.LobbyLateJoinStatusUpdated -= LobbyLateJoinStatusUpdated;
 
+            _lobby!.VoteContainer.Orphan();
+
             _lobby!.CharacterPreview.CharacterSetupButton.OnPressed -= OnSetupPressed;
             _lobby!.ReadyButton.OnPressed -= OnReadyPressed;
             _lobby!.ReadyButton.OnToggled -= OnReadyToggled;
@@ -114,7 +119,7 @@ namespace Content.Client.Lobby
                 return;
             }
 
-            new LateJoinGui().OpenCentered();
+            new NFLateJoinGui().OpenCentered();
         }
 
         private void OnReadyToggled(BaseButton.ButtonToggledEventArgs args)

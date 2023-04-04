@@ -24,6 +24,7 @@ public sealed partial class BankSystem : EntitySystem
         SubscribeLocalEvent<BankAccountComponent, ComponentGetState>(OnBankAccountChanged);
         SubscribeLocalEvent<PlayerJoinedLobbyEvent>(OnPlayerLobbyJoin);
         InitializeATM();
+        InitializeStationATM();
     }
 
     // attaches the bank component directly on to the player's mob. Could be attached to something else on the player later.

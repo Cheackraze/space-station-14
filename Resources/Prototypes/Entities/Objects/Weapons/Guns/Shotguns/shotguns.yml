@@ -117,6 +117,8 @@
     graph: ShotgunSawn
     node: start
     deconstructionTarget: null
+  - type: StaticPrice
+    price: 350
 
 - type: entity
   name: Enforcer

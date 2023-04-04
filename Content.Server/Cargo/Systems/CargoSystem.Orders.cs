@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.Access.Systems;
+using Content.Server.Bank;
 using Content.Server.Cargo.Components;
 using Content.Server.Labels.Components;
 using Content.Server.MachineLinking.System;
@@ -7,6 +8,7 @@ using Content.Server.Popups;
 using Content.Server.Station.Systems;
 using Content.Shared.Access.Systems;
 using Content.Shared.Administration.Logs;
+using Content.Shared.Bank.Components;
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.BUI;
 using Content.Shared.Cargo.Events;
@@ -17,6 +19,7 @@ using Content.Server.Paper;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Players;
+using System.Linq;
 
 namespace Content.Server.Cargo.Systems
 {
@@ -34,6 +37,7 @@ namespace Content.Server.Cargo.Systems
 
         [Dependency] private readonly IdCardSystem _idCardSystem = default!;
         [Dependency] private readonly AccessReaderSystem _accessReaderSystem = default!;
+        [Dependency] private readonly BankSystem _bankSystem = default!;
         [Dependency] private readonly SignalLinkerSystem _linker = default!;
         [Dependency] private readonly PopupSystem _popup = default!;
         [Dependency] private readonly StationSystem _station = default!;
@@ -105,7 +109,7 @@ namespace Content.Server.Cargo.Systems
             }
 
             var orderDatabase = GetOrderDatabase(component);
-            var bankAccount = GetBankAccount(component);
+            if (!TryComp<BankAccountComponent>(player, out var bankAccount)) return;
 
             // No station to deduct from.
             if (orderDatabase == null || bankAccount == null)
@@ -168,8 +172,12 @@ namespace Content.Server.Cargo.Systems
             // Log order approval
             _adminLogger.Add(LogType.Action, LogImpact.Low,
                 $"{ToPrettyString(player):user} approved order [orderId:{order.OrderId}, quantity:{order.OrderQuantity}, product:{order.ProductId}, requester:{order.Requester}, reason:{order.Reason}] with balance at {bankAccount.Balance}");
+            if (TryComp<StationBankAccountComponent>(_station.GetOwningStation(uid), out var stationBank))
+            {
+                DeductFunds(stationBank, -(cost / 2));
+            }
+            _bankSystem.TryBankWithdraw(player, cost);
 
-            DeductFunds(bankAccount, cost);
             UpdateOrders(orderDatabase);
         }
 
@@ -189,7 +197,8 @@ namespace Content.Server.Cargo.Systems
                 return;
 
             var bank = GetBankAccount(component);
-            if (bank == null) return;
+            
+            if (!HasComp<BankAccountComponent>(player) && bank == null) return;
             var orderDatabase = GetOrderDatabase(component);
             if (orderDatabase == null) return;
 
@@ -217,18 +226,41 @@ namespace Content.Server.Cargo.Systems
 
         private void UpdateOrderState(CargoOrderConsoleComponent component, EntityUid? station)
         {
-            if (station == null ||
-                !TryComp<StationCargoOrderDatabaseComponent>(station, out var orderDatabase) ||
-                !TryComp<StationBankAccountComponent>(station, out var bankAccount)) return;
+            if (!_uiSystem.TryGetUi(component.Owner, CargoConsoleUiKey.Orders, out var bui))
+            {
+                return;
+            }
+
+            var uiUser = bui.SubscribedSessions.FirstOrDefault();
+            var balance = 0;
+
+            if (uiUser?.AttachedEntity is not { Valid: true } player)
+            {
+                return;
+            }
+
+            if (Transform(component.Owner).GridUid is EntityUid stationGrid && TryComp<BankAccountComponent>(player, out var playerBank))
+            {
+                station = stationGrid;
+                balance = playerBank.Balance;
+            }
+            else if (TryComp<StationBankAccountComponent>(station, out var stationBank))
+            {
+                balance = stationBank.Balance;
+            }
+
+            if (station == null) return;
+            
+            if (GetOrderDatabase(component) is not StationCargoOrderDatabaseComponent orderDatabase) return;
 
             var state = new CargoConsoleInterfaceState(
-                MetaData(station.Value).EntityName,
+                MetaData(player).EntityName,
                 GetOutstandingOrderCount(orderDatabase),
                 orderDatabase.Capacity,
-                bankAccount.Balance,
+                balance,
                 orderDatabase.Orders);
 
-            _uiSystem.GetUiOrNull(component.Owner, CargoConsoleUiKey.Orders)?.SetState(state);
+            _uiSystem.SetUiState(bui, state);
         }
 
         private void ConsolePopup(ICommonSession session, string text) => _popup.PopupCursor(text, session);
@@ -267,7 +299,13 @@ namespace Content.Server.Cargo.Systems
 
             while (orderQuery.MoveNext(out var uid, out var comp))
             {
-                var station = _station.GetOwningStation(uid);
+                var station = Transform(uid).GridUid;
+
+                if (_station.GetOwningStation(uid) is EntityUid stationComp)
+                {
+                    station = stationComp;
+                }
+
                 if (station != component.Owner)
                     continue;
 
@@ -277,7 +315,13 @@ namespace Content.Server.Cargo.Systems
             var consoleQuery = AllEntityQuery<CargoShuttleConsoleComponent>();
             while (consoleQuery.MoveNext(out var uid, out var comp))
             {
-                var station = _station.GetOwningStation(uid);
+                var station = Transform(uid).GridUid;
+
+                if (_station.GetOwningStation(uid) is EntityUid stationComp)
+                {
+                    station = stationComp;
+                }
+
                 if (station != component.Owner)
                     continue;
 
@@ -393,7 +437,12 @@ namespace Content.Server.Cargo.Systems
 
         private StationCargoOrderDatabaseComponent? GetOrderDatabase(CargoOrderConsoleComponent component)
         {
-            var station = _station.GetOwningStation(component.Owner);
+            var station = Transform(component.Owner).GridUid;
+
+            if (_station.GetOwningStation(component.Owner) is EntityUid stationComp)
+            {
+                station = stationComp;
+            }
 
             TryComp<StationCargoOrderDatabaseComponent>(station, out var orderComponent);
             return orderComponent;

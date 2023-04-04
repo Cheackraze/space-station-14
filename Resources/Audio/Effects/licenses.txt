@@ -51,3 +51,8 @@ box_deploy.ogg and chime.ogg taken from Citadel Station at commit: https://githu
    copyright: "Sonniss.com - GDC 2016 - Game Audio Bundle - Levan Nadashvili - Soldier Footsteps - FS Concrete Soldier Crouch N02, mixed from stereo to mono"
 
 # Do not add to this list, I only did the above because yaml scheme validator doesn't like custom licenses.
+
+- files: ["CPR.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "freesound user sandyrb"
+  source: "https://freesound.org/people/sandyrb/sounds/86661/"

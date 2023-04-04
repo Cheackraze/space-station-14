@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Server._Citadel.Worldgen.Components;
 using Content.Server._Citadel.Worldgen.Components.Debris;
 using Content.Server._Citadel.Worldgen.Systems.GC;
@@ -183,7 +183,7 @@ public sealed class DebrisFeaturePlacerSystem : BaseWorldSystem
             var coords = new EntityCoordinates(chunk.Map, point);
 
             if (_mapManager
-                .FindGridsIntersecting(Comp<MapComponent>(chunk.Map).WorldMap, safetyBounds.Translated(point)).Any())
+                .FindGridsIntersecting(Comp<MapComponent>(chunk.Map).MapId, safetyBounds.Translated(point)).Any())
                 continue; // Oops, gonna collide.
 
             var preEv = new PrePlaceDebrisFeatureEvent(coords, args.Chunk);

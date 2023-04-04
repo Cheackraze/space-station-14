@@ -30,7 +30,7 @@ public sealed class CryoSleepSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<CryoSleepComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<CryoSleepComponent, ComponentStartup>(OnInit);
         SubscribeLocalEvent<CryoSleepComponent, GetVerbsEvent<AlternativeVerb>>(AddAlternativeVerbs);
         SubscribeLocalEvent<CryoSleepComponent, SuicideEvent>(OnSuicide);
         SubscribeLocalEvent<CryoSleepComponent, ExaminedEvent>(OnExamine);
@@ -49,7 +49,7 @@ public sealed class CryoSleepSystem : EntitySystem
         return _storageMap.Value;
     }
 
-    private void OnInit(EntityUid uid, CryoSleepComponent component, ComponentInit args)
+    private void OnInit(EntityUid uid, CryoSleepComponent component, ComponentStartup args)
     {
         component.BodyContainer = _container.EnsureContainer<ContainerSlot>(uid, "body_container");
     }

@@ -9,6 +9,9 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Map.Components;
+using Content.Shared.Shuttles.Components;
+using Content.Server.Shuttles.Systems;
+using Content.Server.Cargo.Components;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -23,13 +26,10 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem
     [Dependency] private readonly MapLoaderSystem _map = default!;
     [Dependency] private readonly DungeonSystem _dunGen = default!;
     [Dependency] private readonly IConsoleHost _console = default!;
+    [Dependency] private readonly ShuttleSystem _shuttle = default!;
 
     [ViewVariables]
     private List<(EntityUid, int)> _players = new();
-    [ViewVariables]
-    private MapId _currentWorld = new();
-    [ViewVariables]
-    private int _totalBalance = 0;
 
     public override string Prototype => "Adventure";
 
@@ -47,7 +47,7 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem
     {
         if (!RuleAdded)
             return;
-
+        var profitText = Loc.GetString($"adventure-mode-profit-text");
         ev.AddLine(Loc.GetString("adventure-list-start"));
         foreach (var player in _players)
         {
@@ -55,7 +55,7 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem
                 continue;
 
             var profit = bank.Balance - player.Item2;
-            ev.AddLine($"- {meta.EntityName} adventure-mode-profit-text { profit } currency");
+            ev.AddLine($"- {meta.EntityName} { profitText } { profit } Spesos");
         }
     }
 
@@ -72,8 +72,9 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem
         if (ev.Player.AttachedEntity is { Valid : true } mobUid)
         {
             _players.Add((mobUid, ev.Profile.BankBalance));
+            EnsureComp<CargoSellBlacklistComponent>(mobUid);
         }
-
+        
     }
 
     private void OnStartup(RoundStartingEvent ev)
@@ -83,13 +84,25 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem
 
         var depotMap = "/Maps/cargodepot.yml";
         var mapId = GameTicker.DefaultMap;
+        var depotOffset = _random.NextVector2(1500f, 3000f);
+        var depotColor = new Color(55, 200, 55);
         if (_map.TryLoad(mapId, depotMap, out var depotUids, new MapLoadOptions
         {
-            Offset = _random.NextVector2(1500f, 3500f)
+            Offset = depotOffset
         }))
         {
             var meta = EnsureComp<MetaDataComponent>(depotUids[0]);
-            meta.EntityName = "NT Cargo Depot NF14";
+            meta.EntityName = "NT Cargo Depot A NF14";
+            _shuttle.SetIFFColor(depotUids[0], depotColor);
+        };
+        if (_map.TryLoad(mapId, depotMap, out var depotUid2s, new MapLoadOptions
+        {
+            Offset = -depotOffset
+        }))
+        {
+            var meta = EnsureComp<MetaDataComponent>(depotUid2s[0]);
+            meta.EntityName = "NT Cargo Depot B NF14";
+            _shuttle.SetIFFColor(depotUid2s[0], depotColor);
         };
 
         var dungenTypes = _prototypeManager.EnumeratePrototypes<DungeonConfigPrototype>();
@@ -98,7 +111,7 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem
         {
 
             var seed = _random.Next();
-            var offset = _random.NextVector2(3500f, 6000f);
+            var offset = _random.NextVector2(1500f, 3500f);
             if (!_map.TryLoad(mapId, "/Maps/spaceplatform.yml", out var grids, new MapLoadOptions
             {
                 Offset = offset
@@ -108,10 +121,13 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem
             }
 
             var mapGrid = EnsureComp<MapGridComponent>(grids[0]);
+            _shuttle.AddIFFFlag(grids[0], IFFFlags.HideLabel);
             _console.WriteLine(null, $"dungeon spawned at {offset}");
             offset = new Vector2 (0, 0);
 
             //pls fit the grid I beg, this is so hacky
+            //its better now but i think i need to do a normalization pass on the dungeon configs
+            //because they are all offset
             _dunGen.GenerateDungeon(dunGen, grids[0], mapGrid, offset, seed);
         }
     }
