@@ -2,7 +2,6 @@ using Content.Server.Access.Systems;
 using Content.Server.Popups;
 using Content.Server.Radio.EntitySystems;
 using Content.Server.Bank;
-using Content.Server.Shuttles.Components;
 using Content.Shared.Bank.Components;
 using Content.Shared.Shipyard.Events;
 using Content.Shared.Shipyard.BUI;
@@ -16,13 +15,14 @@ using Robust.Shared.Containers;
 using Robust.Shared.Players;
 using Robust.Shared.Prototypes;
 using Content.Shared.Radio;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Server.Maps;
-using Content.Shared.Shuttles.Components;
 using Content.Server.UserInterface;
+using Content.Shared.StationRecords;
+using Content.Server.Chat.Systems;
+using Content.Server.StationRecords.Systems;
 
 namespace Content.Server.Shipyard.Systems;
 
@@ -38,6 +38,8 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
     [Dependency] private readonly BankSystem _bank = default!;
     [Dependency] private readonly IdCardSystem _idSystem = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly StationRecordsSystem _records = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
 
     public void InitializeConsole()
     {
@@ -123,7 +125,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             PlayDenySound(uid, component);
             return;
         }
-
+        EntityUid? shuttleStation = null;
         // setting up any stations if we have a matching game map prototype to allow late joins directly onto the vessel
         if (_prototypeManager.TryIndex<GameMapPrototype>(vessel.ID, out var stationProto))
         {
@@ -131,15 +133,15 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             {
                 shuttle.Owner
             };
-            var shuttleStation = _station.InitializeNewStation(stationProto.Stations[vessel.ID], gridUids);
-            var metaData = MetaData(shuttleStation);
+            shuttleStation = _station.InitializeNewStation(stationProto.Stations[vessel.ID], gridUids);
+            var metaData = MetaData((EntityUid) shuttleStation);
             name = metaData.EntityName;
             _shuttle.SetIFFColor(shuttle.Owner, new Color
             {
-                R = 50,
+                R = 10,
                 G = 50,
                 B = 175,
-                A = 255
+                A = 155
             });
         }
 
@@ -164,6 +166,19 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         newDeed.ShuttleName = name;
         _idSystem.TryChangeJobTitle(targetId, $"Captain", idCard, player);
         _radio.SendRadioMessage(uid, Loc.GetString("shipyard-console-docking", ("vessel", name)), channel, uid);
+        _chat.TrySendInGameICMessage(uid, Loc.GetString("shipyard-console-docking", ("vessel", name)), InGameICChatType.Speak, true);
+
+        if (TryComp<StationRecordKeyStorageComponent>(targetId, out var keyStorage)
+                && shuttleStation !=null
+                && keyStorage.Key != null
+                && _records.TryGetRecord<GeneralStationRecord>(station, keyStorage.Key.Value, out var record))
+        {
+            _records.RemoveRecord(station, keyStorage.Key.Value);
+            _records.CreateGeneralRecord((EntityUid) shuttleStation, targetId, record.Name, record.Age, record.Species, record.Gender, $"Captain", record.Fingerprint, record.DNA);
+            _records.Synchronize((EntityUid) shuttleStation);
+            _records.Synchronize(station);
+        }
+
         PlayConfirmSound(uid, component);
         RefreshState(uid, bank.Balance, true, name, true, (ShipyardConsoleUiKey) args.UiKey);
     }
@@ -209,6 +224,17 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             ConsolePopup(args.Session, Loc.GetString("shipyard-console-invalid-station"));
             PlayDenySound(uid, component);
             return;
+        }
+
+        if (_station.GetOwningStation(shuttleUid) is { Valid : true } shuttleStation
+            && TryComp<StationRecordKeyStorageComponent>(targetId, out var keyStorage)
+            && keyStorage.Key != null
+            && keyStorage.Key.Value.OriginStation == shuttleStation
+            && _records.TryGetRecord<GeneralStationRecord>(shuttleStation, keyStorage.Key.Value, out var record))
+        {
+            _records.RemoveRecord(shuttleStation, keyStorage.Key.Value);
+            _records.CreateGeneralRecord(stationUid, targetId, record.Name, record.Age, record.Species, record.Gender, $"Passenger", record.Fingerprint, record.DNA);
+            _records.Synchronize(stationUid);
         }
 
         if (!TrySellShuttle(stationUid, shuttleUid, out var bill))
