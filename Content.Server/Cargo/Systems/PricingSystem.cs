@@ -214,7 +214,7 @@ public sealed class PricingSystem : EntitySystem
     {
         double price = 0;
 
-        if (TryComp<MaterialComponent>(uid, out var material) && !HasComp<StackPriceComponent>(uid))
+        if (TryComp<MaterialComponent>(uid, out var material))
         {
             var matPrice = GetMaterialPrice(material);
             if (TryComp<StackComponent>(uid, out var stack))
@@ -230,8 +230,7 @@ public sealed class PricingSystem : EntitySystem
     {
         double price = 0;
 
-        if (prototype.Components.TryGetValue(_factory.GetComponentName(typeof(MaterialComponent)), out var materials) &&
-            !prototype.Components.ContainsKey(_factory.GetComponentName(typeof(StackPriceComponent))))
+        if (prototype.Components.TryGetValue(_factory.GetComponentName(typeof(MaterialComponent)), out var materials))
         {
             var materialsComp = (MaterialComponent) materials.Component;
             var matPrice = GetMaterialPrice(materialsComp);
@@ -277,7 +276,8 @@ public sealed class PricingSystem : EntitySystem
         var price = 0.0;
 
         if (TryComp<StackPriceComponent>(uid, out var stackPrice) &&
-            TryComp<StackComponent>(uid, out var stack))
+            TryComp<StackComponent>(uid, out var stack) &&
+            !HasComp<MaterialComponent>(uid)) // don't double count material prices
         {
             price += stack.Count * stackPrice.Price;
         }
@@ -290,7 +290,8 @@ public sealed class PricingSystem : EntitySystem
         var price = 0.0;
 
         if (prototype.Components.TryGetValue(_factory.GetComponentName(typeof(StackPriceComponent)), out var stackpriceProto) &&
-            prototype.Components.TryGetValue(_factory.GetComponentName(typeof(StackComponent)), out var stackProto))
+            prototype.Components.TryGetValue(_factory.GetComponentName(typeof(StackComponent)), out var stackProto) &&
+            !prototype.Components.ContainsKey(_factory.GetComponentName(typeof(MaterialComponent))))
         {
             var stackPrice = (StackPriceComponent) stackpriceProto.Component;
             var stack = (StackComponent) stackProto.Component;
