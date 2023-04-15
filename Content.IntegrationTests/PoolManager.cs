@@ -15,6 +15,7 @@ using Content.IntegrationTests.Tests.Networking;
 using Content.Server._Citadel.Worldgen;
 using Content.Server.GameTicking;
 using Content.Shared.CCVar;
+using Microsoft.Diagnostics.Tracing.Parsers.Kernel;
 using NUnit.Framework;
 using Robust.Client;
 using Robust.Server;
@@ -563,6 +564,7 @@ we are just going to end this here to save a lot of time. This is the exception 
         {
             var mapManager = IoCManager.Resolve<IMapManager>();
             mapData.MapId = mapManager.CreateMap();
+            mapData.MapUid = mapManager.GetMapEntityId(mapData.MapId);
             mapData.MapGrid = mapManager.CreateGrid(mapData.MapId);
             mapData.GridCoords = new EntityCoordinates(mapData.MapGrid.Owner, 0, 0);
             var tileDefinitionManager = IoCManager.Resolve<ITileDefinitionManager>();
@@ -792,6 +794,7 @@ public sealed class PoolSettings
 /// </summary>
 public sealed class TestMapData
 {
+    public EntityUid MapUid { get; set; }
     public MapId MapId { get; set; }
     public MapGridComponent MapGrid { get; set; }
     public EntityCoordinates GridCoords { get; set; }

@@ -4,9 +4,11 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.Ghost
 {
-    [NetworkedComponent()]
-    public abstract class SharedGhostComponent : Component
+    [NetworkedComponent]
+    [AutoGenerateComponentState]
+    public abstract partial class SharedGhostComponent : Component
     {
+        // TODO: instead of this funny stuff just give it access and update in system dirtying when needed
         [ViewVariables(VVAccess.ReadWrite)]
         public bool CanGhostInteract
         {
@@ -19,7 +21,7 @@ namespace Content.Shared.Ghost
             }
         }
 
-        [DataField("canInteract")]
+        [DataField("canInteract"), AutoNetworkedField]
         private bool _canGhostInteract;
 
         /// <summary>
@@ -38,7 +40,7 @@ namespace Content.Shared.Ghost
             }
         }
 
-        [DataField("canReturnToBody")]
+        [DataField("canReturnToBody"), AutoNetworkedField]
         private bool _canReturnToBody;
 
         [DataField("TimeOfDeath", customTypeSerializer: typeof(TimeOffsetSerializer)), ViewVariables(VVAccess.ReadWrite)]
