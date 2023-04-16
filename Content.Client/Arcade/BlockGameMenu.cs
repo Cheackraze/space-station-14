@@ -20,7 +20,7 @@ namespace Content.Client.Arcade
 {
     public sealed class BlockGameMenu : DefaultWindow
     {
-        private static readonly Color OverlayBackgroundColor = new(74,74,81,180);
+        private static readonly Color OverlayBackgroundColor = new(74,76,74,180);
         private static readonly Color OverlayShadowColor = new(0,0,0,83);
 
         private static readonly Vector2 BlockSize = new(15,15);
@@ -376,7 +376,7 @@ namespace Content.Client.Arcade
             };
             var backgroundPanel = new PanelContainer
             {
-                PanelOverride = new StyleBoxFlat{BackgroundColor = Color.FromHex("#86868d")}
+                PanelOverride = new StyleBoxFlat{BackgroundColor = Color.FromHex("#869086")}
             };
             backgroundPanel.AddChild(_gameGrid);
             gamePanel.AddChild(backgroundPanel);
@@ -388,7 +388,7 @@ namespace Content.Client.Arcade
             var previewBack = new StyleBoxTexture
             {
                 Texture = panelTex,
-                Modulate = Color.FromHex("#4a4a51")
+                Modulate = Color.FromHex("#4a4d4a")
             };
             previewBack.SetPatchMargin(StyleBox.Margin.All, 10);
 
@@ -426,7 +426,7 @@ namespace Content.Client.Arcade
             var previewBack = new StyleBoxTexture
             {
                 Texture = panelTex,
-                Modulate = Color.FromHex("#4a4a51")
+                Modulate = Color.FromHex("#4a4d4a")
             };
             previewBack.SetPatchMargin(StyleBox.Margin.All, 10);
 
