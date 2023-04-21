@@ -43,5 +43,5 @@ public sealed class VesselPrototype : IPrototype
     ///     Relative directory path to the given shuttle, i.e. `/Maps/Shuttles/yourshittle.yml`
     /// </summary>
     [DataField("shuttlePath", required: true)]
-    public ResourcePath ShuttlePath = default!;
+    public ResPath ShuttlePath = default!;
 }

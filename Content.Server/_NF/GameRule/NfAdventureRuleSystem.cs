@@ -128,7 +128,7 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem
             //pls fit the grid I beg, this is so hacky
             //its better now but i think i need to do a normalization pass on the dungeon configs
             //because they are all offset
-            _dunGen.GenerateDungeon(dunGen, grids[0], mapGrid, offset, seed);
+            _dunGen.GenerateDungeon(dunGen, grids[0], mapGrid, (Vector2i) offset, seed);
         }
     }
 }
