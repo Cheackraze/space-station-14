@@ -94,15 +94,14 @@
     energy: 1.6
     color: "#b89f25"
   - type: Sprite
+    netsync: false
+    noRot: true
+    sprite: _NF/Structures/atm.rsi
     layers:
     - map: ["computerLayerBody"]
-      state: computer
-    - map: ["computerLayerKeyboard"]
-      state: generic_keyboard
+      state: icon
     - map: ["computerLayerScreen"]
-      state: request
-    - map: ["computerLayerKeys"]
-      state: tech_key
+      state: unshaded
   - type: ItemSlots  
   - type: ContainerContainer
     containers:
@@ -203,4 +202,32 @@
       state: id_key
   - type: AccessReader
     access: [["HeadOfPersonnel"]]
-  
+
+- type: entity
+  parent: VendingMachine
+  id: VendingMachineAstroVend
+  name: AstroVend
+  description: Essential gear for the space-men on the go
+  components:
+  - type: VendingMachine
+    pack: AstroVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    # ejectState: eject-unshaded  No sprite, see chefvend/dinnerware/BODA/etc for expamples
+  - type: Advertise
+    pack: AstroVendAds
+  - type: Sprite
+    sprite: _NF/Structures/astrovend.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#4b93ad"

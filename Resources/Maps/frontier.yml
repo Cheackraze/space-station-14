@@ -184,6 +184,12 @@ entities:
           1208: 17,3
           1209: 30,4
       - node:
+          color: '#334E6DC8'
+          id: ArrowsGreyscale
+        decals:
+          1202: -2,9
+          1203: 0,9
+      - node:
           angle: 3.141592653589793 rad
           color: '#334E6DC8'
           id: ArrowsGreyscale
@@ -197,17 +203,6 @@ entities:
           1204: -53,2
           1207: -1,9
       - node:
-          color: '#334E6DC8'
-          id: ArrowsGreyscale
-        decals:
-          1202: -2,9
-          1203: 0,9
-      - node:
-          color: '#DE3A3A96'
-          id: Bot
-        decals:
-          882: 31,15
-      - node:
           color: '#FFFFFFFF'
           id: Bot
         decals:
@@ -219,11 +214,10 @@ entities:
           213: 5,44
           214: 5,43
       - node:
-          color: '#FFFFFFFF'
-          id: BotLeft
+          color: '#DE3A3A96'
+          id: Bot
         decals:
-          298: -5,9
-          299: -5,13
+          882: 31,15
       - node:
           color: '#52B4E996'
           id: BotLeftGreyscale
@@ -239,12 +233,6 @@ entities:
           284: 3,24
           285: 3,23
           286: 3,22
-      - node:
-          color: '#FFFFFFFF'
-          id: BotRight
-        decals:
-          300: 3,13
-          301: 3,9
       - node:
           color: '#FFFFFFFF'
           id: BrickTileDarkBox
@@ -710,22 +698,21 @@ entities:
           585: -44,8
           605: -48,17
       - node:
-          color: '#A4610696'
-          id: BrickTileWhiteCornerSw
-        decals:
-          255: -3,36
-      - node:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerSw
         decals:
           582: -46,8
           607: -50,17
       - node:
-          color: '#9FED5896'
+          color: '#A4610696'
+          id: BrickTileWhiteCornerSw
+        decals:
+          255: -3,36
+      - node:
+          color: '#FFFFFFFF'
           id: BrickTileWhiteInnerNe
         decals:
-          297: 4,14
-          938: 11,12
+          443: -52,10
       - node:
           color: '#D4D4D423'
           id: BrickTileWhiteInnerNe
@@ -733,21 +720,22 @@ entities:
           1171: -3,12
           1173: -1,12
       - node:
-          color: '#FFFFFFFF'
+          color: '#4DE8CA93'
           id: BrickTileWhiteInnerNe
         decals:
-          443: -52,10
+          1075: -33,12
+          1076: -32,12
       - node:
           color: '#DE3A3A96'
           id: BrickTileWhiteInnerNe
         decals:
           738: 34,11
       - node:
-          color: '#4DE8CA93'
+          color: '#9FED5896'
           id: BrickTileWhiteInnerNe
         decals:
-          1075: -33,12
-          1076: -32,12
+          297: 4,14
+          938: 11,12
       - node:
           color: '#D4D4D423'
           id: BrickTileWhiteInnerNw
@@ -760,11 +748,6 @@ entities:
         decals:
           384: -6,14
       - node:
-          color: '#9FED5896'
-          id: BrickTileWhiteInnerNw
-        decals:
-          937: 16,12
-      - node:
           color: '#DE3A3A96'
           id: BrickTileWhiteInnerNw
         decals:
@@ -776,11 +759,15 @@ entities:
           1073: -32,12
           1074: -31,12
       - node:
-          color: '#D4D4D423'
+          color: '#9FED5896'
+          id: BrickTileWhiteInnerNw
+        decals:
+          937: 16,12
+      - node:
+          color: '#EFB34196'
           id: BrickTileWhiteInnerSe
         decals:
-          1177: -3,9
-          1178: -1,9
+          1047: -32,11
       - node:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerSe
@@ -792,25 +779,16 @@ entities:
         decals:
           296: 4,17
       - node:
-          color: '#EFB34196'
+          color: '#D4D4D423'
           id: BrickTileWhiteInnerSe
         decals:
-          1047: -32,11
+          1177: -3,9
+          1178: -1,9
       - node:
           color: '#DE3A3A96'
           id: BrickTileWhiteInnerSe
         decals:
           737: 34,17
-      - node:
-          color: '#DE3A3A96'
-          id: BrickTileWhiteInnerSw
-        decals:
-          735: 40,17
-      - node:
-          color: '#334E6DC8'
-          id: BrickTileWhiteInnerSw
-        decals:
-          385: -6,17
       - node:
           color: '#D4D4D423'
           id: BrickTileWhiteInnerSw
@@ -818,40 +796,26 @@ entities:
           1175: -1,9
           1176: 1,9
       - node:
-          color: '#D4D4D40C'
-          id: BrickTileWhiteLineE
+          color: '#334E6DC8'
+          id: BrickTileWhiteInnerSw
         decals:
-          454: -3,10
-          455: -3,11
-          456: -3,10
-          457: -3,11
-          458: -3,10
-          459: -3,11
+          385: -6,17
       - node:
-          color: '#D4D4D419'
-          id: BrickTileWhiteLineE
+          color: '#DE3A3A96'
+          id: BrickTileWhiteInnerSw
         decals:
-          1183: -3,8
-          1184: -3,13
-          1189: -1,13
-          1190: -1,8
+          735: 40,17
       - node:
-          color: '#EFB34196'
+          color: '#52B4E996'
           id: BrickTileWhiteLineE
         decals:
-          1042: -32,6
-          1043: -32,7
-          1044: -32,8
-          1045: -32,9
-          1046: -32,10
-      - node:
-          color: '#D4D4D423'
-          id: BrickTileWhiteLineE
-        decals:
-          1159: -1,13
-          1160: -3,13
-          1161: -3,8
-          1162: -1,8
+          525: -48,7
+          526: -48,6
+          527: -48,5
+          528: -48,4
+          529: -48,3
+          530: -48,2
+          531: -48,1
       - node:
           color: '#A4610696'
           id: BrickTileWhiteLineE
@@ -879,6 +843,41 @@ entities:
           586: -44,9
           587: -44,10
       - node:
+          color: '#D4D4D419'
+          id: BrickTileWhiteLineE
+        decals:
+          1183: -3,8
+          1184: -3,13
+          1189: -1,13
+          1190: -1,8
+      - node:
+          color: '#D4D4D40C'
+          id: BrickTileWhiteLineE
+        decals:
+          454: -3,10
+          455: -3,11
+          456: -3,10
+          457: -3,11
+          458: -3,10
+          459: -3,11
+      - node:
+          color: '#D4D4D423'
+          id: BrickTileWhiteLineE
+        decals:
+          1159: -1,13
+          1160: -3,13
+          1161: -3,8
+          1162: -1,8
+      - node:
+          color: '#EFB34196'
+          id: BrickTileWhiteLineE
+        decals:
+          1042: -32,6
+          1043: -32,7
+          1044: -32,8
+          1045: -32,9
+          1046: -32,10
+      - node:
           color: '#9FED5896'
           id: BrickTileWhiteLineE
         decals:
@@ -899,43 +898,30 @@ entities:
           785: 48,12
           786: 48,13
       - node:
-          color: '#52B4E996'
-          id: BrickTileWhiteLineE
-        decals:
-          525: -48,7
-          526: -48,6
-          527: -48,5
-          528: -48,4
-          529: -48,3
-          530: -48,2
-          531: -48,1
-      - node:
-          color: '#D4D4D419'
+          color: '#DE3A3A96'
           id: BrickTileWhiteLineN
         decals:
-          1179: -2,12
-          1180: 0,12
-      - node:
-          color: '#52B4E996'
-          id: BrickTileWhiteLineN
-        decals:
-          517: -55,8
-          518: -54,8
-          519: -53,8
-          520: -52,8
-          521: -51,8
-          522: -50,8
-          523: -49,8
-          554: -51,15
-          555: -50,15
-          556: -49,15
-          557: -48,15
-      - node:
-          color: '#D4D4D423'
-          id: BrickTileWhiteLineN
-        decals:
-          1169: -2,12
-          1170: 0,12
+          715: 35,11
+          716: 36,11
+          717: 37,11
+          718: 38,11
+          719: 39,11
+          805: 32,18
+          806: 33,18
+          807: 34,18
+          808: 38,18
+          809: 39,18
+          810: 40,18
+          811: 42,18
+          813: 41,18
+          814: 43,18
+          815: 44,18
+          816: 45,18
+          817: 46,18
+          829: 42,9
+          830: 43,9
+          831: 42,8
+          832: 43,8
       - node:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineN
@@ -961,6 +947,12 @@ entities:
           947: 16,16
           948: 17,16
           954: 7,16
+      - node:
+          color: '#D4D4D419'
+          id: BrickTileWhiteLineN
+        decals:
+          1179: -2,12
+          1180: 0,12
       - node:
           color: '#EFB34196'
           id: BrickTileWhiteLineN
@@ -995,58 +987,26 @@ entities:
           479: -1,9
           480: 0,9
       - node:
-          color: '#DE3A3A96'
+          color: '#52B4E996'
           id: BrickTileWhiteLineN
         decals:
-          715: 35,11
-          716: 36,11
-          717: 37,11
-          718: 38,11
-          719: 39,11
-          805: 32,18
-          806: 33,18
-          807: 34,18
-          808: 38,18
-          809: 39,18
-          810: 40,18
-          811: 42,18
-          813: 41,18
-          814: 43,18
-          815: 44,18
-          816: 45,18
-          817: 46,18
-          829: 42,9
-          830: 43,9
-          831: 42,8
-          832: 43,8
+          517: -55,8
+          518: -54,8
+          519: -53,8
+          520: -52,8
+          521: -51,8
+          522: -50,8
+          523: -49,8
+          554: -51,15
+          555: -50,15
+          556: -49,15
+          557: -48,15
       - node:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteLineS
+          color: '#D4D4D423'
+          id: BrickTileWhiteLineN
         decals:
-          444: -51,13
-          588: -45,8
-          609: -49,17
-      - node:
-          color: '#A4610696'
-          id: BrickTileWhiteLineS
-        decals:
-          256: -2,36
-          257: -1,36
-          258: 0,36
-          259: 1,36
-          260: 2,36
-          261: 3,36
-          262: 4,36
-      - node:
-          color: '#9FED5896'
-          id: BrickTileWhiteLineS
-        decals:
-          949: 8,15
-          950: 6,15
-          952: 7,15
-          958: 6,18
-          959: 7,18
-          960: 8,18
+          1169: -2,12
+          1170: 0,12
       - node:
           color: '#D4D4D423'
           id: BrickTileWhiteLineS
@@ -1054,22 +1014,18 @@ entities:
           1167: -2,9
           1168: 0,9
       - node:
-          color: '#52B4E996'
+          color: '#D4D4D419'
           id: BrickTileWhiteLineS
         decals:
-          917: 12,12
-          918: 13,12
+          1181: -2,9
+          1182: 0,9
       - node:
-          color: '#EFB34196'
+          color: '#FFFFFFFF'
           id: BrickTileWhiteLineS
         decals:
-          911: 10,12
-          912: 11,12
-          1048: -31,11
-          1049: -30,11
-          1050: -29,11
-          1051: -28,11
-          1052: -27,11
+          444: -51,13
+          588: -45,8
+          609: -49,17
       - node:
           color: '#DE3A3A96'
           id: BrickTileWhiteLineS
@@ -1099,11 +1055,32 @@ entities:
           909: 8,12
           910: 9,12
       - node:
-          color: '#D4D4D419'
+          color: '#EFB34196'
           id: BrickTileWhiteLineS
         decals:
-          1181: -2,9
-          1182: 0,9
+          911: 10,12
+          912: 11,12
+          1048: -31,11
+          1049: -30,11
+          1050: -29,11
+          1051: -28,11
+          1052: -27,11
+      - node:
+          color: '#52B4E996'
+          id: BrickTileWhiteLineS
+        decals:
+          917: 12,12
+          918: 13,12
+      - node:
+          color: '#9FED5896'
+          id: BrickTileWhiteLineS
+        decals:
+          949: 8,15
+          950: 6,15
+          952: 7,15
+          958: 6,18
+          959: 7,18
+          960: 8,18
       - node:
           color: '#D4D4D40C'
           id: BrickTileWhiteLineS
@@ -1118,29 +1095,28 @@ entities:
           488: -1,12
           489: 0,12
       - node:
-          color: '#334E6DC8'
-          id: BrickTileWhiteLineW
+          color: '#A4610696'
+          id: BrickTileWhiteLineS
         decals:
-          382: -6,15
-          383: -6,16
+          256: -2,36
+          257: -1,36
+          258: 0,36
+          259: 1,36
+          260: 2,36
+          261: 3,36
+          262: 4,36
       - node:
-          color: '#D4D4D419'
+          color: '#FFFFFFFF'
           id: BrickTileWhiteLineW
         decals:
-          1185: 1,13
-          1186: 1,8
-          1187: -1,8
-          1188: -1,13
+          589: -46,9
+          590: -46,10
       - node:
-          color: '#D4D4D40C'
+          color: '#9FED5896'
           id: BrickTileWhiteLineW
         decals:
-          460: 1,10
-          461: 1,11
-          462: 1,10
-          463: 1,11
-          464: 1,10
-          465: 1,11
+          931: 16,14
+          932: 16,13
       - node:
           color: '#A4610696'
           id: BrickTileWhiteLineW
@@ -1153,26 +1129,6 @@ entities:
           252: -3,39
           253: -3,38
           254: -3,37
-      - node:
-          color: '#DE3A3A96'
-          id: BrickTileWhiteLineW
-        decals:
-          725: 40,12
-          726: 40,13
-          727: 40,14
-          728: 40,15
-          729: 40,16
-          787: 45,11
-          788: 45,12
-          789: 45,13
-          907: 8,10
-          908: 8,11
-      - node:
-          color: '#EFB34196'
-          id: BrickTileWhiteLineW
-        decals:
-          913: 10,11
-          914: 10,10
       - node:
           color: '#52B4E996'
           id: BrickTileWhiteLineW
@@ -1189,11 +1145,35 @@ entities:
           915: 12,11
           916: 12,10
       - node:
-          color: '#9FED5896'
+          color: '#D4D4D40C'
           id: BrickTileWhiteLineW
         decals:
-          931: 16,14
-          932: 16,13
+          460: 1,10
+          461: 1,11
+          462: 1,10
+          463: 1,11
+          464: 1,10
+          465: 1,11
+      - node:
+          color: '#334E6DC8'
+          id: BrickTileWhiteLineW
+        decals:
+          382: -6,15
+          383: -6,16
+      - node:
+          color: '#EFB34196'
+          id: BrickTileWhiteLineW
+        decals:
+          913: 10,11
+          914: 10,10
+      - node:
+          color: '#D4D4D419'
+          id: BrickTileWhiteLineW
+        decals:
+          1185: 1,13
+          1186: 1,8
+          1187: -1,8
+          1188: -1,13
       - node:
           color: '#D4D4D423'
           id: BrickTileWhiteLineW
@@ -1203,11 +1183,38 @@ entities:
           1165: -1,13
           1166: -1,8
       - node:
-          color: '#FFFFFFFF'
+          color: '#DE3A3A96'
           id: BrickTileWhiteLineW
         decals:
-          589: -46,9
-          590: -46,10
+          725: 40,12
+          726: 40,13
+          727: 40,14
+          728: 40,15
+          729: 40,16
+          787: 45,11
+          788: 45,12
+          789: 45,13
+          907: 8,10
+          908: 8,11
+      - node:
+          color: '#9FED580F'
+          id: CheckerNESW
+        decals:
+          621: -5,20
+          622: -6,20
+          623: -6,21
+          624: -5,21
+          625: -4,21
+          626: -4,20
+          627: -4,22
+          628: -5,22
+          629: -6,22
+          630: -6,23
+          631: -5,23
+          632: -4,23
+          633: -4,24
+          634: -5,24
+          635: -6,24
       - node:
           color: '#79150096'
           id: CheckerNESW
@@ -1289,35 +1296,16 @@ entities:
           376: -8,16
           377: -8,15
       - node:
-          color: '#9FED580F'
-          id: CheckerNESW
-        decals:
-          621: -5,20
-          622: -6,20
-          623: -6,21
-          624: -5,21
-          625: -4,21
-          626: -4,20
-          627: -4,22
-          628: -5,22
-          629: -6,22
-          630: -6,23
-          631: -5,23
-          632: -4,23
-          633: -4,24
-          634: -5,24
-          635: -6,24
-      - node:
-          color: '#9FED5896'
-          id: Delivery
-        decals:
-          287: 3,21
-      - node:
           color: '#FFFFFFFF'
           id: Delivery
         decals:
           215: 3,48
           216: 1,48
+      - node:
+          color: '#9FED5896'
+          id: Delivery
+        decals:
+          287: 3,21
       - node:
           color: '#52B4E996'
           id: FullTileOverlayGreyscale
@@ -1333,12 +1321,6 @@ entities:
           619: -50,2
           620: -49,3
       - node:
-          color: '#D4D4D40C'
-          id: HalfTileOverlayGreyscale
-        decals:
-          423: -18,15
-          424: -18,15
-      - node:
           color: '#D381C996'
           id: HalfTileOverlayGreyscale
         decals:
@@ -1349,6 +1331,12 @@ entities:
         decals:
           875: 57,1
           876: 56,1
+      - node:
+          color: '#D4D4D40C'
+          id: HalfTileOverlayGreyscale
+        decals:
+          423: -18,15
+          424: -18,15
       - node:
           color: '#9FED5896'
           id: HalfTileOverlayGreyscale
@@ -1373,12 +1361,6 @@ entities:
           850: -29,-28
           853: -30,-27
       - node:
-          color: '#DE3A3A96'
-          id: HalfTileOverlayGreyscale270
-        decals:
-          877: 58,2
-          878: 58,3
-      - node:
           color: '#D4D4D40C'
           id: HalfTileOverlayGreyscale270
         decals:
@@ -1395,10 +1377,11 @@ entities:
           429: -51,11
           430: -51,12
       - node:
-          color: '#52B4E996'
-          id: HalfTileOverlayGreyscale90
+          color: '#DE3A3A96'
+          id: HalfTileOverlayGreyscale270
         decals:
-          843: -59,2
+          877: 58,2
+          878: 58,3
       - node:
           color: '#D4D4D40C'
           id: HalfTileOverlayGreyscale90
@@ -1411,6 +1394,11 @@ entities:
           420: -3,10
           421: -3,11
           422: -3,11
+      - node:
+          color: '#52B4E996'
+          id: HalfTileOverlayGreyscale90
+        decals:
+          843: -59,2
       - node:
           angle: -1.5707963267948966 rad
           color: '#FFFFFFFF'
@@ -1433,19 +1421,6 @@ entities:
           202: 5,46
           203: 6,52
           204: 6,56
-      - node:
-          color: '#DE3A3A96'
-          id: MiniTileCheckerAOverlay
-        decals:
-          739: 36,13
-          740: 36,14
-          741: 36,15
-          742: 37,15
-          743: 38,15
-          744: 38,14
-          745: 38,13
-          746: 37,13
-          747: 37,14
       - node:
           color: '#FFFFFFFF'
           id: MiniTileCheckerAOverlay
@@ -1470,6 +1445,19 @@ entities:
           603: -50,18
           604: -50,18
       - node:
+          color: '#DE3A3A96'
+          id: MiniTileCheckerAOverlay
+        decals:
+          739: 36,13
+          740: 36,14
+          741: 36,15
+          742: 37,15
+          743: 38,15
+          744: 38,14
+          745: 38,13
+          746: 37,13
+          747: 37,14
+      - node:
           color: '#52B4E996'
           id: MiniTileCheckerBOverlay
         decals:
@@ -1491,19 +1479,6 @@ entities:
           595: -48,18
           596: -49,18
           597: -50,18
-      - node:
-          color: '#9FED5896'
-          id: QuarterTileOverlayGreyscale
-        decals:
-          851: -31,-28
-          860: -29,-26
-      - node:
-          color: '#D381C996'
-          id: QuarterTileOverlayGreyscale
-        decals:
-          864: 29,-26
-          866: 29,-27
-          873: 27,-28
       - node:
           color: '#DE3A3A96'
           id: QuarterTileOverlayGreyscale
@@ -1548,16 +1523,18 @@ entities:
           649: -32,4
           650: -31,4
       - node:
-          color: '#9FED5896'
-          id: QuarterTileOverlayGreyscale180
+          color: '#D381C996'
+          id: QuarterTileOverlayGreyscale
         decals:
-          852: -31,-27
-          857: -29,-26
+          864: 29,-26
+          866: 29,-27
+          873: 27,-28
       - node:
-          color: '#EFB34196'
-          id: QuarterTileOverlayGreyscale180
+          color: '#9FED5896'
+          id: QuarterTileOverlayGreyscale
         decals:
-          645: -36,5
+          851: -31,-28
+          860: -29,-26
       - node:
           color: '#DE3A3A96'
           id: QuarterTileOverlayGreyscale180
@@ -1578,6 +1555,17 @@ entities:
           842: -60,1
           844: -58,1
       - node:
+          color: '#EFB34196'
+          id: QuarterTileOverlayGreyscale180
+        decals:
+          645: -36,5
+      - node:
+          color: '#9FED5896'
+          id: QuarterTileOverlayGreyscale180
+        decals:
+          852: -31,-27
+          857: -29,-26
+      - node:
           color: '#52B4E996'
           id: QuarterTileOverlayGreyscale270
         decals:
@@ -1595,12 +1583,6 @@ entities:
           861: 27,-26
           870: 29,-28
       - node:
-          color: '#9FED5896'
-          id: QuarterTileOverlayGreyscale90
-        decals:
-          856: -31,-26
-          858: -29,-27
-      - node:
           color: '#EFB34196'
           id: QuarterTileOverlayGreyscale90
         decals:
@@ -1609,6 +1591,12 @@ entities:
           638: -44,5
           639: -43,5
           640: -42,5
+      - node:
+          color: '#9FED5896'
+          id: QuarterTileOverlayGreyscale90
+        decals:
+          856: -31,-26
+          858: -29,-27
       - node:
           color: '#52B4E996'
           id: QuarterTileOverlayGreyscale90
@@ -2000,14 +1988,6 @@ entities:
           1077: -16,18
           1078: -16,17
           1079: -16,16
-      - node:
-          color: '#FEEF53FF'
-          id: credit
-        decals:
-          1191: -5,13
-          1192: -5,9
-          1193: 3,9
-          1194: 3,13
       - node:
           color: '#9BC516FF'
           id: shop
@@ -2549,11 +2529,12 @@ entities:
         -12,4:
           0: 65535
         -11,4:
-          0: 65535
+          0: 65519
+          2: 16
         -10,4:
           0: 61937
-          2: 14
-          3: 3584
+          3: 14
+          4: 3584
         -9,4:
           0: 65535
         -14,4:
@@ -2585,6 +2566,21 @@ entities:
         moles:
         - 0
         - 6666.982
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+      - volume: 2500
+        temperature: 293.14996
+        moles:
+        - 20.078888
+        - 75.53487
         - 0
         - 0
         - 0
@@ -2632,6 +2628,7 @@ entities:
   - id: Frontier
     type: BecomesStation
   - type: ProtectedGrid
+  - type: SpreaderGrid
 - uid: 1
   type: WallReinforced
   components:
@@ -4197,9 +4194,10 @@ entities:
     parent: 0
     type: Transform
 - uid: 261
-  type: ComputerShipyard
+  type: BenchSteelLeft
   components:
-  - pos: -1.5,13.5
+  - rot: 1.5707963267948966 rad
+    pos: -5.5,11.5
     parent: 0
     type: Transform
 - uid: 262
@@ -4241,10 +4239,9 @@ entities:
     parent: 0
     type: Transform
 - uid: 268
-  type: ComputerBankATM
+  type: PottedPlantRandom
   components:
-  - rot: 1.5707963267948966 rad
-    pos: -5.5,13.5
+  - pos: -0.5,13.5
     parent: 0
     type: Transform
 - uid: 269
@@ -4707,17 +4704,17 @@ entities:
     parent: 0
     type: Transform
 - uid: 345
-  type: ComputerBankATM
+  type: VendingMachineAmmo
   components:
-  - rot: -1.5707963267948966 rad
-    pos: 4.5,9.5
+  - flags: SessionSpecific
+    type: MetaData
+  - pos: 12.5,5.5
     parent: 0
     type: Transform
 - uid: 346
-  type: ComputerBankATM
+  type: MaterialBiomass
   components:
-  - rot: -1.5707963267948966 rad
-    pos: 4.5,13.5
+  - pos: -43.42814,10.691803
     parent: 0
     type: Transform
 - uid: 347
@@ -5037,10 +5034,10 @@ entities:
     parent: 0
     type: Transform
 - uid: 393
-  type: ComputerBankATM
+  type: BenchSteelRight
   components:
   - rot: 1.5707963267948966 rad
-    pos: -5.5,9.5
+    pos: -5.5,12.5
     parent: 0
     type: Transform
 - uid: 394
@@ -10805,9 +10802,10 @@ entities:
     parent: 0
     type: Transform
 - uid: 1181
-  type: ComputerShipyard
+  type: BenchSteelLeft
   components:
-  - pos: 0.5,13.5
+  - rot: -1.5707963267948966 rad
+    pos: 4.5,12.5
     parent: 0
     type: Transform
 - uid: 1182
@@ -12510,6 +12508,24 @@ entities:
     pos: -42.5,17.5
     parent: 0
     type: Transform
+  - air:
+      volume: 200
+      immutable: False
+      temperature: 293.1496
+      moles:
+      - 1.7459903
+      - 6.568249
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    type: EntityStorage
 - uid: 1464
   type: Morgue
   components:
@@ -16648,8 +16664,6 @@ entities:
     pos: -15.5,10.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2095
   type: BenchSofaCorpCorner
   components:
@@ -16673,8 +16687,6 @@ entities:
     pos: -14.5,10.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2098
   type: BenchSofaCorpLeft
   components:
@@ -16682,8 +16694,6 @@ entities:
     pos: -16.5,11.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2099
   type: BenchSofaCorpRight
   components:
@@ -16691,8 +16701,6 @@ entities:
     pos: -9.5,11.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2100
   type: BenchSofaCorpCorner
   components:
@@ -16709,8 +16717,6 @@ entities:
     pos: -10.5,10.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2102
   type: BenchSofaCorpLeft
   components:
@@ -16718,8 +16724,6 @@ entities:
     pos: -11.5,10.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2103
   type: TableGlass
   components:
@@ -16734,8 +16738,6 @@ entities:
     pos: -51.5,3.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2105
   type: BenchSteelWhiteLeft
   components:
@@ -16743,8 +16745,6 @@ entities:
     pos: -52.5,4.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2106
   type: BenchSteelWhiteRight
   components:
@@ -16752,8 +16752,6 @@ entities:
     pos: -52.5,3.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2107
   type: BenchSteelWhiteRight
   components:
@@ -16761,8 +16759,6 @@ entities:
     pos: -51.5,4.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2108
   type: RailingCorner
   components:
@@ -17117,8 +17113,6 @@ entities:
     pos: -14.5,18.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2160
   type: StoolBar
   components:
@@ -17126,8 +17120,6 @@ entities:
     pos: -14.5,17.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2161
   type: StoolBar
   components:
@@ -17135,8 +17127,6 @@ entities:
     pos: -14.5,16.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2162
   type: StoolBar
   components:
@@ -17144,8 +17134,6 @@ entities:
     pos: -12.5,15.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2163
   type: StoolBar
   components:
@@ -17153,8 +17141,6 @@ entities:
     pos: -13.5,15.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2164
   type: StoolBar
   components:
@@ -17162,8 +17148,6 @@ entities:
     pos: -11.5,15.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2165
   type: WindowDirectional
   components:
@@ -18908,8 +18892,6 @@ entities:
   - pos: -9.5,18.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2222
   type: TableGlass
   components:
@@ -19978,8 +19960,6 @@ entities:
     pos: -54.5,5.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2396
   type: BenchSteelWhiteRight
   components:
@@ -19987,8 +19967,6 @@ entities:
     pos: -54.5,6.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2397
   type: BenchSteelWhiteMiddle
   components:
@@ -19996,8 +19974,6 @@ entities:
     pos: -49.5,1.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2398
   type: BenchSteelWhiteRight
   components:
@@ -20005,8 +19981,6 @@ entities:
     pos: -50.5,1.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2399
   type: BenchSteelWhiteLeft
   components:
@@ -20014,8 +19988,6 @@ entities:
     pos: -48.5,1.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2400
   type: PottedPlantRandom
   components:
@@ -20114,21 +20086,22 @@ entities:
     parent: 0
     type: Transform
 - uid: 2414
-  type: RandomVending
+  type: BenchSteelRight
   components:
-  - pos: 16.5,5.5
+  - rot: -1.5707963267948966 rad
+    pos: 4.5,11.5
     parent: 0
     type: Transform
 - uid: 2415
-  type: RandomVending
+  type: PottedPlantRandom
   components:
-  - pos: 14.5,5.5
+  - pos: 4.5,10.5
     parent: 0
     type: Transform
 - uid: 2416
-  type: RandomVending
+  type: PottedPlantRandom
   components:
-  - pos: 12.5,5.5
+  - pos: -5.5,10.5
     parent: 0
     type: Transform
 - uid: 2417
@@ -20176,11 +20149,9 @@ entities:
     parent: 0
     type: Transform
 - uid: 2423
-  type: VendingMachineAmmo
+  type: RandomVending
   components:
-  - flags: SessionSpecific
-    type: MetaData
-  - pos: 4.5,18.5
+  - pos: -5.5,13.5
     parent: 0
     type: Transform
 - uid: 2424
@@ -20384,8 +20355,6 @@ entities:
     pos: -4.5,1.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2455
   type: BenchSteelRight
   components:
@@ -20393,8 +20362,6 @@ entities:
     pos: -6.5,1.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2456
   type: BenchSteelMiddle
   components:
@@ -20402,8 +20369,6 @@ entities:
     pos: -5.5,1.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2457
   type: BenchSteelLeft
   components:
@@ -20411,8 +20376,6 @@ entities:
     pos: -9.5,1.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2458
   type: BenchSteelRight
   components:
@@ -20420,8 +20383,6 @@ entities:
     pos: -11.5,1.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2459
   type: BenchSteelMiddle
   components:
@@ -20429,8 +20390,6 @@ entities:
     pos: -10.5,1.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2460
   type: BenchSteelMiddle
   components:
@@ -20438,8 +20397,6 @@ entities:
     pos: 4.5,1.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2461
   type: BenchSteelMiddle
   components:
@@ -20447,8 +20404,6 @@ entities:
     pos: 9.5,1.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2462
   type: BenchSteelRight
   components:
@@ -20456,8 +20411,6 @@ entities:
     pos: 3.5,1.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2463
   type: BenchSteelRight
   components:
@@ -20465,8 +20418,6 @@ entities:
     pos: 8.5,1.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2464
   type: BenchSteelLeft
   components:
@@ -20474,8 +20425,6 @@ entities:
     pos: 10.5,1.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2465
   type: BenchSteelLeft
   components:
@@ -20483,8 +20432,6 @@ entities:
     pos: 5.5,1.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2466
   type: PottedPlantRandom
   components:
@@ -20826,16 +20773,12 @@ entities:
   - pos: 1.5,51.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2522
   type: BenchSofaLeft
   components:
   - pos: 2.5,51.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2523
   type: RandomVendingSnacks
   components:
@@ -20855,8 +20798,6 @@ entities:
     pos: -2.5,39.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2526
   type: BenchSofaRight
   components:
@@ -20864,8 +20805,6 @@ entities:
     pos: -2.5,38.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 2527
   type: PottedPlantRandom
   components:
@@ -21690,79 +21629,80 @@ entities:
     parent: 0
     type: Transform
 - uid: 2658
-  type: WindowTintedDirectional
+  type: RandomVending
   components:
-  - pos: -5.5,9.5
+  - pos: 4.5,13.5
     parent: 0
     type: Transform
 - uid: 2659
   type: WindowTintedDirectional
   components:
-  - rot: 3.141592653589793 rad
-    pos: -5.5,9.5
+  - rot: 1.5707963267948966 rad
+    pos: -0.5,13.5
     parent: 0
     type: Transform
 - uid: 2660
-  type: WindowTintedDirectional
+  type: ComputerBankATM
   components:
-  - rot: 3.141592653589793 rad
-    pos: -5.5,13.5
+  - pos: 0.5,13.5
     parent: 0
     type: Transform
 - uid: 2661
   type: WindowTintedDirectional
   components:
-  - pos: -5.5,13.5
+  - rot: -1.5707963267948966 rad
+    pos: 1.5,13.5
     parent: 0
     type: Transform
 - uid: 2662
   type: WindowTintedDirectional
   components:
-  - pos: 4.5,9.5
+  - rot: 1.5707963267948966 rad
+    pos: -2.5,13.5
     parent: 0
     type: Transform
 - uid: 2663
-  type: WindowTintedDirectional
+  type: ComputerBankATM
   components:
-  - pos: 4.5,13.5
+  - pos: -1.5,13.5
     parent: 0
     type: Transform
 - uid: 2664
   type: WindowTintedDirectional
   components:
-  - rot: 3.141592653589793 rad
-    pos: 4.5,13.5
+  - rot: -1.5707963267948966 rad
+    pos: -0.5,13.5
     parent: 0
     type: Transform
 - uid: 2665
-  type: WindowTintedDirectional
+  type: SpawnPointAssistant
   components:
-  - rot: 3.141592653589793 rad
-    pos: 4.5,9.5
+  - pos: -5.5,11.5
     parent: 0
     type: Transform
 - uid: 2666
-  type: PottedPlantRandom
+  type: SpawnPointAssistant
   components:
-  - pos: -5.5,10.5
+  - pos: 4.5,11.5
     parent: 0
     type: Transform
 - uid: 2667
-  type: PottedPlantRandom
+  type: SpawnPointAssistant
   components:
-  - pos: 4.5,10.5
+  - pos: -2.5,38.5
     parent: 0
     type: Transform
 - uid: 2668
-  type: PottedPlantRandom
+  type: SpawnPointAssistant
   components:
-  - pos: 4.5,12.5
+  - pos: 4.5,1.5
     parent: 0
     type: Transform
 - uid: 2669
-  type: PottedPlantRandom
+  type: WindowTintedDirectional
   components:
-  - pos: -5.5,12.5
+  - rot: 1.5707963267948966 rad
+    pos: 0.5,13.5
     parent: 0
     type: Transform
 - uid: 2670
@@ -22634,15 +22574,16 @@ entities:
     parent: 0
     type: Transform
 - uid: 2756
-  type: MachineFrame
+  type: WindowTintedDirectional
   components:
-  - pos: 3.5,18.5
+  - rot: 1.5707963267948966 rad
+    pos: -1.5,13.5
     parent: 0
     type: Transform
 - uid: 2757
-  type: MachineFrame
+  type: SpawnPointAssistant
   components:
-  - pos: 2.5,18.5
+  - pos: -5.5,1.5
     parent: 0
     type: Transform
 - uid: 2758
@@ -31479,48 +31420,36 @@ entities:
   - pos: -20.5,4.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 4160
   type: BenchSteelMiddle
   components:
   - pos: -21.5,4.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 4161
   type: BenchSteelLeft
   components:
   - pos: -22.5,4.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 4162
   type: BenchSteelLeft
   components:
   - pos: 19.5,4.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 4163
   type: BenchSteelMiddle
   components:
   - pos: 20.5,4.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 4164
   type: BenchSteelRight
   components:
   - pos: 21.5,4.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 4165
   type: PottedPlantRandom
   components:
@@ -32316,16 +32245,12 @@ entities:
   - pos: 13.5,14.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 4267
   type: ChairPilotSeat
   components:
   - pos: 14.5,14.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 4268
   type: ChairOfficeDark
   components:
@@ -32437,8 +32362,6 @@ entities:
     pos: 19.5,10.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 4284
   type: BenchSofaRight
   components:
@@ -32446,8 +32369,6 @@ entities:
     pos: 20.5,9.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 4285
   type: TableGlass
   components:
@@ -32565,8 +32486,6 @@ entities:
   - pos: 26.5,10.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 4303
   type: FloorDrain
   components:
@@ -33776,8 +33695,6 @@ entities:
     pos: -39.5,1.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 4458
   type: BenchSteelLeft
   components:
@@ -33785,8 +33702,6 @@ entities:
     pos: -38.5,1.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 4459
   type: BenchSteelRight
   components:
@@ -33794,8 +33709,6 @@ entities:
     pos: -40.5,1.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 4460
   type: BenchSteelRight
   components:
@@ -33803,8 +33716,6 @@ entities:
     pos: 37.5,1.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 4461
   type: BenchSteelMiddle
   components:
@@ -33812,8 +33723,6 @@ entities:
     pos: 38.5,1.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 4462
   type: BenchSteelLeft
   components:
@@ -33821,8 +33730,6 @@ entities:
     pos: 39.5,1.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 4463
   type: PottedPlantRandom
   components:
@@ -33864,31 +33771,17 @@ entities:
     parent: 0
     type: Transform
 - uid: 4469
-  type: Railing
+  type: WindowTintedDirectional
   components:
-  - rot: 1.5707963267948966 rad
-    pos: -2.5,13.5
+  - rot: -1.5707963267948966 rad
+    pos: 0.5,13.5
     parent: 0
     type: Transform
 - uid: 4470
-  type: Railing
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: -0.5,13.5
-    parent: 0
-    type: Transform
-- uid: 4471
-  type: Railing
+  type: WindowTintedDirectional
   components:
   - rot: -1.5707963267948966 rad
-    pos: -0.5,13.5
-    parent: 0
-    type: Transform
-- uid: 4472
-  type: Railing
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 1.5,13.5
+    pos: -1.5,13.5
     parent: 0
     type: Transform
 - uid: 4473
@@ -33917,32 +33810,6 @@ entities:
   components:
   - rot: 1.5707963267948966 rad
     pos: 1.5,9.5
-    parent: 0
-    type: Transform
-- uid: 4477
-  type: RailingCornerSmall
-  components:
-  - pos: 1.5,12.5
-    parent: 0
-    type: Transform
-- uid: 4478
-  type: RailingCornerSmall
-  components:
-  - pos: -0.5,12.5
-    parent: 0
-    type: Transform
-- uid: 4479
-  type: RailingCornerSmall
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: -2.5,12.5
-    parent: 0
-    type: Transform
-- uid: 4480
-  type: RailingCornerSmall
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: -0.5,12.5
     parent: 0
     type: Transform
 - uid: 4481
@@ -33984,12 +33851,6 @@ entities:
   type: SpawnPointObserver
   components:
   - pos: -0.5,2.5
-    parent: 0
-    type: Transform
-- uid: 4487
-  type: ComputerRadar
-  components:
-  - pos: -0.5,13.5
     parent: 0
     type: Transform
 - uid: 4488
@@ -45995,36 +45856,6 @@ entities:
       - port: Middle
         uid: 2737
     type: SignalReceiver
-- uid: 5717
-  type: SpawnPointAssistant
-  components:
-  - pos: -52.5,18.5
-    parent: 0
-    type: Transform
-- uid: 5718
-  type: SpawnPointAssistant
-  components:
-  - pos: -52.5,16.5
-    parent: 0
-    type: Transform
-- uid: 5719
-  type: SpawnPointAssistant
-  components:
-  - pos: -52.5,14.5
-    parent: 0
-    type: Transform
-- uid: 5720
-  type: SpawnPointAssistant
-  components:
-  - pos: -52.5,12.5
-    parent: 0
-    type: Transform
-- uid: 5721
-  type: SpawnPointAssistant
-  components:
-  - pos: -52.5,10.5
-    parent: 0
-    type: Transform
 - uid: 5722
   type: ComputerShipyardSecurity
   components:
@@ -46055,20 +45886,6 @@ entities:
   type: ComputerRadar
   components:
   - pos: 30.5,5.5
-    parent: 0
-    type: Transform
-- uid: 5727
-  type: WindowReinforcedDirectional
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: 30.5,5.5
-    parent: 0
-    type: Transform
-- uid: 5728
-  type: WindowReinforcedDirectional
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 30.5,5.5
     parent: 0
     type: Transform
 - uid: 5729
@@ -46105,20 +45922,6 @@ entities:
   type: ComputerRadar
   components:
   - rot: 3.141592653589793 rad
-    pos: -52.5,1.5
-    parent: 0
-    type: Transform
-- uid: 5735
-  type: WindowReinforcedDirectional
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: -52.5,1.5
-    parent: 0
-    type: Transform
-- uid: 5736
-  type: WindowReinforcedDirectional
-  components:
-  - rot: -1.5707963267948966 rad
     pos: -52.5,1.5
     parent: 0
     type: Transform
@@ -46161,34 +45964,6 @@ entities:
   - pos: 17.5,4.5
     parent: 0
     type: Transform
-- uid: 5743
-  type: WindowReinforcedDirectional
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 17.5,4.5
-    parent: 0
-    type: Transform
-- uid: 5744
-  type: WindowReinforcedDirectional
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: 17.5,4.5
-    parent: 0
-    type: Transform
-- uid: 5745
-  type: WindowReinforcedDirectional
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: -18.5,4.5
-    parent: 0
-    type: Transform
-- uid: 5746
-  type: WindowReinforcedDirectional
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: -18.5,4.5
-    parent: 0
-    type: Transform
 - uid: 5747
   type: CableMV
   components:
@@ -46200,12 +45975,6 @@ entities:
   components:
   - rot: 1.5707963267948966 rad
     pos: -2.5,41.5
-    parent: 0
-    type: Transform
-- uid: 5749
-  type: WindowReinforcedDirectional
-  components:
-  - pos: -2.5,41.5
     parent: 0
     type: Transform
 - uid: 5750
@@ -46222,8 +45991,6 @@ entities:
     pos: -1.5,22.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 5752
   type: BenchSteelRight
   components:
@@ -46231,8 +45998,6 @@ entities:
     pos: -1.5,24.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 5753
   type: BenchSteelMiddle
   components:
@@ -46240,8 +46005,6 @@ entities:
     pos: -1.5,23.5
     parent: 0
     type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 5754
   type: PottedPlantRandomPlastic
   components:

@@ -16,6 +16,8 @@
           Amount: 2
           DefaultPrototype: Beaker
           ExamineName: Glass Beaker
+    - type: StaticPrice
+      price: 500
 
 - type: entity
   id: ServiceTechFabCircuitboard
@@ -35,6 +37,8 @@
           Amount: 2
           DefaultPrototype: Beaker
           ExamineName: Glass Beaker
+    - type: StaticPrice
+      price: 500
 
 - type: entity
   id: ScienceTechFabCircuitboard
@@ -54,3 +58,5 @@
           Amount: 2
           DefaultPrototype: Beaker
           ExamineName: Glass Beaker
+    - type: StaticPrice
+      price: 500

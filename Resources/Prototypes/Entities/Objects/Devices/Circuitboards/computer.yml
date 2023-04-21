@@ -143,6 +143,8 @@
       state: cpu_science
     - type: ComputerBoard
       prototype: ComputerResearchAndDevelopment
+    - type: StaticPrice
+      price: 250 
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -310,6 +312,8 @@
       state: cpu_command
     - type: ComputerBoard
       prototype: ComputerIFF
+    - type: StaticPrice
+      price: 750
 
 - type: entity
   parent: BaseComputerCircuitboard
