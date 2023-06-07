@@ -43,16 +43,19 @@ public static class PoolManager
 {
     private static readonly (string cvar, string value)[] ServerTestCvars =
     {
-        (CCVars.DatabaseSynchronous.Name, "true", false),
-        (CCVars.DatabaseSqliteDelay.Name, "0", false),
-        (CCVars.HolidaysEnabled.Name, "false", false),
-        (CCVars.GameMap.Name, "Empty", true),
-        (CCVars.AdminLogsQueueSendDelay.Name, "0", true),
-        (CCVars.NetPVS.Name, "false", true),
-        (CCVars.NPCMaxUpdates.Name, "999999", true),
-        (CCVars.SysWinTickPeriod.Name, "0", true),
-        (CCVars.ThreadParallelCount.Name, "1", true),
-        (CCVars.GameRoleTimers.Name, "false", false),
+        (CCVars.DatabaseSynchronous.Name, "true"),
+        (CCVars.DatabaseSqliteDelay.Name, "0"),
+        (CCVars.HolidaysEnabled.Name, "false"),
+        (CCVars.GameMap.Name, "Empty"),
+        (CCVars.AdminLogsQueueSendDelay.Name, "0"),
+        (CVars.NetPVS.Name, "false"),
+        (CCVars.NPCMaxUpdates.Name, "999999"),
+        (CVars.ThreadParallelCount.Name, "1"),
+        (CCVars.GameRoleTimers.Name, "false"),
+        (CCVars.CargoShuttles.Name, "false"),
+        (CCVars.ArrivalsShuttles.Name, "false"),
+        (CCVars.EmergencyShuttleEnabled.Name, "false"),
+        (CCVars.ProcgenPreload.Name, "false"),
     };
 
     private static int PairId;
