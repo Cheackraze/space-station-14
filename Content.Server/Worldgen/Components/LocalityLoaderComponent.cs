@@ -1,6 +1,6 @@
-﻿using Content.Server._Citadel.Worldgen.Systems;
+﻿using Content.Server.Worldgen.Systems;
 
-namespace Content.Server._Citadel.Worldgen.Components;
+namespace Content.Server.Worldgen.Components;
 
 /// <summary>
 ///     This is used for sending a signal to the entity it's on to load contents whenever a loader gets close enough.

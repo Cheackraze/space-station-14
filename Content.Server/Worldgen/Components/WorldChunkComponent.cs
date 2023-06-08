@@ -1,6 +1,6 @@
-﻿using Content.Server._Citadel.Worldgen.Systems;
+﻿using Content.Server.Worldgen.Systems;
 
-namespace Content.Server._Citadel.Worldgen.Components;
+namespace Content.Server.Worldgen.Components;
 
 /// <summary>
 ///     This is used for marking an entity as being a world chunk.

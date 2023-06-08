@@ -1,12 +1,15 @@
-﻿using Content.Server._Citadel.Worldgen.Components;
+﻿using Content.Server.Worldgen.Components;
+using Robust.Server.GameObjects;
 
-namespace Content.Server._Citadel.Worldgen.Systems;
+namespace Content.Server.Worldgen.Systems;
 
 /// <summary>
 ///     This handles loading in objects based on distance from player, using some metadata on chunks.
 /// </summary>
 public sealed class LocalityLoaderSystem : BaseWorldSystem
 {
+    [Dependency] private readonly TransformSystem _xformSys = default!;
+
     /// <inheritdoc />
     public override void Update(float frameTime)
     {
@@ -15,12 +18,12 @@ public sealed class LocalityLoaderSystem : BaseWorldSystem
         var xformQuery = GetEntityQuery<TransformComponent>();
         var controllerQuery = GetEntityQuery<WorldControllerComponent>();
 
-        while (e.MoveNext(out var loadable, out var xform))
+        while (e.MoveNext(out var uid, out var loadable, out var xform))
         {
             if (!controllerQuery.TryGetComponent(xform.MapUid, out var controller))
                 return;
 
-            var coords = GetChunkCoords(xform.Owner, xform);
+            var coords = GetChunkCoords(uid, xform);
             var done = false;
             for (var i = -1; i < 2 && !done; i++)
             {
@@ -35,11 +38,11 @@ public sealed class LocalityLoaderSystem : BaseWorldSystem
                         if (!xformQuery.TryGetComponent(loader, out var loaderXform))
                             continue;
 
-                        if ((loaderXform.WorldPosition - xform.WorldPosition).Length > loadable.LoadingDistance)
+                        if ((_xformSys.GetWorldPosition(loaderXform) - _xformSys.GetWorldPosition(xform)).Length > loadable.LoadingDistance)
                             continue;
 
-                        RaiseLocalEvent(loadable.Owner, new LocalStructureLoadedEvent());
-                        RemCompDeferred<LocalityLoaderComponent>(loadable.Owner);
+                        RaiseLocalEvent(uid, new LocalStructureLoadedEvent());
+                        RemCompDeferred<LocalityLoaderComponent>(uid);
                         done = true;
                         break;
                     }
@@ -49,5 +52,8 @@ public sealed class LocalityLoaderSystem : BaseWorldSystem
     }
 }
 
+/// <summary>
+///     A directed fired on a loadable entity when a local loader enters it's vicinity.
+/// </summary>
 public record struct LocalStructureLoadedEvent;
 

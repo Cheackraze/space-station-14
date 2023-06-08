@@ -1,7 +1,8 @@
-﻿using Content.Server._Citadel.Worldgen.Components.Debris;
+﻿using Content.Server.Worldgen.Components.Debris;
+using Robust.Server.GameObjects;
 using Robust.Shared.Random;
 
-namespace Content.Server._Citadel.Worldgen.Systems.Debris;
+namespace Content.Server.Worldgen.Systems.Debris;
 
 /// <summary>
 ///     This handles selecting debris with probability decided by a noise channel.
@@ -9,6 +10,7 @@ namespace Content.Server._Citadel.Worldgen.Systems.Debris;
 public sealed class NoiseDrivenDebrisSelectorSystem : BaseWorldSystem
 {
     [Dependency] private readonly NoiseIndexSystem _index = default!;
+    [Dependency] private readonly TransformSystem _xformSys = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
@@ -26,7 +28,7 @@ public sealed class NoiseDrivenDebrisSelectorSystem : BaseWorldSystem
     private void OnSelectDebrisKind(EntityUid uid, NoiseDrivenDebrisSelectorComponent component,
         ref TryGetPlaceableDebrisFeatureEvent args)
     {
-        var coords = WorldGen.WorldToChunkCoords(args.Coords.ToMapPos(EntityManager));
+        var coords = WorldGen.WorldToChunkCoords(args.Coords.ToMapPos(EntityManager, _xformSys));
         var prob = _index.Evaluate(uid, component.NoiseChannel, coords);
 
         if (prob is < 0 or > 1)

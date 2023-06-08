@@ -1,12 +1,13 @@
 ﻿- type: entity
-  id: CitadelBaseScrapDebris
-  parent: CitadelBaseDebris
+  id: BaseScrapDebris
+  parent: BaseDebris
   name: Scrap Debris
   abstract: true
   components:
     - type: MapGrid
     - type: BlobFloorPlanBuilder
       floorTileset:
+        - Plating
         - Plating
         - Plating
         - FloorSteel
@@ -77,8 +78,8 @@
       color: "#88b0d1"
 
 - type: entity
-  id: CitadelScrapDebrisSmall
-  parent: CitadelBaseScrapDebris
+  id: ScrapDebrisSmall
+  parent: BaseScrapDebris
   name: Scrap Debris Small
   noSpawn: true
   components:
@@ -87,8 +88,8 @@
       floorPlacements: 8
 
 - type: entity
-  id: CitadelScrapDebrisMedium
-  parent: CitadelBaseScrapDebris
+  id: ScrapDebrisMedium
+  parent: BaseScrapDebris
   name: Scrap Debris Medium
   noSpawn: true
   components:
@@ -97,8 +98,8 @@
       floorPlacements: 16
 
 - type: entity
-  id: CitadelScrapDebrisLarge
-  parent: CitadelBaseScrapDebris
+  id: ScrapDebrisLarge
+  parent: BaseScrapDebris
   name: Scrap Debris Large
   noSpawn: true
   components:

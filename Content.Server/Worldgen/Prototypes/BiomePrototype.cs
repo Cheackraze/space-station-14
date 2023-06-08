@@ -2,13 +2,13 @@
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
 
-namespace Content.Server._Citadel.Worldgen.Prototypes;
+namespace Content.Server.Worldgen.Prototypes;
 
 /// <summary>
 ///     This is a prototype for biome selection, allowing the component list of a chunk to be amended based on the output
 ///     of noise channels at that location.
 /// </summary>
-[Prototype("citadelBiome")]
+[Prototype("spaceBiome")]
 public sealed class BiomePrototype : IPrototype, IInheritingPrototype
 {
     /// <inheritdoc />
@@ -41,7 +41,7 @@ public sealed class BiomePrototype : IPrototype, IInheritingPrototype
     /// </summary>
     [DataField("chunkComponents")]
     [AlwaysPushInheritance]
-    public EntityPrototype.ComponentRegistry ChunkComponents { get; } = new();
+    public ComponentRegistry ChunkComponents { get; } = new();
 
     //TODO: Get someone to make this a method on componentregistry that does it Correctly.
     /// <summary>
@@ -53,7 +53,7 @@ public sealed class BiomePrototype : IPrototype, IInheritingPrototype
         foreach (var data in ChunkComponents.Values)
         {
             var comp = (Component) serialization.CreateCopy(data.Component, notNullableOverride: true);
-            comp.Owner = target;
+            comp.Owner = target; // look im sorry ok this .owner has to live until engine api exists
             entityManager.AddComponent(target, comp);
         }
     }

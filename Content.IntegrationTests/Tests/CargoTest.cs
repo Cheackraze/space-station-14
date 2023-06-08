@@ -3,9 +3,11 @@ using System.Linq;
 using Content.Server.Cargo.Components;
 using Content.Server.Cargo.Systems;
 using Content.Shared.Cargo.Prototypes;
+using Content.Shared.CCVar;
 using Content.Shared.Stacks;
 using Content.Shared.Cargo.Components;
 using NUnit.Framework;
+using Robust.Shared.Configuration;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Maths;
@@ -71,7 +73,7 @@ public sealed class CargoTest
 
             var protoIds = protoManager.EnumeratePrototypes<EntityPrototype>()
                 .Where(p=>!p.Abstract)
-                .Where(p => !p.Components.ContainsKey("MapGrid")) // CITADEL EDIT (i love patching bugs in tests)
+                .Where(p => !p.Components.ContainsKey("MapGrid")) // Grids are not for sale.
                 .Select(p => p.ID)
                 .ToList();
 
@@ -102,6 +104,7 @@ public sealed class CargoTest
             }
             mapManager.DeleteMap(mapId);
         });
+
         await pairTracker.CleanReturnAsync();
     }
 

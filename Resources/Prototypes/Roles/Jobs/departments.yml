@@ -72,11 +72,11 @@
   - MedicalDoctor
   - MedicalIntern
   - Psychologist
-  - Paramedic ##nyano
+  - Paramedic
 
 - type: department
   id: Security
-  description: department-Command-description
+  description: department-Security-description
   color: "#DE3A3A"
   roles:
   - HeadOfSecurity
@@ -84,7 +84,6 @@
   - SecurityOfficer
   - Detective
   - Warden
-  - Brigmedic
   - PrisonGuard ##nyano
 
 - type: department
@@ -103,3 +102,13 @@
   roles:
   - Cyborg
   - MedicalCyborg
+
+- type: department
+  id: Specific
+  description: department-Specific-description
+  color: "#9FED58"
+  roles:
+  - Boxer
+  - Reporter
+  - Zookeeper
+  - Psychologist

@@ -1,7 +1,7 @@
 ﻿using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
 
-namespace Content.Server._Citadel.Worldgen.Prototypes;
+namespace Content.Server.Worldgen.Prototypes;
 
 /// <summary>
 ///     This is a prototype for controlling overall world generation.
@@ -18,7 +18,7 @@ public sealed class WorldgenConfigPrototype : IPrototype
     ///     The components that get added to the target map.
     /// </summary>
     [DataField("components", required: true)]
-    public EntityPrototype.ComponentRegistry Components { get; } = default!;
+    public ComponentRegistry Components { get; } = default!;
 
     //TODO: Get someone to make this a method on componentregistry that does it Correctly.
     /// <summary>
@@ -30,7 +30,7 @@ public sealed class WorldgenConfigPrototype : IPrototype
         foreach (var data in Components.Values)
         {
             var comp = (Component) serialization.CreateCopy(data.Component, notNullableOverride: true);
-            comp.Owner = target;
+            comp.Owner = target; // look im sorry ok this .owner has to live until engine api exists
             entityManager.AddComponent(target, comp);
         }
     }

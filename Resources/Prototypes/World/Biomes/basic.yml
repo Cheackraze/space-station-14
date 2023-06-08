@@ -1,5 +1,5 @@
-﻿- type: citadelBiome
-  id: CitadelAsteroidsStandard
+﻿- type: spaceBiome
+  id: AsteroidsStandard
   priority: 0 # This probably shouldn't get selected.
   noiseRanges: {}
   chunkComponents:
@@ -7,19 +7,18 @@
       densityNoiseChannel: Density
     - type: SimpleDebrisSelector
       debrisTable:
-        ##- id: CitadelAsteroidDebrisSmall
-        - id: CitadelAsteroidDebrisMedium
-        - id: CitadelAsteroidDebrisLarge
+        ##- id: AsteroidDebrisSmall
+        - id: AsteroidDebrisMedium
+        - id: AsteroidDebrisLarge
           prob: 0.7
-        - id: CitadelAsteroidDebrisLarger
+        - id: AsteroidDebrisLarger
           prob: 0.4
     - type: NoiseDrivenDebrisSelector
       noiseChannel: Wreck
       debrisTable:
-        ##- id: CitadelScrapDebrisSmall
-        - id: CitadelScrapDebrisMedium
-        - id: CitadelScrapDebrisLarge
-        - id: CitadelAsteroidDebrisLarger
+        ##- id: ScrapDebrisSmall
+        - id: ScrapDebrisMedium
+        - id: ScrapDebrisLarge
           prob: 0.5
     - type: NoiseRangeCarver
       ranges:

@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Diagnostics.Contracts;
 
-namespace Content.Server._Citadel.Worldgen;
+namespace Content.Server.Worldgen;
 
 /// <summary>
 ///     A struct enumerator of points on a grid within the given radius.
@@ -13,6 +13,9 @@ public struct GridPointsNearEnumerator
     private int _x;
     private int _y;
 
+    /// <summary>
+    ///     Initializes a new enumerator with the given center and radius.
+    /// </summary>
     public GridPointsNearEnumerator(Vector2i center, int radius)
     {
         _radius = radius;

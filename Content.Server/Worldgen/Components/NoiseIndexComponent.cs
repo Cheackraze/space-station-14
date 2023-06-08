@@ -1,7 +1,7 @@
-﻿using Content.Server._Citadel.Worldgen.Prototypes;
-using Content.Server._Citadel.Worldgen.Systems;
+﻿using Content.Server.Worldgen.Prototypes;
+using Content.Server.Worldgen.Systems;
 
-namespace Content.Server._Citadel.Worldgen.Components;
+namespace Content.Server.Worldgen.Components;
 
 /// <summary>
 ///     This is used for containing configured noise generators.

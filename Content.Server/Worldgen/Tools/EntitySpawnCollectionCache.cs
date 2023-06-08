@@ -2,7 +2,7 @@
 using Content.Shared.Storage;
 using Robust.Shared.Random;
 
-namespace Content.Server._Citadel.Worldgen.Tools;
+namespace Content.Server.Worldgen.Tools;
 
 /// <summary>
 ///     A faster version of EntitySpawnCollection that requires caching to work.
