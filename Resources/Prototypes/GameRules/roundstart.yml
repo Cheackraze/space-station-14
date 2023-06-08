@@ -94,5 +94,4 @@
   parent: BaseGameRule
   noSpawn: true
   components:
-  - type: RampingStationEventScheduler
   - type: AdventureRule

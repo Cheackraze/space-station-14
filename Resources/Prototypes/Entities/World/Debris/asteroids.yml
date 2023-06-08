@@ -1,6 +1,6 @@
 ﻿- type: entity
-  id: CitadelBaseAsteroidDebris
-  parent: CitadelBaseDebris
+  id: BaseAsteroidDebris
+  parent: BaseDebris
   name: Asteroid Debris
   abstract: true
   components:

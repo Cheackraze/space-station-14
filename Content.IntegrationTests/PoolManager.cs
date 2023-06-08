@@ -12,7 +12,6 @@ using Content.IntegrationTests.Tests.Destructible;
 using Content.IntegrationTests.Tests.DeviceNetwork;
 using Content.IntegrationTests.Tests.Interaction.Click;
 using Content.IntegrationTests.Tests.Networking;
-using Content.Server._Citadel.Worldgen;
 using Content.Server.GameTicking;
 using Content.Shared.CCVar;
 using Microsoft.Diagnostics.Tracing.Parsers.Kernel;

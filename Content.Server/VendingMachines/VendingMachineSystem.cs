@@ -33,6 +33,7 @@ namespace Content.Server.VendingMachines
     public sealed class VendingMachineSystem : SharedVendingMachineSystem
     {
         [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly AccessReaderSystem _accessReader = default!;
         [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
         [Dependency] private readonly AudioSystem _audioSystem = default!;
@@ -128,7 +129,7 @@ namespace Content.Server.VendingMachines
 
         private void UpdateVendingMachineInterfaceState(EntityUid uid, VendingMachineComponent component, int balance)
         {
-            var state = new VendingMachineInterfaceState(GetAllInventory(uid, component));
+            var state = new VendingMachineInterfaceState(GetAllInventory(uid, component), balance);
 
             _userInterfaceSystem.TrySetUiState(uid, VendingMachineUiKey.Key, state);
         }
@@ -262,7 +263,6 @@ namespace Content.Server.VendingMachines
         /// <param name="itemId">The prototype ID of the item</param>
         /// <param name="throwItem">Whether the item should be thrown in a random direction after ejection</param>
         /// <param name="vendComponent"></param>
-        public void TryEjectVendorItem(EntityUid uid, InventoryType type, string itemId, bool throwItem, VendingMachineComponent? vendComponent = null)
         public bool TryEjectVendorItem(EntityUid uid, InventoryType type, string itemId, bool throwItem, int balance, VendingMachineComponent? vendComponent = null)
         {
             if (!Resolve(uid, ref vendComponent))
@@ -360,7 +360,7 @@ namespace Content.Server.VendingMachines
                     }
 
                     _bankSystem.TryBankWithdraw(sender, totalPrice);
-                    UpdateVendingMachineInterfaceState(component, bank.Balance);
+                    UpdateVendingMachineInterfaceState(uid, component, bank.Balance);
                 }
             }
         }
@@ -423,7 +423,6 @@ namespace Content.Server.VendingMachines
             }
             else
                 TryEjectVendorItem(uid, item.Type, item.ID, throwItem, 0, vendComponent);
-            }
         }
 
         private void EjectItem(EntityUid uid, VendingMachineComponent? vendComponent = null, bool forceEject = false)

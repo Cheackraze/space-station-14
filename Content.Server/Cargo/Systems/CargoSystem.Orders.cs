@@ -40,7 +40,6 @@ namespace Content.Server.Cargo.Systems
         [Dependency] private readonly AccessReaderSystem _accessReaderSystem = default!;
         [Dependency] private readonly DeviceLinkSystem _linker = default!;
         [Dependency] private readonly BankSystem _bankSystem = default!;
-        [Dependency] private readonly SignalLinkerSystem _linker = default!;
         [Dependency] private readonly PopupSystem _popup = default!;
         [Dependency] private readonly StationSystem _station = default!;
         [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
