@@ -1,3 +1,31 @@
+## This file is getting bloated and needs to be renamed/properly split next update or addition
+
+- type: entity
+  id: StandardFrontierStation
+  parent:
+    - BaseStation
+    - BaseStationCargo
+    - BaseStationJobsSpawning
+    - BaseStationRecords
+    - BaseStationShuttles
+    - BaseStationAlertLevels
+  noSpawn: true
+  components:
+    - type: Transform
+
+- type: entity
+  id: StandardFrontierVessel
+  parent:
+    - BaseStation
+    - BaseStationJobsSpawning
+    - BaseStationRecords
+    - BaseStationAlertLevels
+    - BaseStationExpeditions
+    - BaseStationAllEventsEligible
+  noSpawn: true
+  components:
+    - type: Transform
+
 - type: vessel
   id: PTS
   name: NC Personal Transport
@@ -14,14 +42,18 @@
   minPlayers: 0
   stations: 
     PTS:
-      mapNameTemplate: '{0} Personal Transport {1}'
-      nameGenerator:
-        !type:NanotrasenNameGenerator
-        prefixCreator: '14'
-      overflowJobs: []
-      availableJobs:
-        Passenger: [ 0, 0 ]
-
+      stationProto: StandardNanotrasenVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} PTS {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          overflowJobs: []
+          availableJobs:
+            Passenger: [ 0, 0 ]
+            
 - type: vessel
   id: MailTruck
   name: NC Mail Truck
@@ -38,13 +70,17 @@
   minPlayers: 0
   stations: 
     MailTruck:
-      mapNameTemplate: '{0} Mail Truck {1}'
-      nameGenerator:
-        !type:NanotrasenNameGenerator
-        prefixCreator: '14'
-      overflowJobs: []
-      availableJobs:
-        MailCarrier: [ 1, 1 ]
+      stationProto: StandardNanotrasenVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Mail Truck {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          overflowJobs: []
+          availableJobs:
+            MailCarrier: [ 1, 1 ]
 
 - type: vessel
   id: Barge
@@ -62,16 +98,20 @@
   minPlayers: 0
   stations: 
     Barge:
-      mapNameTemplate: '{0} Barge {1}'
-      nameGenerator:
-        !type:NanotrasenNameGenerator
-        prefixCreator: '14'
-      overflowJobs: []
-      availableJobs:
-        CargoTechnician: [ 1, 1 ]
-        Bartender: [ 1, 1 ]
-        SalvageSpecialist: [ 2, 2 ]
-        Quartermaster: [ 1, 1 ]
+      stationProto: StandardNanotrasenVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Barge {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          overflowJobs: []
+          availableJobs:
+            CargoTechnician: [ 1, 1 ]
+            Bartender: [ 1, 1 ]
+            SalvageSpecialist: [ 2, 2 ]
+            Quartermaster: [ 1, 1 ]
 
 - type: vessel
   id: Prospector
@@ -89,14 +129,18 @@
   minPlayers: 0
   stations: 
     Prospector:
-      mapNameTemplate: '{0} Prospector {1}'
-      nameGenerator:
-        !type:NanotrasenNameGenerator
-        prefixCreator: '14'
-      overflowJobs: []
-      availableJobs:
-        SalvageSpecialist: [ 1, 1 ]
-        
+      stationProto: StandardNanotrasenVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Prospector {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          overflowJobs: []
+          availableJobs:
+            SalvageSpecialist: [ 1, 1 ]
+
 - type: vessel
   id: Sparrow
   name: NR Sparrow
@@ -113,15 +157,19 @@
   minPlayers: 0
   stations: 
     Sparrow:
-      mapNameTemplate: '{0} Sparrow {1}'
-      nameGenerator:
-        !type:NanotrasenNameGenerator
-        prefixCreator: '14'
-      overflowJobs: []
-      availableJobs:
-        StationEngineer: [ 1, 1 ]
-        Scientist: [ 1, 1 ]
-        ##Cyborg:[ 1, 1 ]
+      stationProto: StandardNanotrasenVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Sparrow {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          overflowJobs: []
+          availableJobs:
+            StationEngineer: [ 1, 1 ]
+            Scientist: [ 1, 1 ]
+            ##Cyborg:[ 1, 1 ]
 
 - type: vessel
   id: Condor
@@ -139,18 +187,22 @@
   minPlayers: 0
   stations: 
     Condor:
-      mapNameTemplate: '{0} Condor {1}'
-      nameGenerator:
-        !type:NanotrasenNameGenerator
-        prefixCreator: '14'
-      overflowJobs: []
-      availableJobs:
-        StationEngineer: [ 1, 1 ]
-        Scientist: [ 2, 2 ]
-        ResearchDirector: [ 1, 1 ]
-        ChiefEngineer: [ 1, 1 ]
-        AtmosphericTechnician: [ 1, 1 ]
-        ##Cyborg [ 1, 1 ]
+      stationProto: StandardNanotrasenVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Condor {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          overflowJobs: []
+          availableJobs:
+            StationEngineer: [ 1, 1 ]
+            Scientist: [ 2, 2 ]
+            ResearchDirector: [ 1, 1 ]
+            ChiefEngineer: [ 1, 1 ]
+            AtmosphericTechnician: [ 1, 1 ]
+            ##Cyborg [ 1, 1 ]
 
 - type: vessel
   id: Interceptor
@@ -168,14 +220,18 @@
   minPlayers: 0
   stations: 
     Interceptor:
-      mapNameTemplate: '{0} Interceptor {1}'
-      nameGenerator:
-        !type:NanotrasenNameGenerator
-        prefixCreator: '14'
-      overflowJobs: []
-      availableJobs:
-        Detective: [ 1, 1 ]
-        
+      stationProto: StandardNanotrasenVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Interceptor {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          overflowJobs: []
+          availableJobs:
+            Detective: [ 1, 1 ]
+
 - type: vessel
   id: Enforcer
   name: NSF Enforcer
@@ -192,14 +248,18 @@
   minPlayers: 0
   stations: 
     Enforcer:
-      mapNameTemplate: '{0} Enforcer {1}'
-      nameGenerator:
-        !type:NanotrasenNameGenerator
-        prefixCreator: '14'
-      overflowJobs: []
-      availableJobs:
-        PrisonGuard: [ 1, 1 ]
-        SecurityOfficer: [ 1, 1 ]
+      stationProto: StandardNanotrasenVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Enforcer {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          overflowJobs: []
+          availableJobs:
+            PrisonGuard: [ 1, 1 ]
+            SecurityOfficer: [ 1, 1 ]
 
 - type: vessel
   id: Trident
@@ -217,15 +277,19 @@
   minPlayers: 0
   stations: 
     Trident:
-      mapNameTemplate: '{0} Trident {1}'
-      nameGenerator:
-        !type:NanotrasenNameGenerator
-        prefixCreator: '14'
-      overflowJobs: []
-      availableJobs:
-        PrisonGuard: [ 1, 1 ]
-        SecurityOfficer: [ 3, 3 ]
-        Warden: [ 1, 1 ]
+      stationProto: StandardNanotrasenVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Trident {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          overflowJobs: []
+          availableJobs:
+            PrisonGuard: [ 1, 1 ]
+            SecurityOfficer: [ 3, 3 ]
+            Warden: [ 1, 1 ]
 
 - type: vessel
   id: Pulse
@@ -243,14 +307,18 @@
   minPlayers: 0
   stations: 
     Pulse:
-      mapNameTemplate: '{0} Pulse {1}'
-      nameGenerator:
-        !type:NanotrasenNameGenerator
-        prefixCreator: '14'
-      overflowJobs: []
-      availableJobs:
-        Paramedic: [ 1, 1 ]
-        MedicalCyborg: [ 1, 1 ]
+      stationProto: StandardNanotrasenVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Pulse {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          overflowJobs: []
+          availableJobs:
+            Paramedic: [ 1, 1 ]
+            MedicalCyborg: [ 1, 1 ]
 
 - type: vessel
   id: Helix
@@ -268,18 +336,22 @@
   minPlayers: 0
   stations: 
     Helix:
-      mapNameTemplate: '{0} Helix {1}'
-      nameGenerator:
-        !type:NanotrasenNameGenerator
-        prefixCreator: '14'
-      overflowJobs: []
-      availableJobs:
-        Paramedic: [ 1, 1 ]
-        ChiefMedicalOfficer: [ 1, 1 ]
-        MedicalDoctor: [ 1, 1 ]
-        Chemist: [ 1, 1 ]
-        MedicalCyborg: [ 1, 1 ]
-        
+      stationProto: StandardNanotrasenVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Helix {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          overflowJobs: []
+          availableJobs:
+            Paramedic: [ 1, 1 ]
+            ChiefMedicalOfficer: [ 1, 1 ]
+            MedicalDoctor: [ 1, 1 ]
+            Chemist: [ 1, 1 ]
+            MedicalCyborg: [ 1, 1 ]
+
 - type: vessel
   id: Skipper
   name: NC Skipper
@@ -296,11 +368,15 @@
   minPlayers: 0
   stations: 
     Skipper:
-      mapNameTemplate: '{0} Skipper {1}'
-      nameGenerator:
-        !type:NanotrasenNameGenerator
-        prefixCreator: '14'
-      overflowJobs: []
-      availableJobs:
-        Botanist: [ 1, 1 ]
-        Chef: [ 1, 1 ]
+      stationProto: StandardNanotrasenVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Skipper {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          overflowJobs: []
+          availableJobs:
+            Botanist: [ 1, 1 ]
+            Chef: [ 1, 1 ]
