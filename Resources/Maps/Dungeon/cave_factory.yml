@@ -5014,12 +5014,6 @@ entities:
     pos: 9.5,18.5
     parent: 0
     type: Transform
-- uid: 298
-  type: SpaceTickSpawnerNPC
-  components:
-  - pos: 17.5,7.5
-    parent: 0
-    type: Transform
 - uid: 299
   type: SpaceCash500
   components:
@@ -8541,12 +8535,6 @@ entities:
   - pos: 20.5,28.5
     parent: 0
     type: Transform
-- uid: 843
-  type: SnakeSpawnerMundane
-  components:
-  - pos: 27.5,14.5
-    parent: 0
-    type: Transform
 - uid: 844
   type: LockerAtmosphericsFilled
   components:
@@ -8563,12 +8551,6 @@ entities:
   type: ClothingShoesBootsMag
   components:
   - pos: 18.2928,25.549213
-    parent: 0
-    type: Transform
-- uid: 847
-  type: SnakeSpawnerMundane
-  components:
-  - pos: 14.5,20.5
     parent: 0
     type: Transform
 - uid: 848
@@ -9068,18 +9050,6 @@ entities:
   - pos: 2.5,2.5
     parent: 0
     type: Transform
-- uid: 922
-  type: SpaceTickSpawnerNPC
-  components:
-  - pos: 8.5,2.5
-    parent: 0
-    type: Transform
-- uid: 923
-  type: SnakeSpawnerMundane
-  components:
-  - pos: 11.5,40.5
-    parent: 0
-    type: Transform
 - uid: 924
   type: SheetPlastic1
   components:
@@ -9227,8 +9197,6 @@ entities:
     pos: 8.5,28.5
     parent: 0
     type: Transform
-  - fixtures: []
-    type: Fixtures
 - uid: 945
   type: FloorDrain
   components:
@@ -9236,8 +9204,6 @@ entities:
     pos: 10.5,28.5
     parent: 0
     type: Transform
-  - fixtures: []
-    type: Fixtures
 - uid: 946
   type: HospitalCurtainsOpen
   components:
@@ -16150,18 +16116,6 @@ entities:
   type: PresentRandom
   components:
   - pos: 20.63422,1.6774771
-    parent: 0
-    type: Transform
-- uid: 1956
-  type: SpaceTickSpawnerNPC
-  components:
-  - pos: 29.5,34.5
-    parent: 0
-    type: Transform
-- uid: 1957
-  type: SpaceTickSpawnerNPC
-  components:
-  - pos: 11.5,45.5
     parent: 0
     type: Transform
 - uid: 1958
