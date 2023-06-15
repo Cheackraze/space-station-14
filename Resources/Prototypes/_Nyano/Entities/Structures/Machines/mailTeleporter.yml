@@ -11,14 +11,6 @@
   - type: Transform
     anchored: true
     noRot: true
-  - type: Fixtures
-    fixtures:
-    - shape:
-        !type:PhysShapeAabb
-          bounds: "-0.45,-0.45,0.45,0.00"
-      density: 120
-      mask:
-      - HighImpassable
   - type: Sprite
     netsync: false
     sprite: Nyanotrasen/Structures/mailbox.rsi

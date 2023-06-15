@@ -24,16 +24,6 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: pibble
   - type: Physics
-  - type: Fixtures
-    fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.35
-      density: 65
-      mask:
-      - MobMask
-      layer:
-      - MobLayer
   - type: Appearance
   - type: Inventory
     speciesId: dog

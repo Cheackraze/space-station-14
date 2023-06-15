@@ -124,16 +124,6 @@
     delay: 999999
   - type: Physics
     bodyType: Static
-  - type: Fixtures
-    fixtures:
-    - shape:
-        !type:PhysShapeAabb
-        bounds: "-0.25,-0.5,0.25,0.5"
-      density: 190
-      mask:
-      - MachineMask
-      layer:
-      - MachineLayer
   - type: Destructible
     thresholds:
     - trigger:

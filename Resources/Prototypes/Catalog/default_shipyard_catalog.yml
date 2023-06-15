@@ -42,7 +42,7 @@
   minPlayers: 0
   stations: 
     PTS:
-      stationProto: StandardNanotrasenVessel
+      stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
           mapNameTemplate: '{0} PTS {1}'
@@ -70,7 +70,7 @@
   minPlayers: 0
   stations: 
     MailTruck:
-      stationProto: StandardNanotrasenVessel
+      stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
           mapNameTemplate: '{0} Mail Truck {1}'
@@ -98,7 +98,7 @@
   minPlayers: 0
   stations: 
     Barge:
-      stationProto: StandardNanotrasenVessel
+      stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
           mapNameTemplate: '{0} Barge {1}'
@@ -129,7 +129,7 @@
   minPlayers: 0
   stations: 
     Prospector:
-      stationProto: StandardNanotrasenVessel
+      stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
           mapNameTemplate: '{0} Prospector {1}'
@@ -157,7 +157,7 @@
   minPlayers: 0
   stations: 
     Sparrow:
-      stationProto: StandardNanotrasenVessel
+      stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
           mapNameTemplate: '{0} Sparrow {1}'
@@ -187,7 +187,7 @@
   minPlayers: 0
   stations: 
     Condor:
-      stationProto: StandardNanotrasenVessel
+      stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
           mapNameTemplate: '{0} Condor {1}'
@@ -220,7 +220,7 @@
   minPlayers: 0
   stations: 
     Interceptor:
-      stationProto: StandardNanotrasenVessel
+      stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
           mapNameTemplate: '{0} Interceptor {1}'
@@ -248,7 +248,7 @@
   minPlayers: 0
   stations: 
     Enforcer:
-      stationProto: StandardNanotrasenVessel
+      stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
           mapNameTemplate: '{0} Enforcer {1}'
@@ -277,7 +277,7 @@
   minPlayers: 0
   stations: 
     Trident:
-      stationProto: StandardNanotrasenVessel
+      stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
           mapNameTemplate: '{0} Trident {1}'
@@ -307,7 +307,7 @@
   minPlayers: 0
   stations: 
     Pulse:
-      stationProto: StandardNanotrasenVessel
+      stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
           mapNameTemplate: '{0} Pulse {1}'
@@ -336,7 +336,7 @@
   minPlayers: 0
   stations: 
     Helix:
-      stationProto: StandardNanotrasenVessel
+      stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
           mapNameTemplate: '{0} Helix {1}'
@@ -368,7 +368,7 @@
   minPlayers: 0
   stations: 
     Skipper:
-      stationProto: StandardNanotrasenVessel
+      stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
           mapNameTemplate: '{0} Skipper {1}'

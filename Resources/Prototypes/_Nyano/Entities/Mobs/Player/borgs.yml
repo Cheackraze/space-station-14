@@ -41,16 +41,6 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: NoSlip
-  - type: Fixtures
-    fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.35
-      density: 400
-      mask:
-      - MobMask
-      layer:
-      - MobLayer
   - type: Repairable
     fuelcost: 60
     doAfterDelay: 32
