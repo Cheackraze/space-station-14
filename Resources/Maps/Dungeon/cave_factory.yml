@@ -14235,12 +14235,6 @@ entities:
     pos: 25.063513,27.520548
     parent: 0
     type: Transform
-- uid: 1692
-  type: MicroLaserStockPart
-  components:
-  - pos: 30.596985,43.473316
-    parent: 0
-    type: Transform
 - uid: 1693
   type: Poweredlight
   components:

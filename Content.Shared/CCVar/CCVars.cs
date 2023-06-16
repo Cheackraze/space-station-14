@@ -204,7 +204,7 @@ namespace Content.Shared.CCVar
         /// Is map rotation enabled?
         /// </summary>
         public static readonly CVarDef<bool>
-            GameMapRotation = CVarDef.Create("game.map_rotation", true, CVar.SERVERONLY);
+            GameMapRotation = CVarDef.Create("game.map_rotation", false, CVar.SERVERONLY);
 
         /// <summary>
         /// If roles should be restricted based on time.
@@ -223,7 +223,7 @@ namespace Content.Shared.CCVar
         /// Does nothing without <see cref="StationOffset"/> as true.
         /// </summary>
         public static readonly CVarDef<float> MaxStationOffset =
-            CVarDef.Create("game.maxstationoffset", 750.0f);
+            CVarDef.Create("game.maxstationoffset", 900.0f);
 
         /// <summary>
         ///     Whether a random rotation will be applied to the station on roundstart.
@@ -810,7 +810,7 @@ namespace Content.Shared.CCVar
         ///     A "throwing" atmospheric pressure difference ignores this limit, but not the max. velocity limit.
         /// </summary>
         public static readonly CVarDef<float> SpaceWindMaxPushForce =
-            CVarDef.Create("atmos.space_wind_max_push_force", 30f, CVar.SERVERONLY);
+            CVarDef.Create("atmos.space_wind_max_push_force", 25f, CVar.SERVERONLY);
 
         /// <summary>
         ///     Whether monstermos tile equalization is enabled.
@@ -837,7 +837,7 @@ namespace Content.Shared.CCVar
         ///     Needs <see cref="MonstermosEqualization"/> and <see cref="MonstermosDepressurization"/> to be enabled to work.
         /// </summary>
         public static readonly CVarDef<bool> AtmosGridImpulse =
-            CVarDef.Create("atmos.grid_impulse", true, CVar.SERVERONLY);
+            CVarDef.Create("atmos.grid_impulse", false, CVar.SERVERONLY);
 
         /// <summary>
         ///     Whether atmos superconduction is enabled.
@@ -1100,7 +1100,8 @@ namespace Content.Shared.CCVar
         /// Whether to automatically spawn escape shuttles.
         /// </summary>
         public static readonly CVarDef<bool> GridFill =
-            CVarDef.Create("shuttle.grid_fill", true, CVar.SERVERONLY);
+            CVarDef.Create("shuttle.grid_fill", false, CVar.SERVERONLY);
+
         public static readonly CVarDef<bool> CargoShuttles =
             CVarDef.Create("shuttle.cargo", false, CVar.SERVERONLY);
 
@@ -1142,7 +1143,7 @@ namespace Content.Shared.CCVar
         /// The maximum time for the emergency shuttle to arrive at centcomm.
         /// </summary>
         public static readonly CVarDef<float> EmergencyShuttleMaxTransitTime =
-            CVarDef.Create("shuttle.emergency_transit_time_max", 420f, CVar.SERVERONLY);
+            CVarDef.Create("shuttle.emergency_transit_time_max", 600f, CVar.SERVERONLY);
 
         /// <summary>
         /// Whether the emergency shuttle is enabled or should the round just end.
@@ -1161,14 +1162,14 @@ namespace Content.Shared.CCVar
         ///     Time in minutes after round start to auto-call the shuttle. Set to zero to disable.
         /// </summary>
         public static readonly CVarDef<int> EmergencyShuttleAutoCallTime =
-            CVarDef.Create("shuttle.auto_call_time", 180, CVar.SERVERONLY);
+            CVarDef.Create("shuttle.auto_call_time", 240, CVar.SERVERONLY);
 
         /// <summary>
         ///     Time in minutes after the round was extended (by recalling the shuttle) to call
         ///     the shuttle again.
         /// </summary>
         public static readonly CVarDef<int> EmergencyShuttleAutoCallExtensionTime =
-            CVarDef.Create("shuttle.auto_call_extension_time", 45, CVar.SERVERONLY);
+            CVarDef.Create("shuttle.auto_call_extension_time", 55, CVar.SERVERONLY);
 
         /*
          * Crew Manifests
