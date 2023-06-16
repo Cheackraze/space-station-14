@@ -11,19 +11,11 @@ tilemap:
 entities:
 - proto: ""
   entities:
-  - uid: 171
-    components:
-    - type: MetaData
-    - type: Transform
-    - type: Map
-    - type: PhysicsMap
-    - type: Broadphase
-    - type: OccluderTree
   - uid: 172
     components:
     - type: MetaData
     - pos: 0.45903,0.61370534
-      parent: 171
+      parent: invalid
       type: Transform
     - chunks:
         -1,-1:
@@ -178,7 +170,8 @@ entities:
     - type: RadiationGridResistance
     - id: Pulse
       type: BecomesStation
-    - type: SpreaderGrid
+    - nextUpdate: 0
+      type: SpreaderGrid
 - proto: AirlockCommandGlass
   entities:
   - uid: 97

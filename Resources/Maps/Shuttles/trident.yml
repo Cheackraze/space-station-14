@@ -14,19 +14,11 @@ tilemap:
 entities:
 - proto: ""
   entities:
-  - uid: 236
-    components:
-    - type: MetaData
-    - type: Transform
-    - type: Map
-    - type: PhysicsMap
-    - type: Broadphase
-    - type: OccluderTree
   - uid: 391
     components:
     - type: MetaData
     - pos: 0.024341583,0.8051084
-      parent: 236
+      parent: invalid
       type: Transform
     - chunks:
         -1,-1:
@@ -279,7 +271,8 @@ entities:
     - type: RadiationGridResistance
     - id: Trident
       type: BecomesStation
-    - type: SpreaderGrid
+    - nextUpdate: 0
+      type: SpreaderGrid
 - proto: AirlockBrigGlassLocked
   entities:
   - uid: 92
@@ -402,7 +395,7 @@ entities:
     - pos: -5.5,7.5
       parent: 391
       type: Transform
-    - SecondsUntilStateChange: -1523.4237
+    - SecondsUntilStateChange: -1554.1161
       state: Closing
       type: Door
     - inputs:
@@ -417,7 +410,7 @@ entities:
     - pos: -4.5,7.5
       parent: 391
       type: Transform
-    - SecondsUntilStateChange: -1523.4237
+    - SecondsUntilStateChange: -1554.1161
       state: Closing
       type: Door
     - inputs:
@@ -432,7 +425,7 @@ entities:
     - pos: -4.5,5.5
       parent: 391
       type: Transform
-    - SecondsUntilStateChange: -1523.4237
+    - SecondsUntilStateChange: -1554.1161
       state: Closing
       type: Door
     - inputs:
@@ -447,7 +440,7 @@ entities:
     - pos: -5.5,5.5
       parent: 391
       type: Transform
-    - SecondsUntilStateChange: -1523.4237
+    - SecondsUntilStateChange: -1554.1161
       state: Closing
       type: Door
     - inputs:
@@ -2659,7 +2652,7 @@ entities:
     - pos: -7.5,4.5
       parent: 391
       type: Transform
-    - SecondsUntilStateChange: -2621.2693
+    - SecondsUntilStateChange: -2651.9617
       state: Opening
       type: Door
     - inputs:
@@ -2674,7 +2667,7 @@ entities:
     - pos: -8.5,4.5
       parent: 391
       type: Transform
-    - SecondsUntilStateChange: -2621.2693
+    - SecondsUntilStateChange: -2651.9617
       state: Opening
       type: Door
     - inputs:
@@ -2689,7 +2682,7 @@ entities:
     - pos: -9.5,4.5
       parent: 391
       type: Transform
-    - SecondsUntilStateChange: -2621.2693
+    - SecondsUntilStateChange: -2651.9617
       state: Opening
       type: Door
     - inputs:
@@ -2704,7 +2697,7 @@ entities:
     - pos: -10.5,4.5
       parent: 391
       type: Transform
-    - SecondsUntilStateChange: -2621.2693
+    - SecondsUntilStateChange: -2651.9617
       state: Opening
       type: Door
     - inputs:
@@ -2719,7 +2712,7 @@ entities:
     - pos: -11.5,5.5
       parent: 391
       type: Transform
-    - SecondsUntilStateChange: -2621.2693
+    - SecondsUntilStateChange: -2651.9617
       state: Opening
       type: Door
     - inputs:
@@ -2734,7 +2727,7 @@ entities:
     - pos: -11.5,6.5
       parent: 391
       type: Transform
-    - SecondsUntilStateChange: -2621.2693
+    - SecondsUntilStateChange: -2651.9617
       state: Opening
       type: Door
     - inputs:
@@ -2749,7 +2742,7 @@ entities:
     - pos: -10.5,7.5
       parent: 391
       type: Transform
-    - SecondsUntilStateChange: -2621.2693
+    - SecondsUntilStateChange: -2651.9617
       state: Opening
       type: Door
     - inputs:
@@ -2764,7 +2757,7 @@ entities:
     - pos: -7.5,7.5
       parent: 391
       type: Transform
-    - SecondsUntilStateChange: -2621.2693
+    - SecondsUntilStateChange: -2651.9617
       state: Opening
       type: Door
     - inputs:

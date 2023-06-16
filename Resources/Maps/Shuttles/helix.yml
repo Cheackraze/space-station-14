@@ -14,19 +14,11 @@ tilemap:
 entities:
 - proto: ""
   entities:
-  - uid: 220
-    components:
-    - type: MetaData
-    - type: Transform
-    - type: Map
-    - type: PhysicsMap
-    - type: Broadphase
-    - type: OccluderTree
   - uid: 377
     components:
     - type: MetaData
     - pos: 0.5350957,0.3933836
-      parent: 220
+      parent: invalid
       type: Transform
     - chunks:
         -1,-1:
@@ -367,7 +359,8 @@ entities:
     - type: RadiationGridResistance
     - id: Helix
       type: BecomesStation
-    - type: SpreaderGrid
+    - nextUpdate: 0
+      type: SpreaderGrid
 - proto: AirlockChemistry
   entities:
   - uid: 273

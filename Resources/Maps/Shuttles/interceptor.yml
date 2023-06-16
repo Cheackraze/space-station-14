@@ -13,19 +13,11 @@ tilemap:
 entities:
 - proto: ""
   entities:
-  - uid: 115
-    components:
-    - type: MetaData
-    - type: Transform
-    - type: Map
-    - type: PhysicsMap
-    - type: Broadphase
-    - type: OccluderTree
   - uid: 117
     components:
     - type: MetaData
     - pos: 0.024341583,0.8051084
-      parent: 115
+      parent: invalid
       type: Transform
     - chunks:
         -1,-1:
@@ -186,7 +178,8 @@ entities:
     - type: RadiationGridResistance
     - id: Interceptor
       type: BecomesStation
-    - type: SpreaderGrid
+    - nextUpdate: 0
+      type: SpreaderGrid
 - proto: AirlockBrigGlassLocked
   entities:
   - uid: 92
@@ -1368,7 +1361,7 @@ entities:
     - pos: -4.5,-3.5
       parent: 117
       type: Transform
-    - SecondsUntilStateChange: -2303.9922
+    - SecondsUntilStateChange: -2352.7666
       state: Closing
       type: Door
     - inputs:
@@ -1383,7 +1376,7 @@ entities:
     - pos: -3.5,-3.5
       parent: 117
       type: Transform
-    - SecondsUntilStateChange: -2303.9922
+    - SecondsUntilStateChange: -2352.7666
       state: Closing
       type: Door
     - inputs:
@@ -1398,7 +1391,7 @@ entities:
     - pos: -4.5,0.5
       parent: 117
       type: Transform
-    - SecondsUntilStateChange: -2303.9922
+    - SecondsUntilStateChange: -2352.7666
       state: Closing
       type: Door
     - inputs:
@@ -1413,7 +1406,7 @@ entities:
     - pos: -1.5,0.5
       parent: 117
       type: Transform
-    - SecondsUntilStateChange: -2303.9922
+    - SecondsUntilStateChange: -2352.7666
       state: Closing
       type: Door
     - inputs:
@@ -1428,7 +1421,7 @@ entities:
     - pos: 1.5,-0.5
       parent: 117
       type: Transform
-    - SecondsUntilStateChange: -2303.9922
+    - SecondsUntilStateChange: -2352.7666
       state: Closing
       type: Door
     - inputs:
@@ -1443,7 +1436,7 @@ entities:
     - pos: 1.5,-1.5
       parent: 117
       type: Transform
-    - SecondsUntilStateChange: -2303.9922
+    - SecondsUntilStateChange: -2352.7666
       state: Closing
       type: Door
     - inputs:
@@ -1458,7 +1451,7 @@ entities:
     - pos: 1.5,-2.5
       parent: 117
       type: Transform
-    - SecondsUntilStateChange: -2303.9922
+    - SecondsUntilStateChange: -2352.7666
       state: Closing
       type: Door
     - inputs:
@@ -1473,7 +1466,7 @@ entities:
     - pos: -5.5,-1.5
       parent: 117
       type: Transform
-    - SecondsUntilStateChange: -2303.9922
+    - SecondsUntilStateChange: -2352.7666
       state: Closing
       type: Door
     - inputs:
@@ -1490,7 +1483,7 @@ entities:
     - pos: -2.5,0.5
       parent: 117
       type: Transform
-    - SecondsUntilStateChange: -2303.9922
+    - SecondsUntilStateChange: -2352.7666
       state: Closing
       type: Door
     - inputs:

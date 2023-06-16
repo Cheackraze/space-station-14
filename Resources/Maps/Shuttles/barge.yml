@@ -19,7 +19,7 @@ entities:
     components:
     - type: MetaData
     - pos: 0.48260412,0.43276936
-      parent: 605
+      parent: invalid
       type: Transform
     - chunks:
         -1,-1:
@@ -490,15 +490,8 @@ entities:
     - type: GasTileOverlay
     - id: Barge
       type: BecomesStation
-    - type: SpreaderGrid
-  - uid: 605
-    components:
-    - type: MetaData
-    - type: Transform
-    - type: Map
-    - type: PhysicsMap
-    - type: Broadphase
-    - type: OccluderTree
+    - nextUpdate: 0
+      type: SpreaderGrid
 - proto: AirCanister
   entities:
   - uid: 514

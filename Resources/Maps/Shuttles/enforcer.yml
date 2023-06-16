@@ -13,19 +13,11 @@ tilemap:
 entities:
 - proto: ""
   entities:
-  - uid: 13
-    components:
-    - type: MetaData
-    - type: Transform
-    - type: Map
-    - type: PhysicsMap
-    - type: Broadphase
-    - type: OccluderTree
   - uid: 17
     components:
     - type: MetaData
     - pos: 0.024341583,0.8051084
-      parent: 13
+      parent: invalid
       type: Transform
     - chunks:
         -1,-1:
@@ -51,7 +43,7 @@ entities:
       type: Fixtures
     - type: OccluderTree
     - type: Shuttle
-    - nextUpdate: 2569.744941
+    - nextUpdate: 1797.0375259
       type: GridPathfinding
     - gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
@@ -144,16 +136,17 @@ entities:
           0,-1:
             0: 30579
           -3,-1:
-            0: 49150
-            1: 16384
+            0: 65534
           -3,-2:
             0: 50176
           -2,-2:
             0: 29696
+            1: 32768
           -2,-1:
             0: 65535
           -1,-2:
             0: 61184
+            1: 4096
           0,-2:
             0: 14080
           -3,0:
@@ -187,8 +180,8 @@ entities:
         - volume: 2500
           temperature: 293.15
           moles:
-          - 21.813705
-          - 82.06108
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -205,7 +198,8 @@ entities:
     - type: RadiationGridResistance
     - id: Enforcer
       type: BecomesStation
-    - type: SpreaderGrid
+    - nextUpdate: 0
+      type: SpreaderGrid
 - proto: AirlockBrigGlassLocked
   entities:
   - uid: 92
@@ -293,23 +287,32 @@ entities:
       type: Transform
 - proto: CableApcExtension
   entities:
-  - uid: 133
+  - uid: 94
     components:
     - pos: -4.5,-2.5
       parent: 17
       type: Transform
     - fixtures: {}
       type: Fixtures
-  - uid: 134
+  - uid: 109
     components:
     - pos: -3.5,-2.5
       parent: 17
       type: Transform
     - fixtures: {}
       type: Fixtures
-  - uid: 140
+  - uid: 110
     components:
     - pos: -3.5,-3.5
+      parent: 17
+      type: Transform
+    - enabled: True
+      type: AmbientSound
+    - fixtures: {}
+      type: Fixtures
+  - uid: 120
+    components:
+    - pos: -4.5,-3.5
       parent: 17
       type: Transform
     - enabled: True
@@ -563,15 +566,6 @@ entities:
       type: Transform
     - fixtures: {}
       type: Fixtures
-  - uid: 195
-    components:
-    - pos: -4.5,-3.5
-      parent: 17
-      type: Transform
-    - enabled: True
-      type: AmbientSound
-    - fixtures: {}
-      type: Fixtures
 - proto: CableHV
   entities:
   - uid: 146
@@ -640,12 +634,12 @@ entities:
       type: Fixtures
 - proto: ChairFolding
   entities:
-  - uid: 110
+  - uid: 13
     components:
     - pos: -3.5,-0.5
       parent: 17
       type: Transform
-    - nextAttack: 2510.5908637
+    - nextAttack: 53.2517274
       type: MeleeWeapon
 - proto: ChairOfficeDark
   entities:
@@ -688,7 +682,7 @@ entities:
       type: Transform
 - proto: DefibrillatorCabinetFilled
   entities:
-  - uid: 198
+  - uid: 121
     components:
     - rot: 3.141592653589793 rad
       pos: -2.5,-2.5
@@ -855,13 +849,13 @@ entities:
       pos: -0.5,0.5
       parent: 17
       type: Transform
-  - uid: 204
+  - uid: 133
     components:
     - rot: 3.141592653589793 rad
       pos: -4.5,-3.5
       parent: 17
       type: Transform
-  - uid: 205
+  - uid: 134
     components:
     - rot: 3.141592653589793 rad
       pos: -3.5,-3.5
@@ -869,14 +863,14 @@ entities:
       type: Transform
 - proto: GunSafeDisabler
   entities:
-  - uid: 131
+  - uid: 38
     components:
     - pos: -7.5,-0.5
       parent: 17
       type: Transform
 - proto: Gyroscope
   entities:
-  - uid: 203
+  - uid: 132
     components:
     - rot: 3.141592653589793 rad
       pos: -3.5,-4.5
@@ -927,8 +921,8 @@ entities:
         immutable: False
         temperature: 293.1497
         moles:
-        - 1.8968438
-        - 7.1357465
+        - 1.8856695
+        - 7.0937095
         - 0
         - 0
         - 0
@@ -945,12 +939,12 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 119
-          - 118
-          - 117
-          - 116
-          - 115
           - 114
+          - 115
+          - 116
+          - 117
+          - 118
+          - 119
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -1026,18 +1020,18 @@ entities:
     - type: InsideEntityStorage
 - proto: Poweredlight
   entities:
-  - uid: 132
-    components:
-    - rot: 1.5707963267948966 rad
-      pos: -4.5,-0.5
-      parent: 17
-      type: Transform
-    - enabled: False
-      type: AmbientSound
   - uid: 139
     components:
     - rot: 1.5707963267948966 rad
       pos: 2.5,-5.5
+      parent: 17
+      type: Transform
+    - powerLoad: 0
+      type: ApcPowerReceiver
+  - uid: 140
+    components:
+    - rot: 3.141592653589793 rad
+      pos: -2.5,-1.5
       parent: 17
       type: Transform
     - powerLoad: 0
@@ -1096,14 +1090,6 @@ entities:
       type: Transform
     - powerLoad: 0
       type: ApcPowerReceiver
-  - uid: 209
-    components:
-    - rot: 1.5707963267948966 rad
-      pos: -1.5,-3.5
-      parent: 17
-      type: Transform
-    - enabled: False
-      type: AmbientSound
 - proto: PoweredSmallLight
   entities:
   - uid: 125
@@ -1146,6 +1132,18 @@ entities:
   - uid: 20
     components:
     - pos: 1.5,-4.5
+      parent: 17
+      type: Transform
+  - uid: 29
+    components:
+    - rot: 3.141592653589793 rad
+      pos: -3.5,-3.5
+      parent: 17
+      type: Transform
+  - uid: 30
+    components:
+    - rot: 3.141592653589793 rad
+      pos: -4.5,-3.5
       parent: 17
       type: Transform
   - uid: 31
@@ -1263,55 +1261,43 @@ entities:
       pos: -8.5,0.5
       parent: 17
       type: Transform
-  - uid: 120
-    components:
-    - rot: 3.141592653589793 rad
-      pos: -3.5,-3.5
-      parent: 17
-      type: Transform
-  - uid: 121
-    components:
-    - rot: 3.141592653589793 rad
-      pos: -4.5,-3.5
-      parent: 17
-      type: Transform
 - proto: SignPrison
   entities:
-  - uid: 38
+  - uid: 202
     components:
     - pos: -3.5,4.5
       parent: 17
       type: Transform
-  - uid: 208
+  - uid: 203
     components:
     - pos: 1.5,4.5
       parent: 17
       type: Transform
 - proto: SignSec
   entities:
-  - uid: 27
+  - uid: 28
+    components:
+    - pos: -2.5,-5.5
+      parent: 17
+      type: Transform
+  - uid: 195
     components:
     - pos: 1.5,-5.5
       parent: 17
       type: Transform
-  - uid: 28
-    components:
-    - pos: 1.5,0.5
-      parent: 17
-      type: Transform
-  - uid: 29
-    components:
-    - pos: -9.5,-4.5
-      parent: 17
-      type: Transform
-  - uid: 30
+  - uid: 198
     components:
     - pos: -11.5,0.5
       parent: 17
       type: Transform
-  - uid: 94
+  - uid: 199
     components:
-    - pos: -2.5,-5.5
+    - pos: -9.5,-4.5
+      parent: 17
+      type: Transform
+  - uid: 200
+    components:
+    - pos: 1.5,0.5
       parent: 17
       type: Transform
 - proto: SpawnPointLatejoin
@@ -1344,24 +1330,24 @@ entities:
       type: Transform
 - proto: SuitStorageEVAPrisoner
   entities:
-  - uid: 122
+  - uid: 204
     components:
     - pos: -1.5,3.5
       parent: 17
       type: Transform
-  - uid: 130
+  - uid: 205
     components:
     - pos: -0.5,3.5
       parent: 17
       type: Transform
 - proto: SuitStorageSec
   entities:
-  - uid: 199
+  - uid: 122
     components:
     - pos: -4.5,-2.5
       parent: 17
       type: Transform
-  - uid: 200
+  - uid: 130
     components:
     - pos: -3.5,-2.5
       parent: 17
@@ -1397,7 +1383,7 @@ entities:
       pos: -7.5,1.5
       parent: 17
       type: Transform
-  - uid: 202
+  - uid: 131
     components:
     - rot: 3.141592653589793 rad
       pos: -4.5,-4.5
@@ -1467,6 +1453,12 @@ entities:
       pos: -2.5,-3.5
       parent: 17
       type: Transform
+  - uid: 27
+    components:
+    - rot: 3.141592653589793 rad
+      pos: -5.5,-3.5
+      parent: 17
+      type: Transform
   - uid: 40
     components:
     - pos: -11.5,0.5
@@ -1520,12 +1512,6 @@ entities:
   - uid: 70
     components:
     - pos: 0.5,4.5
-      parent: 17
-      type: Transform
-  - uid: 109
-    components:
-    - rot: 3.141592653589793 rad
-      pos: -5.5,-3.5
       parent: 17
       type: Transform
 - proto: WallSolid

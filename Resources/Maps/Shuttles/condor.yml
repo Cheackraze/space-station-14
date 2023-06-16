@@ -12,19 +12,11 @@ tilemap:
 entities:
 - proto: ""
   entities:
-  - uid: 279
-    components:
-    - type: MetaData
-    - type: Transform
-    - type: Map
-    - type: PhysicsMap
-    - type: Broadphase
-    - type: OccluderTree
   - uid: 281
     components:
     - type: MetaData
     - pos: 0.22312418,1.0179756
-      parent: 279
+      parent: invalid
       type: Transform
     - chunks:
         -1,-1:
@@ -349,7 +341,8 @@ entities:
     - type: RadiationGridResistance
     - id: Condor
       type: BecomesStation
-    - type: SpreaderGrid
+    - nextUpdate: 0
+      type: SpreaderGrid
 - proto: AirAlarm
   entities:
   - uid: 717
@@ -582,7 +575,7 @@ entities:
     - pos: -2.5,-0.5
       parent: 281
       type: Transform
-    - SecondsUntilStateChange: -5951.9907
+    - SecondsUntilStateChange: -5981.11
       state: Closing
       type: Door
     - inputs:
@@ -4912,6 +4905,8 @@ entities:
       pos: 9.5,-3.5
       parent: 281
       type: Transform
+    - enabled: False
+      type: AmbientSound
   - uid: 748
     components:
     - pos: 6.5,-3.5

@@ -13,19 +13,11 @@ tilemap:
 entities:
 - proto: ""
   entities:
-  - uid: 173
-    components:
-    - type: MetaData
-    - type: Transform
-    - type: Map
-    - type: PhysicsMap
-    - type: Broadphase
-    - type: OccluderTree
   - uid: 174
     components:
     - type: MetaData
     - pos: -0.039024353,-0.12682906
-      parent: 173
+      parent: invalid
       type: Transform
     - chunks:
         0,0:
@@ -297,7 +289,8 @@ entities:
     - type: RadiationGridResistance
     - id: Sparrow
       type: BecomesStation
-    - type: SpreaderGrid
+    - nextUpdate: 0
+      type: SpreaderGrid
 - proto: AirAlarm
   entities:
   - uid: 259
@@ -421,7 +414,7 @@ entities:
     - pos: -3.5,4.5
       parent: 174
       type: Transform
-    - SecondsUntilStateChange: -2261.6804
+    - SecondsUntilStateChange: -2280.9712
       state: Closing
       type: Door
     - inputs:
@@ -438,7 +431,7 @@ entities:
     - pos: 4.5,4.5
       parent: 174
       type: Transform
-    - SecondsUntilStateChange: -2259.9763
+    - SecondsUntilStateChange: -2279.267
       state: Closing
       type: Door
     - inputs:

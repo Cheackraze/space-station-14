@@ -12,19 +12,11 @@ tilemap:
 entities:
 - proto: ""
   entities:
-  - uid: 159
-    components:
-    - type: MetaData
-    - type: Transform
-    - type: Map
-    - type: PhysicsMap
-    - type: Broadphase
-    - type: OccluderTree
   - uid: 201
     components:
     - type: MetaData
     - pos: 0.13793182,0.67738855
-      parent: 159
+      parent: invalid
       type: Transform
     - chunks:
         -1,-1:
@@ -212,7 +204,8 @@ entities:
     - type: RadiationGridResistance
     - id: Prospector
       type: BecomesStation
-    - type: SpreaderGrid
+    - nextUpdate: 0
+      type: SpreaderGrid
 - proto: AirlockCargoGlass
   entities:
   - uid: 155
@@ -1871,7 +1864,7 @@ entities:
       type: Gun
     - nextAttack: 106.0159617
       type: MeleeWeapon
-    - nextSound: 106.2159617
+    - nextSound: 106.2159616
       type: EmitSoundOnCollide
 - proto: WeaponProtoKineticAccelerator
   entities:
