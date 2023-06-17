@@ -13,12 +13,14 @@
 - type: vendingMachineInventory
   id: CircuitVendInventory
   startingInventory:
+    SalvageExpeditionsComputerCircuitboard: 8
     OreProcessorMachineCircuitboard: 6
     MaterialReclaimerMachineCircuitboard: 2
     CircuitImprinterMachineCircuitboard: 4
     ProtolatheMachineCircuitboard: 4
     AutolatheMachineCircuitboard: 4
     ResearchComputerCircuitboard: 4
+    RDServerCircuitboard: 8
     ComputerIFFCircuitboard: 4
     EngineeringTechFabCircuitboard: 2
     MedicalTechFabCircuitboard: 2
@@ -27,4 +29,4 @@
     ExosuitFabricatorMachineCircuitboard: 2
     UniformPrinterMachineCircuitboard: 2
     HydroponicsTrayMachineCircuitboard: 6
-    DawInstrumentMachineCircuitboard: 2
+    DawInstrumentMachineCircuitboard: 2    
