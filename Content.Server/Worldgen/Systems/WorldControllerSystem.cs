@@ -1,21 +1,24 @@
 ﻿using System.Linq;
-using Content.Server._Citadel.Worldgen.Components;
 using Content.Server.Ghost.Components;
 using Content.Server.Mind.Components;
+using Content.Server.Worldgen.Components;
 using JetBrains.Annotations;
+using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
 
-namespace Content.Server._Citadel.Worldgen.Systems;
+namespace Content.Server.Worldgen.Systems;
 
 /// <summary>
 ///     This handles putting together chunk entities and notifying them about important changes.
 /// </summary>
 public sealed class WorldControllerSystem : EntitySystem
 {
-    private const int PlayerLoadRadius = 2;
+    [Dependency] private readonly TransformSystem _xformSys = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
+
+    private const int PlayerLoadRadius = 2;
 
     private ISawmill _sawmill = default!;
 
@@ -40,7 +43,7 @@ public sealed class WorldControllerSystem : EntitySystem
         {
             var ev = new WorldChunkUnloadedEvent(uid, component.Coordinates);
             RaiseLocalEvent(component.Map, ref ev);
-            RaiseLocalEvent(uid, ref ev);
+            RaiseLocalEvent(uid, ref ev, broadcast: true);
         }
 
         controller.Chunks.Remove(component.Coordinates);
@@ -56,7 +59,7 @@ public sealed class WorldControllerSystem : EntitySystem
 
         var ev = new WorldChunkLoadedEvent(uid, chunk.Coordinates);
         RaiseLocalEvent(chunk.Map, ref ev);
-        RaiseLocalEvent(uid, ref ev);
+        RaiseLocalEvent(uid, ref ev, broadcast: true);
         //_sawmill.Debug($"Loaded chunk {ToPrettyString(uid)} at {chunk.Coordinates}");
     }
 
@@ -83,14 +86,18 @@ public sealed class WorldControllerSystem : EntitySystem
         //there was a to-do here about every frame alloc but it turns out it's a nothing burger here.
         var chunksToLoad = new Dictionary<EntityUid, Dictionary<Vector2i, List<EntityUid>>>();
 
-        foreach (var controller in EntityQuery<WorldControllerComponent>())
+        var controllerEnum = EntityQueryEnumerator<WorldControllerComponent>();
+        while (controllerEnum.MoveNext(out var uid, out _))
         {
-            chunksToLoad[controller.Owner] = new Dictionary<Vector2i, List<EntityUid>>();
+            chunksToLoad[uid] = new Dictionary<Vector2i, List<EntityUid>>();
         }
+
+        if (chunksToLoad.Count == 0)
+            return; // Just bail early.
 
         var loaderEnum = EntityQueryEnumerator<WorldLoaderComponent, TransformComponent>();
 
-        while (loaderEnum.MoveNext(out var worldLoader, out var xform))
+        while (loaderEnum.MoveNext(out var uid, out var worldLoader, out var xform))
         {
             var mapOrNull = xform.MapUid;
             if (mapOrNull is null)
@@ -99,7 +106,7 @@ public sealed class WorldControllerSystem : EntitySystem
             if (!chunksToLoad.ContainsKey(map))
                 continue;
 
-            var wc = xform.WorldPosition;
+            var wc = _xformSys.GetWorldPosition(xform);
             var coords = WorldGen.WorldToChunkCoords(wc);
             var chunks = new GridPointsNearEnumerator(coords.Floored(),
                 (int) Math.Ceiling(worldLoader.Radius / (float) WorldGen.ChunkSize) + 1);
@@ -110,7 +117,7 @@ public sealed class WorldControllerSystem : EntitySystem
             {
                 if (!set.TryGetValue(chunk.Value, out _))
                     set[chunk.Value] = new List<EntityUid>(4);
-                set[chunk.Value].Add(worldLoader.Owner);
+                set[chunk.Value].Add(uid);
             }
         }
 
@@ -118,11 +125,11 @@ public sealed class WorldControllerSystem : EntitySystem
         var ghostQuery = GetEntityQuery<GhostComponent>();
 
         // Mindful entities get special privilege as they're always a player and we don't want the illusion being broken around them.
-        while (mindEnum.MoveNext(out var mind, out var xform))
+        while (mindEnum.MoveNext(out var uid, out var mind, out var xform))
         {
             if (!mind.HasMind)
                 continue;
-            if (ghostQuery.HasComponent(mind.Owner))
+            if (ghostQuery.HasComponent(uid))
                 continue;
             var mapOrNull = xform.MapUid;
             if (mapOrNull is null)
@@ -131,7 +138,7 @@ public sealed class WorldControllerSystem : EntitySystem
             if (!chunksToLoad.ContainsKey(map))
                 continue;
 
-            var wc = xform.WorldPosition;
+            var wc = _xformSys.GetWorldPosition(xform);
             var coords = WorldGen.WorldToChunkCoords(wc);
             var chunks = new GridPointsNearEnumerator(coords.Floored(), PlayerLoadRadius);
 
@@ -141,7 +148,7 @@ public sealed class WorldControllerSystem : EntitySystem
             {
                 if (!set.TryGetValue(chunk.Value, out _))
                     set[chunk.Value] = new List<EntityUid>(4);
-                set[chunk.Value].Add(mind.Owner);
+                set[chunk.Value].Add(uid);
             }
         }
 
@@ -149,13 +156,13 @@ public sealed class WorldControllerSystem : EntitySystem
         var chunksUnloaded = 0;
 
         // Make sure these chunks get unloaded at the end of the tick.
-        while (loadedEnum.MoveNext(out var _, out var chunk))
+        while (loadedEnum.MoveNext(out var uid, out var _, out var chunk))
         {
             var coords = chunk.Coordinates;
 
             if (!chunksToLoad[chunk.Map].ContainsKey(coords))
             {
-                RemCompDeferred<LoadedChunkComponent>(chunk.Owner);
+                RemCompDeferred<LoadedChunkComponent>(uid);
                 chunksUnloaded++;
             }
         }
@@ -244,18 +251,27 @@ public sealed class WorldControllerSystem : EntitySystem
         chunkComponent.Coordinates = coords;
         chunkComponent.Map = map;
         var ev = new WorldChunkAddedEvent(chunk, coords);
-        RaiseLocalEvent(map, ref ev);
+        RaiseLocalEvent(map, ref ev, broadcast: true);
     }
 }
 
+/// <summary>
+///     A directed event fired when a chunk is initially set up in the world. The chunk is not loaded at this point.
+/// </summary>
 [ByRefEvent]
 [PublicAPI]
 public readonly record struct WorldChunkAddedEvent(EntityUid Chunk, Vector2i Coords);
 
+/// <summary>
+///     A directed event fired when a chunk is loaded into the world, i.e. a player or other world loader has entered vicinity.
+/// </summary>
 [ByRefEvent]
 [PublicAPI]
 public readonly record struct WorldChunkLoadedEvent(EntityUid Chunk, Vector2i Coords);
 
+/// <summary>
+///     A directed event fired when a chunk is unloaded from the world, i.e. no world loaders remain nearby.
+/// </summary>
 [ByRefEvent]
 [PublicAPI]
 public readonly record struct WorldChunkUnloadedEvent(EntityUid Chunk, Vector2i Coords);

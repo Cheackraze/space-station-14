@@ -107,6 +107,9 @@
             "name": "MedicalDoctor"
         },
         {
+            "name": "Paramedic"
+        },
+        {
             "name": "Chef"
         },
         {
@@ -144,10 +147,6 @@
         },
         {
             "name": "MailCarrier"
-        },
-        {
-            "name": "Paramedic"
         }
-
     ]
 }

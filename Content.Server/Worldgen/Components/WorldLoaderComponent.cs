@@ -1,6 +1,6 @@
-﻿using Content.Server._Citadel.Worldgen.Systems;
+﻿using Content.Server.Worldgen.Systems;
 
-namespace Content.Server._Citadel.Worldgen.Components;
+namespace Content.Server.Worldgen.Components;
 
 /// <summary>
 ///     This is used for allowing some objects to load the game world.

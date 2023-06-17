@@ -4,6 +4,6 @@
     - type: WorldController
     - type: BiomeSelection
       biomes:
-        - CitadelAsteroidsFallback
-        - CitadelFailsafe
-        - CitadelAsteroidsStandard
+        - AsteroidsFallback
+        - Failsafe
+        - AsteroidsStandard

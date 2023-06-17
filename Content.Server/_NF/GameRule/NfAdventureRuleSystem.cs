@@ -1,6 +1,7 @@
 using Content.Server.Procedural;
 using Content.Shared.Bank.Components;
 using Content.Server.GameTicking.Events;
+using Content.Server.GameTicking.Rules.Components;
 using Content.Shared.Procedural;
 using Robust.Server.GameObjects;
 using Robust.Server.Maps;
@@ -18,7 +19,7 @@ namespace Content.Server.GameTicking.Rules;
 /// <summary>
 /// This handles the dungeon and trading post spawning, as well as round end capitalism summary
 /// </summary>
-public sealed class NfAdventureRuleSystem : GameRuleSystem
+public sealed class NfAdventureRuleSystem : GameRuleSystem<AdventureRuleComponent>
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -30,8 +31,6 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem
 
     [ViewVariables]
     private List<(EntityUid, int)> _players = new();
-
-    public override string Prototype => "Adventure";
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -45,8 +44,6 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem
 
     private void OnRoundEndTextEvent(RoundEndTextAppendEvent ev)
     {
-        if (!RuleAdded)
-            return;
         var profitText = Loc.GetString($"adventure-mode-profit-text");
         ev.AddLine(Loc.GetString("adventure-list-start"));
         foreach (var player in _players)
@@ -55,33 +52,21 @@ public sealed class NfAdventureRuleSystem : GameRuleSystem
                 continue;
 
             var profit = bank.Balance - player.Item2;
-            ev.AddLine($"- {meta.EntityName} { profitText } { profit } Spesos");
+            ev.AddLine($"- {meta.EntityName} {profitText} {profit} Spesos");
         }
     }
 
-    public override void Started() { }
-
-    public override void Ended() { }
-
     private void OnPlayerSpawningEvent(PlayerSpawnCompleteEvent ev)
     {
-        if (!RuleAdded)
-        {
-            return;
-        }
-        if (ev.Player.AttachedEntity is { Valid : true } mobUid)
+        if (ev.Player.AttachedEntity is { Valid: true } mobUid)
         {
             _players.Add((mobUid, ev.Profile.BankBalance));
             EnsureComp<CargoSellBlacklistComponent>(mobUid);
         }
-        
     }
 
     private void OnStartup(RoundStartingEvent ev)
     {
-        if (!RuleAdded)
-            return;
-
         var depotMap = "/Maps/cargodepot.yml";
         var mapId = GameTicker.DefaultMap;
         var depotOffset = _random.NextVector2(1500f, 3000f);

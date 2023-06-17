@@ -1,6 +1,6 @@
-﻿using Content.Server._Citadel.Worldgen.Systems.Debris;
+﻿using Content.Server.Worldgen.Systems.Debris;
 
-namespace Content.Server._Citadel.Worldgen.Components.Debris;
+namespace Content.Server.Worldgen.Components.Debris;
 
 /// <summary>
 ///     This is used for attaching a piece of debris to it's owning controller.

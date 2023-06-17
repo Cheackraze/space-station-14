@@ -15,8 +15,6 @@
   - type: Body
     prototype: Moth
     requiredLegs: 2
-  - type: DiseaseCarrier
-    diseaseResist: 0.1
   - type: Flammable
     damage:
       types:
@@ -42,17 +40,6 @@
       types:
         Heat : 0.25 #per second, scales with temperature & other constants
   - type: MovementAlwaysTouching
-  - type: Fixtures
-    fixtures:
-      - shape:
-          !type:PhysShapeCircle
-          radius: 0.35
-        density: 125 #lower density
-        restitution: 0.0
-        mask:
-          - MobMask
-        layer:
-          - MobLayer
   - type: Sprite # sprite again because we want different layer ordering
     netsync: false
     noRot: true

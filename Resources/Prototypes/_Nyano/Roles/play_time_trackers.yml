@@ -5,9 +5,6 @@
   id: JobMailCarrier
 
 - type: playTimeTracker
-  id: JobParamedic
-
-- type: playTimeTracker
   id: JobPrisoner
 
 - type: playTimeTracker

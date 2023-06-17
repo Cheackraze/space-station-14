@@ -1,13 +1,14 @@
 ﻿using System.Linq;
-using Content.Server._Citadel.Worldgen.Components.GC;
-using Content.Server._Citadel.Worldgen.Prototypes;
+using Content.Server.Worldgen.Components.GC;
+using Content.Server.Worldgen.Prototypes;
+using Content.Shared.CCVar;
 using JetBrains.Annotations;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-namespace Content.Server._Citadel.Worldgen.Systems.GC;
+namespace Content.Server.Worldgen.Systems.GC;
 
 /// <summary>
 ///     This handles delayed garbage collection of entities, to avoid overloading the tick in particularly expensive cases.
@@ -25,11 +26,11 @@ public sealed class GCQueueSystem : EntitySystem
     /// <inheritdoc />
     public override void Initialize()
     {
-        _cfg.OnValueChanged(WorldgenCVars.GCMaximumTimeMs, s => _maximumProcessTime = TimeSpan.FromMilliseconds(s),
+        _cfg.OnValueChanged(CCVars.GCMaximumTimeMs, s => _maximumProcessTime = TimeSpan.FromMilliseconds(s),
             true);
     }
 
-    /// <inheritdoc />
+    /// <inheritdoc />CCVars
     public override void Update(float frameTime)
     {
         var overallWatch = new Stopwatch();

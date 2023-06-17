@@ -1,9 +1,9 @@
-﻿using Content.Server._Citadel.Worldgen.Components;
-using Content.Server._Citadel.Worldgen.Prototypes;
+﻿using Content.Server.Worldgen.Components;
+using Content.Server.Worldgen.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
-namespace Content.Server._Citadel.Worldgen.Systems;
+namespace Content.Server.Worldgen.Systems;
 
 /// <summary>
 ///     This handles the noise index.

@@ -1,6 +1,6 @@
 ﻿- type: entity
-  id: CitadelBaseAsteroidDebris
-  parent: CitadelBaseDebris
+  id: BaseAsteroidDebris
+  parent: BaseDebris
   name: Asteroid Debris
   abstract: true
   components:
@@ -14,7 +14,20 @@
     - type: SimpleFloorPlanPopulator
       entries:
         FloorAsteroidCoarseSand0:
-          - id: RandomRockSpawner
+          - id: WallRock
+            prob: 0.5
+          - id: WallRockGold
+            prob: 0.01
+          - id: WallRockSilver
+            prob: 0.04
+          - id: WallRockPlasma
+            prob: 0.09
+          - id: WallRockTin
+            prob: 0.2
+          - id: WallRockUranium
+            prob: 0.07
+          - id: WallRockQuartz
+            prob: 0.2
     - type: GCAbleObject
       queue: SpaceDebris
     - type: IFF
@@ -22,8 +35,8 @@
       color: "#d67e27"
 
 - type: entity
-  id: CitadelAsteroidDebrisSmall
-  parent: CitadelBaseAsteroidDebris
+  id: AsteroidDebrisSmall
+  parent: BaseAsteroidDebris
   name: Asteroid Debris Small
   noSpawn: true
   components:
@@ -32,8 +45,8 @@
       floorPlacements: 8
 
 - type: entity
-  id: CitadelAsteroidDebrisMedium
-  parent: CitadelBaseAsteroidDebris
+  id: AsteroidDebrisMedium
+  parent: BaseAsteroidDebris
   name: Asteroid Debris Medium
   noSpawn: true
   components:
@@ -42,8 +55,8 @@
       floorPlacements: 16
 
 - type: entity
-  id: CitadelAsteroidDebrisLarge
-  parent: CitadelBaseAsteroidDebris
+  id: AsteroidDebrisLarge
+  parent: BaseAsteroidDebris
   name: Asteroid Debris Large
   noSpawn: true
   components:
@@ -52,8 +65,8 @@
       floorPlacements: 24
 
 - type: entity
-  id: CitadelAsteroidDebrisLarger
-  parent: CitadelBaseAsteroidDebris
+  id: AsteroidDebrisLarger
+  parent: BaseAsteroidDebris
   name: Asteroid Debris Larger
   noSpawn: true
   components:

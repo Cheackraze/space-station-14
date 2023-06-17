@@ -1,8 +1,8 @@
-﻿using Content.Server._Citadel.Worldgen.Prototypes;
-using Content.Server._Citadel.Worldgen.Systems.GC;
+﻿using Content.Server.Worldgen.Prototypes;
+using Content.Server.Worldgen.Systems.GC;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
-namespace Content.Server._Citadel.Worldgen.Components.GC;
+namespace Content.Server.Worldgen.Components.GC;
 
 /// <summary>
 ///     This is used for whether or not a GCable object is "dirty". Firing GCDirtyEvent on the object is the correct way to

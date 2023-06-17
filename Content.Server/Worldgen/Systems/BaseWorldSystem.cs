@@ -1,7 +1,7 @@
-﻿using Content.Server._Citadel.Worldgen.Components;
+﻿using Content.Server.Worldgen.Components;
 using JetBrains.Annotations;
 
-namespace Content.Server._Citadel.Worldgen.Systems;
+namespace Content.Server.Worldgen.Systems;
 
 /// <summary>
 ///     This provides some additional functions for world generation systems.

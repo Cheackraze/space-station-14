@@ -196,14 +196,12 @@ namespace Content.Server.Mail
             _popupSystem.PopupEntity(Loc.GetString("mail-unlocked-reward", ("bounty", component.Bounty)), uid, args.User);
 
             component.IsProfitable = false;
-
-            foreach (var account in EntityQuery<StationBankAccountComponent>())
+            var query = EntityQueryEnumerator<StationBankAccountComponent>();
+            while (query.MoveNext(out var oUid, out var oComp))
             {
-                // need to think of a better way to get just the station but since shuttle 'stations' accounts cant be accessed anyway we will just add them to all station bank accounts i suppose
-                //if (_stationSystem.GetOwningStation(account.Owner) != _stationSystem.GetOwningStation(uid))
-                //        continue;
+                // only our main station will have an account anyway so I guess we are just going to add it this way shrug.
 
-                _cargoSystem.UpdateBankAccount(account, component.Bounty);
+                _cargoSystem.UpdateBankAccount(oUid, oComp, component.Bounty);
                 return;
             }
         }
@@ -255,13 +253,12 @@ namespace Content.Server.Mail
             if (component.IsPriority)
                 _appearanceSystem.SetData(uid, MailVisuals.IsPriorityInactive, true);
 
-            foreach (var account in EntityQuery<StationBankAccountComponent>())
+            var query = EntityQueryEnumerator<StationBankAccountComponent>();
+            while (query.MoveNext(out var oUid, out var oComp))
             {
-                // need to think of a better way to get just the station but since shuttle 'stations' accounts cant be accessed anyway we will just add them to all station bank accounts i suppose
-                //if (_stationSystem.GetOwningStation(account.Owner) != _stationSystem.GetOwningStation(uid))
-                //        continue;
-                
-                _cargoSystem.UpdateBankAccount(account, component.Penalty);
+                // only our main station will have an account anyway so I guess we are just going to add it this way shrug.
+
+                _cargoSystem.UpdateBankAccount(oUid, oComp, component.Penalty);
                 return;
             }
         }

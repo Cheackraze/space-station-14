@@ -1,14 +1,15 @@
-using System.Linq;
-using Content.Server._Citadel.Worldgen.Components;
-using Content.Server._Citadel.Worldgen.Components.Debris;
-using Content.Server._Citadel.Worldgen.Systems.GC;
-using Content.Server._Citadel.Worldgen.Tools;
+﻿using System.Linq;
+using Content.Server.Worldgen.Components;
+using Content.Server.Worldgen.Components.Debris;
+using Content.Server.Worldgen.Systems.GC;
+using Content.Server.Worldgen.Tools;
 using JetBrains.Annotations;
+using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
 
-namespace Content.Server._Citadel.Worldgen.Systems.Debris;
+namespace Content.Server.Worldgen.Systems.Debris;
 
 /// <summary>
 ///     This handles placing debris within the world evenly with rng, primarily for structures like asteroid fields.
@@ -16,11 +17,12 @@ namespace Content.Server._Citadel.Worldgen.Systems.Debris;
 public sealed class DebrisFeaturePlacerSystem : BaseWorldSystem
 {
     [Dependency] private readonly GCQueueSystem _gc = default!;
+    [Dependency] private readonly NoiseIndexSystem _noiseIndex = default!;
+    [Dependency] private readonly PoissonDiskSampler _sampler = default!;
+    [Dependency] private readonly TransformSystem _xformSys = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly NoiseIndexSystem _noiseIndex = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly PoissonDiskSampler _sampler = default!;
 
     private ISawmill _sawmill = default!;
 
@@ -76,7 +78,7 @@ public sealed class DebrisFeaturePlacerSystem : BaseWorldSystem
             return;
         }
 
-        newPlacer.OwnedDebris[xform.WorldPosition] = uid; // Change our owner.
+        newPlacer.OwnedDebris[_xformSys.GetWorldPosition(xform)] = uid; // Change our owner.
         component.OwningController = newChunk.Value;
     }
 
@@ -231,13 +233,14 @@ public sealed class DebrisFeaturePlacerSystem : BaseWorldSystem
         var offs = (int) ((WorldGen.ChunkSize - WorldGen.ChunkSize / 8.0f) / 2.0f);
         var topLeft = (-offs, -offs);
         var lowerRight = (offs, offs);
-        var debrisPoints = _sampler.SampleRectangle(topLeft, lowerRight, density);
+        var enumerator = _sampler.SampleRectangle(topLeft, lowerRight, density);
+        var debrisPoints = new List<Vector2>();
 
         var realCenter = WorldGen.ChunkToWorldCoordsCentered(coords.Floored());
 
-        for (var i = 0; i < debrisPoints.Count; i++)
+        while (enumerator.MoveNext(out var debrisPoint))
         {
-            debrisPoints[i] = realCenter + debrisPoints[i];
+            debrisPoints.Add(realCenter + debrisPoint.Value);
         }
 
         return debrisPoints;

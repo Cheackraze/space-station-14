@@ -1,8 +1,8 @@
-﻿using Content.Server._Citadel.Worldgen.Systems.Debris;
+﻿using Content.Server.Worldgen.Systems.Debris;
 using Content.Shared.Maps;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
-namespace Content.Server._Citadel.Worldgen.Components.Debris;
+namespace Content.Server.Worldgen.Components.Debris;
 
 /// <summary>
 ///     This is used for constructing asteroid debris.

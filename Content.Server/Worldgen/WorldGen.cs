@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.Contracts;
 
-namespace Content.Server._Citadel.Worldgen;
+namespace Content.Server.Worldgen;
 
 /// <summary>
 ///     Contains a few world-generation related constants and static functions.

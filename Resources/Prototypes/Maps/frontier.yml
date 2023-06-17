@@ -6,14 +6,17 @@
   maxPlayers: 100
   stations:
     Frontier:
-      mapNameTemplate: '{0} Frontier Outpost {1}'
-      emergencyShuttlePath: /Maps/Shuttles/emergency_courser.yml
-      nameGenerator:
-        !type:NanotrasenNameGenerator
-        prefixCreator: '14'
-      overflowJobs:
-        - Passenger
-      availableJobs:
-        Passenger: [ -1, -1 ]
-        HeadOfPersonnel: [ 1, 1 ]
-        Valet: [ 4, 4 ]
+      stationProto: StandardFrontierStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Frontier Outpost {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          overflowJobs:
+            - Passenger
+          availableJobs:
+            Passenger: [ -1, -1 ]
+            HeadOfPersonnel: [ 1, 1 ]
+            Valet: [ 4, 4 ]

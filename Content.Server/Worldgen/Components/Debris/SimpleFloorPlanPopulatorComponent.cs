@@ -1,11 +1,11 @@
 ﻿using System.Linq;
-using Content.Server._Citadel.Worldgen.Systems.Debris;
-using Content.Server._Citadel.Worldgen.Tools;
+using Content.Server.Worldgen.Systems.Debris;
+using Content.Server.Worldgen.Tools;
 using Content.Shared.Maps;
 using Content.Shared.Storage;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
 
-namespace Content.Server._Citadel.Worldgen.Components.Debris;
+namespace Content.Server.Worldgen.Components.Debris;
 
 /// <summary>
 ///     This is used for populating a grid with random entities automatically.
@@ -16,6 +16,9 @@ public sealed class SimpleFloorPlanPopulatorComponent : Component
 {
     private Dictionary<string, EntitySpawnCollectionCache>? _caches;
 
+    /// <summary>
+    ///     The prototype facing floor plan populator entries.
+    /// </summary>
     [DataField("entries", required: true,
         customTypeSerializer: typeof(PrototypeIdDictionarySerializer<List<EntitySpawnEntry>, ContentTileDefinition>))]
     private Dictionary<string, List<EntitySpawnEntry>> _entries = default!;

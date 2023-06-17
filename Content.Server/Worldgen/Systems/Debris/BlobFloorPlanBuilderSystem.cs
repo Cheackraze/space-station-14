@@ -1,10 +1,11 @@
 ﻿using System.Linq;
-using Content.Server._Citadel.Worldgen.Components.Debris;
+using Content.Server.Worldgen.Components.Debris;
+using Content.Shared.Maps;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
 
-namespace Content.Server._Citadel.Worldgen.Systems.Debris;
+namespace Content.Server.Worldgen.Systems.Debris;
 
 /// <summary>
 ///     This handles building the floor plans for "blobby" debris.
@@ -54,7 +55,8 @@ public sealed class BlobFloorPlanBuilderSystem : BaseWorldSystem
             if (!taken.ContainsKey(west) && Math.Pow(west.X, 2) + Math.Pow(west.Y, 2) <= radsq)
                 spawnPoints.Add(west);
 
-            taken.Add(point, new Tile(_tileDefinition[_random.Pick(comp.FloorTileset)].TileId));
+            var tileDef = _tileDefinition[_random.Pick(comp.FloorTileset)];
+            taken.Add(point, new Tile(tileDef.TileId, 0, _random.Pick(((ContentTileDefinition)tileDef).PlacementVariants)));
         }
 
         PlaceTile(Vector2i.Zero);
