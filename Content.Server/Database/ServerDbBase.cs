@@ -68,26 +68,23 @@ namespace Content.Server.Database
                 throw new NotImplementedException();
             }
 
-            var oldProfile = db.DbContext.Profile
-                .Include(p => p.Preference)
-                .Where(p => p.Preference.UserId == userId.UserId)
-                .Include(p => p.Jobs)
-                .Include(p => p.Antags)
-                .Include(p => p.Traits)
-                .AsSplitQuery()
-                .SingleOrDefault(h => h.Slot == slot);
+            var entity = ConvertProfiles(humanoid, slot);
 
-            var newProfile = ConvertProfiles(humanoid, slot, oldProfile);
-            if (oldProfile == null)
+            var prefs = await db.DbContext
+                .Preference
+                .Include(p => p.Profiles)
+                .SingleAsync(p => p.UserId == userId.UserId);
+
+            var oldProfile = prefs
+                .Profiles
+                .SingleOrDefault(h => h.Slot == entity.Slot);
+
+            if (oldProfile is not null)
             {
-                var prefs = await db.DbContext
-                    .Preference
-                    .Include(p => p.Profiles)
-                    .SingleAsync(p => p.UserId == userId.UserId);
-
-                prefs.Profiles.Add(newProfile);
+                prefs.Profiles.Remove(oldProfile);
             }
 
+            prefs.Profiles.Add(entity);
             await db.DbContext.SaveChangesAsync();
         }
 
@@ -222,9 +219,8 @@ namespace Content.Server.Database
             );
         }
 
-        private static Profile ConvertProfiles(HumanoidCharacterProfile humanoid, int slot, Profile? profile = null)
+        private static Profile ConvertProfiles(HumanoidCharacterProfile humanoid, int slot)
         {
-            profile ??= new Profile();
             var appearance = (HumanoidCharacterAppearance) humanoid.CharacterAppearance;
             List<string> markingStrings = new();
             foreach (var marking in appearance.Markings)
@@ -259,20 +255,16 @@ namespace Content.Server.Database
                     .Where(j => j.Value != JobPriority.Never)
                     .Select(j => new Job {JobName = j.Key, Priority = (DbJobPriority) j.Value})
             );
-
-            profile.Antags.Clear();
-            profile.Antags.AddRange(
+            entity.Antags.AddRange(
                 humanoid.AntagPreferences
                     .Select(a => new Antag {AntagName = a})
             );
-
-            profile.Traits.Clear();
-            profile.Traits.AddRange(
+            entity.Traits.AddRange(
                 humanoid.TraitPreferences
                         .Select(t => new Trait {TraitName = t})
             );
 
-            return profile;
+            return entity;
         }
         #endregion
 
