@@ -4,7 +4,7 @@
   name: mail carrier PDA
   description: Hope this doesn't have any... JUNK MAIL.
   components:
-  - type: PDA
+  - type: Pda
     id: MailCarrierIDCard
     state: pda-mailcarrier
   - type: Icon
@@ -16,7 +16,7 @@
   name: prisoner PDA
   description: Clear, so you can make sure there's nothing being smuggled inside.
   components:
-  - type: PDA
+  - type: Pda
     id: PrisonerIDCard
     state: pda-clear
   - type: Icon
@@ -27,7 +27,7 @@
   id: GladiatorPDA
   name: gladiator PDA
   components:
-  - type: PDA
+  - type: Pda
     id: GladiatorIDCard
 
 - type: entity
@@ -36,7 +36,7 @@
   name: valet PDA
   description: Why isn't it gray?
   components:
-  - type: PDA
+  - type: Pda
     id: ValetIDCard
     state: pda-internservice
   - type: Icon
@@ -48,7 +48,7 @@
   name: guard PDA
   description: Red to hide the stains of prisoner blood.
   components:
-  - type: PDA
+  - type: Pda
     id: GuardIDCard
     state: pda-security
   - type: Icon
@@ -59,6 +59,6 @@
   id: MartialArtistPDA
   name: martial artist PDA
   components:
-  - type: PDA
+  - type: Pda
     id: MartialArtistIDCard
     state: pda-boxer
