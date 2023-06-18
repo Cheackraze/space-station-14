@@ -91,7 +91,7 @@
         DefaultPrototype: Beaker
         ExamineName: Glass Beaker
   - type: StaticPrice
-    price: 750
+    price: 500
 
 - type: entity
   id: ExosuitFabricatorMachineCircuitboard
@@ -126,6 +126,8 @@
     prototype: ResearchAndDevelopmentServer
     materialRequirements:
       Plasma: 5
+  - type: StaticPrice
+    price: 250
 
 - type: entity
   id: UniformPrinterMachineCircuitboard

@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: ResearchAndDevelopmentServer
   parent: [ BaseMachinePowered, ConstructibleMachine ]
   name: R&D server
@@ -55,8 +55,6 @@
     range: 5
     sound:
       path: /Audio/Ambience/Objects/server_fans.ogg
-  - type: Machine
-    board: RDServerCircuitboard
   - type: ContainerContainer
     containers:
       machine_board: !type:Container

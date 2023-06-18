@@ -20,7 +20,7 @@
     ProtolatheMachineCircuitboard: 4
     AutolatheMachineCircuitboard: 4
     ResearchComputerCircuitboard: 4
-    RDServerCircuitboard: 8
+    ResearchAndDevelopmentServerMachineCircuitboard: 8
     ComputerIFFCircuitboard: 4
     EngineeringTechFabCircuitboard: 2
     MedicalTechFabCircuitboard: 2
