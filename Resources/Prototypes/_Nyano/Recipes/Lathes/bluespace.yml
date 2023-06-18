@@ -11,18 +11,6 @@
     Gold: 1200
 
 - type: latheRecipe
-  id: BluespaceBeaker
-  icon:
-    sprite: Objects/Specific/Chemistry/beaker_bluespace.rsi
-    state: beakerbluespace
-  result: BluespaceBeaker
-  completetime: 5
-  materials:
-    Glass: 500
-    Plastic: 500
-    Gold: 200
-
-- type: latheRecipe
   id: BackpackOfHolding
   icon:
     sprite: Clothing/Back/Backpacks/holding.rsi
