@@ -38,14 +38,7 @@ namespace Content.Server.Cargo.Systems
         /// </summary>
         private float _timer;
 
-        [Dependency] private readonly IdCardSystem _idCardSystem = default!;
-        [Dependency] private readonly AccessReaderSystem _accessReaderSystem = default!;
-        [Dependency] private readonly DeviceLinkSystem _linker = default!;
         [Dependency] private readonly BankSystem _bankSystem = default!;
-        [Dependency] private readonly PopupSystem _popup = default!;
-        [Dependency] private readonly StationSystem _station = default!;
-        [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-        [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
         private void InitializeConsole()
         {
