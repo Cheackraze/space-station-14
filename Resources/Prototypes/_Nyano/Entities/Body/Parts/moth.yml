@@ -128,7 +128,7 @@
   - type: BodyPart
     partType: Leg
     symmetry: Left
-  - type: MovementSpeedModifier
+  - type: MovementBodyPart
 
 - type: entity
   id: RightLegMoth
@@ -145,7 +145,7 @@
   - type: BodyPart
     partType: Leg
     symmetry: Right
-  - type: MovementSpeedModifier
+  - type: MovementBodyPart
 
 - type: entity
   id: LeftFootMoth
