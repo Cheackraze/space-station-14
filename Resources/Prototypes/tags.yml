@@ -790,3 +790,7 @@
 
 - type: Tag
   id: Write
+  
+##Custom ones here I suppose
+- type: Tag
+  id: CaveFactory

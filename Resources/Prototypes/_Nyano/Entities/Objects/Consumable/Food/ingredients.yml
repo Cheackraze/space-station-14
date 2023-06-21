@@ -12,10 +12,8 @@
       food:
         maxVol: 60
         reagents:
-        - ReagentId: Butter
-          Quantity: 10
         - ReagentId: THCOil
-          Quantity: 45
+          Quantity: 60
   - type: Extractable
     grindableSolutionName: food
 

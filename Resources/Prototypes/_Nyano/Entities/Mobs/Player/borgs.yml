@@ -58,7 +58,6 @@
     - Detective
     - Engineering
     - Medical
-    - Mail
     - Salvage
     - Cargo
     - Research
@@ -94,7 +93,6 @@
     - Medical
     - Science
     - Service
-    - Binary
   - type: ActiveRadio
     channels:
     - Common
@@ -102,7 +100,6 @@
     - Medical
     - Science
     - Service
-    - Binary
   - type: StatusEffects
     allowed:
     - Stun
@@ -111,10 +108,6 @@
   - type: Flashable
   - type: ItemSlots
   - type: CombatMode
-    disarmAction:
-      enabled: false
-      autoPopulate: false
-      name: action-name-disarm
   - type: Laws
     laws:
       - You may not harm a humanoid or, through action or inaction, allow a humanoid to come to harm, except such that it is willing.

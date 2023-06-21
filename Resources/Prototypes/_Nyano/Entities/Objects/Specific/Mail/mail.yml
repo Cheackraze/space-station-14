@@ -111,8 +111,6 @@
       prob: 0.10
     - id: BookGnominomicon
       prob: 0.2
-    - id: BookSalvageEpistemics1
-      prob: 0.025
 
 - type: entity
   noSpawn: true
@@ -326,9 +324,9 @@
   components:
   - type: Mail
     contents:
-    - id: ClothingOuterWizardFake
-    - id: ClothingHeadHatWizardFake
-    - id: ClothingShoesWizardFake
+    - id: ClothingOuterWizard
+    - id: ClothingHeadHatWizard
+    - id: ClothingShoesWizard
 
 - type: entity
   noSpawn: true

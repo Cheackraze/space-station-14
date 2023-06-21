@@ -17,8 +17,6 @@
         Blunt: 10
         Piercing: 3
         Structural: 10
-    soundHit:
-      path: /Audio/Weapons/club.ogg
     bluntStaminaDamageFactor: 1.50 # 15 stamina damage
   - type: Wieldable
   - type: IncreaseDamageOnWield
