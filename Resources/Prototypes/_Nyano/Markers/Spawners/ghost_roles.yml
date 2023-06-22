@@ -5,7 +5,7 @@
   parent: MarkerBase
   components:
   - type: GhostRoleMobSpawner
-    prototype: MobHumanFugitive
+    prototype: MobHuman
     name: Fugitive
     description: You're an escaped prisoner. Make it out alive.
     rules: |

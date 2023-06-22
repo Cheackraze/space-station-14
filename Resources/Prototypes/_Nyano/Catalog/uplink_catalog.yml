@@ -13,24 +13,6 @@
     - Oni
 
 - type: listing
-  id: InjectorBloodsuckerNocturine
-  name: uplink-nocturine-gland-injector-name
-  description: uplink-nocturine-gland-injector-desc
-  productEntity: InjectorBloodsuckerNocturine
-  cost:
-    Telecrystal: 8
-  categories:
-  - UplinkMisc
-  conditions:
-  - !type:BuyerSpeciesCondition
-    whitelist:
-    - Arachne
-  - !type:BuyerWhitelistCondition
-    blacklist:
-      components:
-      - SurplusBundle
-
-- type: listing
   id: UplinkRickenbacker
   name: uplink-rickenbacker4001-name
   description: uplink-rickenbacker4001-desc

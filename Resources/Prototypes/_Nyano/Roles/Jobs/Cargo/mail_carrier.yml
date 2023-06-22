@@ -9,7 +9,6 @@
   access:
   - Cargo
   - Maintenance
-  - Mail
   - Service
 
 - type: startingGear

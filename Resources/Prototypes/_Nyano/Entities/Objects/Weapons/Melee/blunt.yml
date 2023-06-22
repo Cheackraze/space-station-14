@@ -15,8 +15,6 @@
     damage:
       types:
         Blunt: 16
-    soundHit:
-      path: /Audio/Weapons/club.ogg
     bluntStaminaDamageFactor: 1.60 # 25.6 stamina damage
   - type: Wieldable
   - type: IncreaseDamageOnWield
