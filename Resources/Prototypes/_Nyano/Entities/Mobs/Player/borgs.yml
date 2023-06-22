@@ -85,7 +85,6 @@
     - Medical
     - Science
     - Service
-    - Binary
   - type: IntrinsicRadioTransmitter
     channels:
     - Common
@@ -174,7 +173,6 @@
     - Medical
     - Science
     - Service
-    - Binary
   - type: IntrinsicRadioTransmitter
     channels:
     - Common
@@ -182,7 +180,6 @@
     - Medical
     - Science
     - Service
-    - Binary
   - type: ActiveRadio
     channels:
     - Common
@@ -190,7 +187,6 @@
     - Medical
     - Science
     - Service
-    - Binary
   - type: ItemSlots
     slots:
       analyzer_slot:
@@ -239,17 +235,14 @@
     channels:
     - Common
     - Medical
-    - Binary
   - type: IntrinsicRadioTransmitter
     channels:
     - Common
     - Medical
-    - Binary
   - type: ActiveRadio
     channels:
     - Common
     - Medical
-    - Binary
   - type: Laws
     laws:
       - First, do no harm.
@@ -262,8 +255,4 @@
       enabled: false
       autoPopulate: false
       name: action-name-combat
-    disarmAction:
-      enabled: false
-      autoPopulate: false
-      name: action-name-disarm
   - type: FabricateCandy

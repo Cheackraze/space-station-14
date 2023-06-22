@@ -9,26 +9,8 @@
     Plasma: 150
 
 - type: latheRecipe
-  id: TriphasicScanningModuleStockPart
-  result: TriphasicScanningModuleStockPart
-  completetime: 3
-  materials:
-    Plastic: 200
-    Gold: 150
-    Plasma: 150
-
-- type: latheRecipe
   id: FemtoManipulatorStockPart
   result: FemtoManipulatorStockPart
-  completetime: 3
-  materials:
-    Plastic: 200
-    Gold: 150
-    Plasma: 150
-
-- type: latheRecipe
-  id: QuadUltraMicroLaserStockPart
-  result: QuadUltraMicroLaserStockPart
   completetime: 3
   materials:
     Plastic: 200
