@@ -2,34 +2,25 @@
   id: CaveFactory
   generator: !type:PrefabDunGen
     roomWhitelist:
-      - CaveFactory
+      - SalvageExperiment
     presets:
-      - Cross
-      - SpaceMan
-      - FourSquare
+      - Bucket
+      - Wow
+      - SpaceShip
+      - Tall
   postGeneration:
-    - !type:MiddleConnectionPostGen
-      overlapCount: 3
-      count: 3
-      entities:
-        - CableApcExtension
-        - AirlockEngineeringGlass
-      edgeEntities:
-        - Grille
-        - Window
+    - !type:CorridorPostGen
+      width: 3
 
-    - !type:MiddleConnectionPostGen
-      count: 1
-      entities:
-        - CableApcExtension
-        - AirlockEngineeringGlass
-
-    - !type:EntrancePostGen
+    - !type:DungeonEntrancePostGen
       count: 2
-      entities:
-        - AirlockEngineeringGlass
 
-    - !type:InternalWindowPostGen
+    - !type:RoomEntrancePostGen
+      entities:
+        - CableApcExtension
+        - AirlockGlass
+
+    - !type:EntranceFlankPostGen
       entities:
         - Grille
         - Window
@@ -37,7 +28,7 @@
     - !type:ExternalWindowPostGen
       entities:
         - Grille
-        - ReinforcedWindow
+        - Window
 
     - !type:WallMountPostGen
       spawns:
@@ -56,5 +47,35 @@
 
     - !type:BoundaryWallPostGen
       tile: FloorSteel
-      wall: WallReinforced
+      wall: WallSolid
       cornerWall: WallReinforced
+
+    - !type:JunctionPostGen
+      width: 1
+
+    - !type:JunctionPostGen
+
+    - !type:AutoCablingPostGen
+
+    - !type:CornerClutterPostGen
+      contents:
+        - id: PottedPlantRandom
+          amount: 1
+
+    - !type:CorridorDecalSkirtingPostGen
+      color: "#ffa64d96"
+      cardinalDecals:
+        South: BrickTileWhiteLineS
+        East: BrickTileWhiteLineE
+        North: BrickTileWhiteLineN
+        West: BrickTileWhiteLineW
+      cornerDecals:
+        SouthEast: BrickTileWhiteCornerSe
+        SouthWest: BrickTileWhiteCornerSw
+        NorthEast: BrickTileWhiteCornerNe
+        NorthWest: BrickTileWhiteCornerNw
+      pocketDecals:
+        SouthWest: BrickTileWhiteInnerSw
+        SouthEast: BrickTileWhiteInnerSe
+        NorthWest: BrickTileWhiteInnerNw
+        NorthEast: BrickTileWhiteInnerNe
